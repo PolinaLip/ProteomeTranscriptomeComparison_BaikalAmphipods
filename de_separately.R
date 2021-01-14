@@ -28,13 +28,17 @@ path2meta <-
   'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/Metadata_Proteus.tsv'
 
 meta <- meta_upload(path2meta, 'Eve')
+meta <- meta_upload(path2meta, 'Ecy')
+meta <- meta_upload(path2meta, 'Gla')
 
 ### 2. Data uploading (proteinGroups file from MaxQuant)
 dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_eve/'
+dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_ecy/'
+dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_gla/'
 proteinGroups_file <- 'proteinGroups_wo_cont_more2pept.txt' # take file with proteinGroups with 2 or more peptides quantified
 dat_init <- read.csv(file.path(dir, proteinGroups_file), sep = '\t', header = T, 
                      check.names = F) 
-pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_eve.csv'), sep = '\t',
+pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_gla.csv'), sep = '\t',
                       header = T)
 
 select_data <- function(meta_data, proteinGroups_data){
@@ -47,12 +51,13 @@ select_data <- function(meta_data, proteinGroups_data){
 }
 dat <- select_data(meta, dat_init)
 
-### 3. Get rid of the outliers and samples, which you do not want to analize
+### 3. Get rid of the outliers and samples, which you do not want to analyze
 dat <- dat[,!grepl('VrK1_390_3|VrK1_390_4', colnames(dat))]
-dat <- dat[,!grepl('Eve_pool', colnames(dat))]
+dat <- dat[,!grepl('pool', colnames(dat))]
 meta <- subset(meta, sample != 'VrK1_390_3' & sample != 'VrK1_390_4' &
-                 !grepl('Eve_pool', sample)
+                 !grepl('pool', sample)
 )
+#'L1_390_3|L1_390_4'
 
 ### 4. Remove raws with all NAs in at least one of the condition
 cond <- as.factor(meta$condition)
@@ -74,13 +79,39 @@ boxplot(log2(data_raw), col = c(rep('blue', 8), rep('red', 5), rep('green', 6)),
 plotDensities(log2(data_raw), col = c(rep('blue', 8), rep('red', 5), rep('green', 6)), 
               main = 'Raw data', legend=F) # Eve, resolution -> 800/553
 
+boxplot(log2(data_raw), col = c(rep('blue', 9), rep('red', 8)), 
+        notch = TRUE, main = 'RAW data: 24C (blue), 6C_after (red), 6C_before (green)',
+        xlab = 'TMT Samples', ylab = 'log2 of Intensity') # Eve, resolution -> 1400/690
+plotDensities(log2(data_raw), col = c(rep('blue', 9), rep('red', 8)), 
+              main = 'Raw data', legend=F) # Ecy
+
+boxplot(log2(data_raw), col = c(rep('blue', 9), rep('red', 9), rep('green', 4)), 
+        notch = TRUE, main = 'RAW data: 24C (blue), 6C_after (red), 6C_before (green)',
+        xlab = 'TMT Samples', ylab = 'log2 of Intensity') # Eve, resolution -> 1400/690
+plotDensities(log2(data_raw), col = c(rep('blue', 9), rep('red', 9), 
+                                      rep('green', 4)), 
+              main = 'Raw data', legend=F) # Gla
+
 ### 6. Sample loading normalization
 
+# Eve
 exp1_raw <- data_raw[,subset(meta, experiment == 6)$sample]
 exp2_raw <- data_raw[,subset(meta, experiment == 7)$sample]
 exp3_raw <- data_raw[,subset(meta, experiment == 8)$sample]
+
+# Ecy
+exp1_raw <- data_raw[,subset(meta, experiment == 4)$sample]
+exp2_raw <- data_raw[,subset(meta, experiment == 5)$sample]
+
+# Gla
+exp1_raw <- data_raw[,subset(meta, experiment == 1)$sample]
+exp2_raw <- data_raw[,subset(meta, experiment == 2)$sample]
+exp3_raw <- data_raw[,subset(meta, experiment == 3)$sample]
+
 target <- mean(c(colSums(exp1_raw, na.rm = T), colSums(exp2_raw, na.rm = T), 
                colSums(exp3_raw, na.rm = T)),
+               na.rm = T)
+target <- mean(c(colSums(exp1_raw, na.rm = T), colSums(exp2_raw, na.rm = T)),
                na.rm = T)
 norm_facs <- target / colSums(exp1_raw, na.rm = T)
 exp1_sl <- sweep(exp1_raw, 2, norm_facs, FUN = "*")
@@ -90,6 +121,7 @@ norm_facs <- target / colSums(exp3_raw, na.rm = T)
 exp3_sl <- sweep(exp3_raw, 2, norm_facs, FUN = "*")
 
 data_sl <- cbind(exp1_sl, exp2_sl, exp3_sl)
+data_sl <- cbind(exp1_sl, exp2_sl)
 
 boxplot(log2(data_sl), col = c(rep(c('red', 'blue'), each = 8), rep('green', 3)), 
         notch = TRUE, main = "Sample Loading (SL) normalized data: \nExp1 (red), Exp2 (blue), Exp3 (green)",
@@ -97,17 +129,34 @@ boxplot(log2(data_sl), col = c(rep(c('red', 'blue'), each = 8), rep('green', 3))
 plotDensities(log2(data_sl), col = c(rep(c('red', 'blue'), each = 8), rep('green', 3)),
               main = "SL normalization", legend = F) # Eve, resolution -> 800/553
 
+boxplot(log2(data_sl), col = c(rep('red', 9), rep('green', 8)), 
+        notch = TRUE, main = "Sample Loading (SL) normalized data: \nExp1 (red), Exp2 (blue), Exp3 (green)",
+        xlab = 'TMT Sample', ylab = 'log2 of Intensity') # Ecy 
+plotDensities(log2(data_sl), col = c(rep('red', 9), rep('green', 8)),
+              main = "SL normalization", legend = F) # Ecy
+
+boxplot(log2(data_sl), col = c(rep(c('red', 'blue'), each = 9), rep('green', 4)), 
+        notch = TRUE, main = "Sample Loading (SL) normalized data: \nExp1 (red), Exp2 (blue), Exp3 (green)",
+        xlab = 'TMT Sample', ylab = 'log2 of Intensity') # Gla
+plotDensities(log2(data_sl), col = c(rep(c('red', 'blue'), each = 9), 
+                                     rep('green', 4)),
+              main = "SL normalization", legend = F) # Gla
+
 ### 7. Vizualize normalized data
 ## 7.1 MDS-plot with groups colored by TMT batch
 plotMDS(log2(data_sl), col = c(rep(c('red', 'blue'), each = 8), rep('green', 3)), 
         main = "SL clusters grouped by TMT experiment") # Eve
+plotMDS(log2(data_sl), col = c(rep('red', 9), rep('green', 8)), 
+        main = "SL clusters grouped by TMT experiment") # Ecy
+plotMDS(log2(data_sl), col = c(rep(c('red', 'blue'), each = 9), rep('green', 4)), 
+        main = "SL clusters grouped by TMT experiment") # Gla
 
 ## 7.2 MDS-plot with groups colored by condition:
-png(file.path(dir, 'Eve_MDS_wIMBR_DreamAIimput.png'),
+png(file.path(dir, 'Gla_MDS_wIMBR_woImput_woPools.png'),
     width = 1200, height = 1000, pointsize = 28)
 col_vec <- ifelse(grepl('pool', colnames(data_sl)), 'green',
-                  ifelse(grepl('VrK1', colnames(data_sl)), 'orange',
-                         ifelse(grepl('Vr1', colnames(data_sl)), 'blue', 'red')))
+                  ifelse(grepl('VrK1|CK1|LK1', colnames(data_sl)), 'orange',
+                         ifelse(grepl('Vr1|C1|L1', colnames(data_sl)), 'blue', 'red')))
 
 plotMDS(log2(data_sl), col = col_vec)
 dev.off()
@@ -160,8 +209,10 @@ edger_analysis <- function(datatode, group, time_group, cond_vector,
 }
 
 edger_analysis_wrap <- function(norm_data, protein_annotation){
-  data2DE <- norm_data[,grepl('VrK2|Vr1|VrK1', colnames(norm_data))] # 24C vs 6C
-  group <- ifelse(grepl('VrK1|VrK2', colnames(norm_data)), '6C', '24C')
+  data2DE <- norm_data[,grepl('VrK2|Vr1|VrK1|CK2|C1|CK1|L1|LK1|LK2', 
+                              colnames(norm_data))] # 24C vs 6C
+  group <- ifelse(grepl('VrK1|VrK2|CK1|CK2|LK1|LK2', 
+                        colnames(norm_data)), '6C', '24C')
   group_time <- as.factor(ifelse(grepl('VrK1|CK1|LK1', colnames(data2DE)), 25, 26))
   return(edger_analysis(data2DE, group, group_time, c('6C', '24C'), 
                         protein_annotation))
@@ -208,9 +259,55 @@ data_11_2 <- data_11_2[,grepl('_4$|_5$|_6$|VrK1_390_7',
 data_11_2 <- na.omit(data_11_2)
 SignProteinInfo_11_2 <- edger_analysis_wrap(data_11_2, pep_annot)
 
+# 9 NAs/row (the 2nd TMT batch) - Ecy
+data_9 <- data_irs[rowSums(is.na(data_irs)) == 9,]
+data_9 <- data_9[,meta[meta$experiment == 5,]$sample]
+SignProteinInfo_9 <- edger_analysis_wrap(data_9, pep_annot)
+
+# 8 NAs/row (the 1st TMT batch) - Ecy
+data_8 <- data_irs[rowSums(is.na(data_irs)) == 8,]
+data_8 <- data_8[,meta[meta$experiment == 4,]$sample]
+SignProteinInfo_8 <- edger_analysis_wrap(data_8, pep_annot)
+
+# 4 NAs/row - Gla
+data_4 <- data_irs[rowSums(is.na(data_irs)) == 4,]
+data_4 <- data_4[,meta[meta$experiment != 3,]$sample]
+SignProteinInfo_4 <- edger_analysis_wrap(data_4, pep_annot)
+
+# 9 NAs/row (the 1st TMT batch) - Gla
+data_9_1 <- data_irs[rowSums(is.na(data_irs)) == 9,]
+data_9_1 <- data_9_1[,meta[meta$experiment != 2,]$sample]
+data_9_1 <- na.omit(data_9_1)
+SignProteinInfo_9_1 <- edger_analysis_wrap(data_9_1, pep_annot)
+
+# 9 NAs/row (the 2nd TMT batch) - Gla
+data_9_2 <- data_irs[rowSums(is.na(data_irs)) == 9,]
+data_9_2 <- data_9_2[,meta[meta$experiment != 1,]$sample]
+data_9_2 <- na.omit(data_9_2)
+SignProteinInfo_9_2 <- edger_analysis_wrap(data_9_2, pep_annot)
+
+# 9 NAs/row (the 2nd TMT batch) - Gla
+data_13_1 <- data_irs[rowSums(is.na(data_irs)) == 13,]
+data_13_1 <- data_13_1[,meta[meta$experiment != 3 & meta$experiment != 2,]$sample]
+data_13_1 <- na.omit(data_13_1)
+SignProteinInfo_13_1 <- edger_analysis_wrap(data_13_1, pep_annot)
+
+# 9 NAs/row (the 1st TMT batch) - Gla
+data_13_2 <- data_irs[rowSums(is.na(data_irs)) == 13,]
+data_13_2 <- data_13_2[,meta[meta$experiment != 3 & meta$experiment != 1,]$sample]
+data_13_2 <- na.omit(data_13_2)
+SignProteinInfo_13_2 <- edger_analysis_wrap(data_13_2, pep_annot)
+
 ### 10. Combine all subsets in one and calculate the adjusted p-values
 SPI_all <- rbind(SignProteinInfo_0, SignProteinInfo_3, SignProteinInfo_8_1,
                  SignProteinInfo_8_2, SignProteinInfo_11_1, SignProteinInfo_11_2)
+
+SPI_all <- rbind(SignProteinInfo_0, SignProteinInfo_8,
+                 SignProteinInfo_9) # Ecy
+
+SPI_all <- rbind(SignProteinInfo_0, SignProteinInfo_4,
+                 SignProteinInfo_9_1, SignProteinInfo_9_2,
+                 SignProteinInfo_13_1, SignProteinInfo_13_2) # Gla
 
 SPI_all$FDR_recalc <- p.adjust(SPI_all$pvalue, method = "fdr")
 
@@ -219,17 +316,23 @@ SPI_all_sign <- subset(SPI_all, FDR_recalc < 0.05)
 nrow(subset(SPI_all_sign, logFC > 0)) # UP
 nrow(subset(SPI_all_sign, logFC < 0)) # DOWN
 
+write.table(SPI_all, 
+            file = file.path('~/labeglo2/proteome_transcr_comparision/Gla_AllProteins_24vs6_proteinGroups_separatelyAnalyzed.csv'),
+            sep = '\t', quote = F, row.names = F)
+
 ########################################
 # 11. Draw boxplots for the DE proteins
 ########################################
-res_sign_fdr_up <- subset(SPI_all_sign, logFC > 0)
-res_sign_fdr_down <- subset(SPI_all_sign, logFC < 0)
-dat_mult_stand_fdr <- apply(data_sl_mult, 1, scale) # if take multiplied and scaled data to vizualize
+to_plot <- SPI_all_sign
+#to_plot <- subset(SignProteinInfo_0, FDR < 0.05)
+res_sign_fdr_up <- subset(to_plot, logFC > 0)
+res_sign_fdr_down <- subset(to_plot, logFC < 0)
+dat_mult_stand_fdr <- apply(data_sl_mult, 1, scale) # if take multiplied and scaled data to visualize
 dat_mult_stand_fdr <- t(dat_mult_stand_fdr) # --||--
 #dat_mult_stand_fdr <- data_sl # if take "naked" data after normalization
 colnames(dat_mult_stand_fdr) <- colnames(data_sl_mult)
 dat_sign_fdr <- dat_mult_stand_fdr[row.names(dat_mult_stand_fdr) %in% 
-                                     SPI_all_sign$protein,]
+                                     to_plot$protein,]
 
 dat_sign_fdr_up <- dat_mult_stand_fdr[row.names(dat_mult_stand_fdr) %in% 
                                         res_sign_fdr_up$protein,]
@@ -253,7 +356,7 @@ dat_sign_fdr_down$protein_name <- gene_names_down
 dat_sign_fdr_up$contig <- rownames(dat_sign_fdr_up)
 dat_sign_fdr_up_long <- pivot_longer(data = dat_sign_fdr_up, cols = !protein_name &
                                        !contig)
-dat_sign_fdr_up_long$Condition <- ifelse(grepl('Vr1', dat_sign_fdr_up_long$name), 
+dat_sign_fdr_up_long$Condition <- ifelse(grepl('Vr1|C1|L1', dat_sign_fdr_up_long$name), 
                                          '24C', '6C')
 
 var_width <- 25
@@ -270,16 +373,16 @@ ggplot(dat_sign_fdr_up_long, aes(x = Condition, y = value)) +
   geom_jitter(aes(color = Condition), size = 0.8) +
   facet_wrap(~contig,
              labeller = labeller(contig = function(x) contig_to_protein2[x]), 
-             ncol = 9) +
+             ncol = 5) +
   ylab('Scaled intensities') +
   xlab('') +
   theme_bw() +
-  theme(strip.text = element_text(size=6),
+  theme(strip.text = element_text(size=8),
         legend.position = "none")
 
 # STOP, think
 ggsave(filename = file.path(dir, 'DEup_combinedEdgeR_Scaled.png'),
-       width = 12, height = 6)
+       width = 8, height = 4)
 ggsave(filename = file.path(dir, 'DEup_combinedEdgeR_woScaling.png'),
        width = 12, height = 6)
 
@@ -293,7 +396,8 @@ dat_sign_fdr_down$contig <- rownames(dat_sign_fdr_down)
 dat_sign_fdr_down_long <- pivot_longer(data = dat_sign_fdr_down, 
                                        cols = !protein_name &
                                        !contig)
-dat_sign_fdr_down_long$Condition <- ifelse(grepl('Vr1', dat_sign_fdr_down_long$name), 
+dat_sign_fdr_down_long$Condition <- ifelse(grepl('Vr1|C1|L1', 
+                                                 dat_sign_fdr_down_long$name), 
                                          '24C', '6C')
 
 var_width <- 25
@@ -310,16 +414,16 @@ ggplot(dat_sign_fdr_down_long, aes(x = Condition, y = value)) +
   geom_jitter(aes(color = Condition), size = 0.8) +
   facet_wrap(~contig,
              labeller = labeller(contig = function(x) contig_to_protein_down2[x]), 
-             ncol = 7) +
+             ncol = 4) +
   ylab('Intensities') +
   xlab('') +
   theme_bw() +
-  theme(strip.text = element_text(size=6),
+  theme(strip.text = element_text(size=8),
         legend.position = "none")
 
 # STOP, think
 ggsave(filename = file.path(dir, 'DEdown_combinedEdgeR_woScaling.png'),
        width = 10, height = 6)
 ggsave(filename = file.path(dir, 'DEdown_combinedEdgeR_Scaled.png'),
-       width = 10, height = 6)
+       width = 3.2, height = 4)
 
