@@ -2,16 +2,17 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(ggrepel)
+library(rstatix)
 
 dir <- '~/labeglo2/proteome_transcr_comparision'
 transcr <- 
-  read.csv('~/labeglo2/proteome_transcr_comparision/Gla_transcr_24vs6_all.csv', 
+  read.csv('~/labeglo2/proteome_transcr_comparision/Ecy_transcr_24vs6_all.csv', 
            sep = '\t')
 proteins <- 
-  read.csv('~/labeglo2/proteome_transcr_comparision/Gla_AllProteins_24vs6_proteinGroups_separatelyAnalyzed.csv',
+  read.csv('~/labeglo2/proteome_transcr_comparision/Ecy_AllProteins_24vs6_proteinGroups_separatelyAnalyzed.csv',
           sep = '\t', header = T)
 
-annot <- read.csv(file.path(dir, 'contigs_whole_annot_Gla.csv'), sep = '\t')
+annot <- read.csv(file.path(dir, 'contigs_whole_annot_Ecy.csv'), sep = '\t')
 #colnames(proteins) <- c('protein', 'geneSymbol', 'logFC', 'pvalue', 'FDR')
 
 proteins$protein_group <- 1:nrow(proteins)
@@ -51,10 +52,6 @@ ggplot(joined_clip, aes(log2FoldChange, logFC)) +
 # (no wonder - protein groups were splitted and transcripts matched to 
 # different proteins from the group which is basically the same protein)
 
-# for instance, HSPA1A: 
-joined_clip[joined_clip$geneSymbol == 'HSPA1A',]
-joined_clip[joined_clip$geneSymbol == 'HSPB6',]
-
 absmax <- function(x) { x[which.max(abs(x))][1] }
 joined_clip_merged <- joined_clip %>% 
   group_by(protein_group) %>%
@@ -78,21 +75,17 @@ joined_clip_merged$sign <- factor(joined_clip_merged$sign,
                                              "< 0.05 (transcriptome)", 
                                              "> 0.05 (both)"))
 
-# now only two variants corresponding two protein groups (probably two different HSPA1A)
-joined_clip_merged[joined_clip_merged$geneSymbol == 'HSPA1A',]
-joined_clip_merged[joined_clip_merged$geneSymbol == 'HSPB6',]
+filtered_joined_clip_merged <- 
+  filter(joined_clip_merged, 
+         abs(best_tlfc) > 2.5 | abs(logFC) > 0.4 ) # Ecy
 
 filtered_joined_clip_merged <- 
   filter(joined_clip_merged, 
-         abs(best_tlfc) > 2  | abs(logFC) > 0.4 ) # Ecy
+         abs(best_tlfc) > 2 | abs(logFC) > 0.5 ) # Gla
 
 filtered_joined_clip_merged <- 
   filter(joined_clip_merged, 
-         abs(best_tlfc) > 2  | abs(logFC) > 0.5 ) # Gla
-
-filtered_joined_clip_merged <- 
-  filter(joined_clip_merged, 
-         abs(best_tlfc) > 5  | abs(logFC) > 0.5 ) # Eve
+         abs(best_tlfc) > 5 | abs(logFC) > 0.5 ) # Eve
 
 filtered_joined_clip_merged$geneSymbol <- sub('PREDICTED: ', '', 
                                               filtered_joined_clip_merged$geneSymbol)
@@ -104,7 +97,6 @@ ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
   geom_hline(yintercept = 0, color = '#387490', alpha = .7) +
   geom_vline(xintercept = 0, color = '#387490', alpha = .7) +
   geom_point(aes(shape = sign), alpha=.5, color='gray70') +
-  geom_smooth(method = 'lm') +
   geom_text_repel(aes(label = ifelse(grepl('uncharacterized|hypothetical|\\*',
                                            geneSymbol),
                                      '', geneSymbol)),
@@ -122,8 +114,35 @@ ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
         legend.text = element_text(size = 15), 
         legend.title = element_text(size = 15))
 
-ggsave(file.path(dir, 'transcr_proteome_logfc_Gla_pvalues_2_cor.png'), 
+ggsave(file.path(dir, 'transcr_proteome_logfc_Gla_pvalues_24Cvs6Cafter.png'), 
        scale = 3)
+
+# figure with correlation curve and cor_test results
+
+cor_test_res <- cor.test(joined_clip_merged$best_tlfc, joined_clip_merged$logFC)
+
+ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
+  geom_hline(yintercept = 0, color = '#387490', alpha = .7) +
+  geom_vline(xintercept = 0, color = '#387490', alpha = .7) +
+  geom_point(aes(shape = sign), alpha=.7, color='gray70') +
+  geom_smooth(method = 'lm') +
+  annotate(geom='text', x = -10, y = 1.8, hjust = 0, size = 4.5,
+           label = paste0('r2 = ', round(cor_test_res$estimate, 4), '\n',
+                          'p-value ', p_format(cor_test_res$p.value,
+                                               accuracy = 0.0001))) +
+#  geom_point(aes(shape = sign), data=filtered_joined_clip_merged, color='red') +
+  scale_shape_manual('p-value:', values = c(8, 16, 17, 1)) +
+  xlab('log2FC (24°C/6°C) transcriptome') +
+  ylab('log2FC (24°C/6°C) proteome') +
+  theme_light() +
+  guides(shape = guide_legend(override.aes = list(size=4))) +
+  theme(axis.title.x = element_text(size = 15),
+        axis.title.y = element_text(size = 15),
+        legend.text = element_text(size = 15), 
+        legend.title = element_text(size = 15))
+
+ggsave(file.path(dir, 'transcr_proteome_logfc_Ecy_pvalues_24Cvs6C_cor.png'),
+       scale = 1.5)
 
 # visualize all transcripts versus all proteins 
 # (so, you can see matched proteins/transcripts and not-matched ones)
@@ -139,7 +158,7 @@ joined_full$logFC_proteome <- replace_na(joined_full$logFC, 0)
 
 filtered_joined_full <- 
   filter(joined_full,
-         (logFC_transc > 4.5 | logFC_transc < -4.5 & tag == 'transcriptome_only')  |
+         (logFC_transc >5 | logFC_transc < -5 & tag == 'transcriptome_only')  |
            (abs(logFC_proteome) > 0.8 & tag == 'proteome_only') )
 
 ixs <- is.na(filtered_joined_full$protein_group)
@@ -176,15 +195,5 @@ ggplot(joined_full, aes(logFC_transc, logFC_proteome)) +
         legend.text = element_text(size = 15), 
         legend.title = element_text(size = 15))
 
-ggsave(file.path(dir, 'transcr_proteome_logfc_Gla_allObservations_2.png'), 
+ggsave(file.path(dir, 'transcr_proteome_logfc_Gla_allObservations_24vs6Cafter.png'), 
        scale = 3)
-
-# make boxplots for Vg
-
-
-
-
-
-
-
-

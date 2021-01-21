@@ -8,7 +8,7 @@ library(tidyverse)
 library(ggfortify)
 
 ### 0. Choose species
-species <- 'Gla'
+species <- 'Eve'
 
 ### 1. Upload metafile
 meta_upload <- function(path_to_file, species_name) {
@@ -155,6 +155,6 @@ meta2$experiment <- as.factor(meta2$experiment)
 autoplot(pca_res, data=meta2, colour='condition')
 
 write.csv(data_sl_irs_count, 
-          file = file.path('labeglo2/proteome_transcr_comparision/norm_counts_Gla_HS_protGroups_withNA.csv'))
+          file = file.path('labeglo2/proteome_transcr_comparision/norm_counts_Eve_HS_protGroups_withNA.csv'))
 
 # then -> prot_transcr_conc.R
