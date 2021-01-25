@@ -8,9 +8,11 @@ dir <- '~/labeglo2/proteome_transcr_comparision'
 transcr <- 
   read.csv('~/labeglo2/proteome_transcr_comparision/Ecy_transcr_24vs6_all.csv', 
            sep = '\t')
+transcr <- subset(transcr, pvalue < 0.05)
 proteins <- 
-  read.csv('~/labeglo2/proteome_transcr_comparision/Ecy_AllProteins_24vs6_proteinGroups_separatelyAnalyzed.csv',
+  read.csv('~/labeglo2/proteome_transcr_comparision/Ecy_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv',
           sep = '\t', header = T)
+proteins <- subset(proteins, pvalue < 0.05)
 
 annot <- read.csv(file.path(dir, 'contigs_whole_annot_Ecy.csv'), sep = '\t')
 #colnames(proteins) <- c('protein', 'geneSymbol', 'logFC', 'pvalue', 'FDR')
@@ -32,21 +34,6 @@ joined <- inner_join(transcr, proteins_long, by = c('contig' = 'protein_clip'))
 joined_clip <- joined[c(1, 3, 5, 7, 8, 9, 11, 12, 13)]
 
 filtered_joined_clip <- filter(joined_clip, abs(log2FoldChange) > 2 | abs(logFC) > 0.5)
-#filtered_joined_clip
-
-set.seed(333)
-ggplot(joined_clip, aes(log2FoldChange, logFC)) +
-  geom_point(alpha=.5, color='gray70') +
-  geom_point(data=filtered_joined_clip, color='red') +
-  geom_text_repel(aes(label= geneSymbol),
-            data = filtered_joined_clip) +
-  xlab('log2FC (24°C/6°C) transcriptome') +
-  ylab('log2FC (24°C/6°C) proteome') +
-  theme_light() +
-  theme(axis.title.x = element_text(size = 15),
-        axis.title.y = element_text(size = 15))
-
-#ggsave(file.path(dir, 'transcr_proteome_logfc.png'), scale = 3)
 
 # it seems that I have a lot of duplicated proteins 
 # (no wonder - protein groups were splitted and transcripts matched to 
@@ -126,7 +113,7 @@ ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
   geom_vline(xintercept = 0, color = '#387490', alpha = .7) +
   geom_point(aes(shape = sign), alpha=.7, color='gray70') +
   geom_smooth(method = 'lm') +
-  annotate(geom='text', x = -10, y = 1.8, hjust = 0, size = 4.5,
+  annotate(geom='text', x = -2, y = 1.8, hjust = 0, size = 4.5,
            label = paste0('r2 = ', round(cor_test_res$estimate, 4), '\n',
                           'p-value ', p_format(cor_test_res$p.value,
                                                accuracy = 0.0001))) +
@@ -197,3 +184,71 @@ ggplot(joined_full, aes(logFC_transc, logFC_proteome)) +
 
 ggsave(file.path(dir, 'transcr_proteome_logfc_Gla_allObservations_24vs6Cafter.png'), 
        scale = 3)
+
+### To draw plots only those proteins and transcripts that have p-value < 0.05
+cor_test_res <- cor.test(joined_clip_merged$best_tlfc, joined_clip_merged$logFC)
+
+joined_clip_merged$geneSymbol <- sub('PREDICTED: |', '', 
+                                     joined_clip_merged$geneSymbol)
+joined_clip_merged$geneSymbol <- sub('-like.*', '', 
+                                     joined_clip_merged$geneSymbol)
+
+ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
+  geom_hline(yintercept = 0, color = '#387490', alpha = .7) +
+  geom_vline(xintercept = 0, color = '#387490', alpha = .7) +
+  geom_point(color='#0099E5') +
+  geom_smooth(method = 'lm', color = 'grey65', fill = 'grey85') +
+  annotate(geom='text', x = -2, y = 2.3, hjust = 0, size = 7,
+           label = paste0('r2 = ', round(cor_test_res$estimate, 4), '\n',
+                          'p-value ', p_format(cor_test_res$p.value,
+                                               accuracy = 0.0001))) +
+  geom_text_repel(aes(label = ifelse(grepl('uncharacterized|hypothetical|unknown|\\*',
+                                           geneSymbol),
+                                     '', geneSymbol)),
+                  max.overlaps = Inf, size = 4, max.time = 1, box.padding = 0.35,
+                  seed = 124) +
+  xlab('log2FC (24°C/6°C) transcriptome') +
+  ylab('log2FC (24°C/6°C) proteome') +
+  theme_light() +
+  theme(axis.title.x = element_text(size = 18),
+        axis.title.y = element_text(size = 18),
+        axis.text = element_text(size = 13))
+
+ggsave(file.path(dir, 'logfc_Ecy_pvalues_24Cvs6Cafter_pvalue005both.png'), 
+       scale = 3)
+
+### To draw plot with proteins and transcripts which have pvalue<0.05 in proteins
+label_only_these <- subset(joined_clip_merged, pvalue_tran > 0.05)
+label_only_these <- subset(label_only_these, abs(logFC) > 0.4)
+
+label_only_these <- subset(joined_clip_merged, pvalue.y > 0.05)
+label_only_these <- subset(label_only_these, abs(best_tlfc) > 2)
+
+ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
+  geom_hline(yintercept = 0, color = '#387490', alpha = .7) +
+  geom_vline(xintercept = 0, color = '#387490', alpha = .7) +
+  geom_point(aes(color = sign)) +
+  geom_smooth(method = 'lm', color = 'grey65', fill = 'grey85') +
+  annotate(geom='text', x = -2, y = 1.9, hjust = 0, size = 7,
+           label = paste0('r2 = ', round(cor_test_res$estimate, 4), '\n',
+                          'p-value ', p_format(cor_test_res$p.value,
+                                               accuracy = 0.0001))) +
+  geom_text_repel(aes(label = ifelse(grepl('uncharacterized|hypothetical|\\*',
+                                           geneSymbol),
+                                     '', geneSymbol)),
+                  data = label_only_these, 
+                  segment.colour = 'grey50',
+                  max.overlaps = Inf, size = 4) +
+  scale_color_manual('', values = c('grey80', '#0099E5')) +
+  xlab('log2FC (24°C/6°C) transcriptome') +
+  ylab('log2FC (24°C/6°C) proteome') +
+  theme_light() +
+  guides(shape = guide_legend(override.aes = list(size=4))) +
+  theme(axis.title.x = element_text(size = 15),
+        axis.title.y = element_text(size = 15),
+        legend.text = element_text(size = 15), 
+        legend.title = element_text(size = 15))
+
+ggsave(file.path(dir, 'logfc_Ecy_pvalues_24Cvs6C_pvalue005transcripts.png'), 
+       scale = 3)
+

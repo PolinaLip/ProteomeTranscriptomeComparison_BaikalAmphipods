@@ -7,7 +7,7 @@ library(limma)
 library(edgeR)
 library(ggfortify) 
 
-species <- 'Gla'
+species <- 'Eve'
 
 ### 1. Upload metafile
 meta_upload <- function(path_to_file, species_name) {
@@ -22,6 +22,9 @@ path2meta <-
 
 meta <- meta_upload(path2meta, species)
 
+# if you want to take all 6C controls as one control group:
+meta$condition <- ifelse(grepl('CK1|CK2|VrK1|VrK2', meta$sample), '6C', '24C')
+
 ### 2. Data uploading (proteinGroups file from MaxQuant)
 dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_eve/'
 dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_ecy/'
@@ -29,7 +32,7 @@ dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_gla/'
 proteinGroups_file <- 'proteinGroups_wo_cont_more2pept.txt' # take file with proteinGroups with 2 or more peptides quantified
 dat_init <- read.csv(file.path(dir, proteinGroups_file), sep = '\t', header = T, 
                      check.names = F) 
-pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_gla.csv'), sep = '\t',
+pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_eve.csv'), sep = '\t',
                       header = T)
 
 select_data <- function(meta_data, proteinGroups_data){
@@ -231,8 +234,8 @@ edger_analysis_wrap <- function(norm_data, protein_annotation,
 data_wo_na <- na.omit(data_irs)
 SignProteinInfo_0 <- edger_analysis_wrap(norm_data = data_wo_na, 
                                          protein_annotation = pep_annot, 
-                                         cond2compare = c("Gla_6C_after", 
-                                                          "Gla_24C"), 
+                                         cond2compare = c("6C", 
+                                                          "24C"), 
                                          metafile = meta)
 
 # 3 NAs/row - Eve
@@ -240,8 +243,8 @@ data_3 <- data_irs[rowSums(is.na(data_irs)) == 3,]
 data_3 <- data_3[,colSums(is.na(data_3))<nrow(data_3)]
 SignProteinInfo_3 <- edger_analysis_wrap(norm_data = data_3, 
                                          protein_annotation = pep_annot, 
-                                         cond2compare = c("Eve_6C_after", 
-                                                          "Eve_24C"), 
+                                         cond2compare = c("6C", 
+                                                          "24C"), 
                                          metafile = meta)
 
 # 8 NAs/row (the 1st + 3rd TMT batches) - Eve
@@ -251,8 +254,8 @@ data_8_1 <- data_8_1[,grepl('_1$|_2$|_3$|Vr1_390_7|Vr1_390_8|VrK1_390_8',
 data_8_1 <- na.omit(data_8_1)
 SignProteinInfo_8_1 <- edger_analysis_wrap(norm_data = data_8_1, 
                                            protein_annotation = pep_annot, 
-                                           cond2compare = c("Eve_6C_after", 
-                                                            "Eve_24C"), 
+                                           cond2compare = c("6C", 
+                                                            "24C"), 
                                            metafile = meta)
 
 # 8 NAs/row (the 2nd + 3rd TMT batches)
@@ -262,8 +265,8 @@ data_8_2 <- data_8_2[,grepl('_4$|_5$|_6$|VrK1_390_7|Vr1_390_7|Vr1_390_8|VrK1_390
 data_8_2 <- na.omit(data_8_2)
 SignProteinInfo_8_2 <- edger_analysis_wrap(norm_data = data_8_2, 
                                            protein_annotation = pep_annot, 
-                                           cond2compare = c("Eve_6C_after", 
-                                                            "Eve_24C"), 
+                                           cond2compare = c("6C", 
+                                                            "24C"), 
                                            metafile = meta)
 
 # 11 NAs/row (the 1st TMT batch)
@@ -275,8 +278,8 @@ data_11_1 <- data_11_1[,grepl('_1$|_2$|_3$',
 data_11_1 <- na.omit(data_11_1)
 SignProteinInfo_11_1 <- edger_analysis_wrap(norm_data = data_11_1, 
                                             protein_annotation = pep_annot, 
-                                            cond2compare = c("Eve_6C_after", 
-                                                             "Eve_24C"), 
+                                            cond2compare = c("6C", 
+                                                             "24C"), 
                                             metafile = meta)
 
 # 11 NAs/row (the 2nd TMT batch)
@@ -288,8 +291,8 @@ data_11_2 <- data_11_2[,grepl('_4$|_5$|_6$|VrK1_390_7',
 data_11_2 <- na.omit(data_11_2)
 SignProteinInfo_11_2 <- edger_analysis_wrap(norm_data = data_11_2, 
                                             protein_annotation = pep_annot, 
-                                            cond2compare = c("Eve_6C_after", 
-                                                             "Eve_24C"), 
+                                            cond2compare = c("6C", 
+                                                             "24C"), 
                                             metafile = meta)
 
 # 9 NAs/row (the 2nd TMT batch) - Ecy
@@ -297,8 +300,8 @@ data_9 <- data_irs[rowSums(is.na(data_irs)) == 9,]
 data_9 <- data_9[,meta[meta$experiment == 5,]$sample]
 SignProteinInfo_9 <- edger_analysis_wrap(norm_data = data_9, 
                                          protein_annotation = pep_annot, 
-                                         cond2compare = c("Ecy_6C_after", 
-                                                          "Ecy_24C"), 
+                                         cond2compare = c("6C", 
+                                                          "24C"), 
                                          metafile = meta)
 
 # 8 NAs/row (the 1st TMT batch) - Ecy
@@ -306,8 +309,8 @@ data_8 <- data_irs[rowSums(is.na(data_irs)) == 8,]
 data_8 <- data_8[,meta[meta$experiment == 4,]$sample]
 SignProteinInfo_8 <- edger_analysis_wrap(norm_data = data_8, 
                                          protein_annotation = pep_annot, 
-                                         cond2compare = c("Ecy_6C_after", 
-                                                          "Ecy_24C"), 
+                                         cond2compare = c("6C", 
+                                                          "24C"), 
                                          metafile = meta)
 
 # 4 NAs/row - Gla
@@ -442,8 +445,8 @@ ggplot(dat_sign_fdr_up_long, aes(x = Condition, y = value)) +
         legend.position = "none")
 
 # STOP, think
-ggsave(filename = file.path(dir, 'DEup_combinedEdgeR_Scaled_24vs6Cafter.png'),
-       width = 6.4, height = 3)
+ggsave(filename = file.path(dir, 'DEup_combinedEdgeR_Scaled_24vs6C.png'),
+       width = 9.6, height = 6)
 ggsave(filename = file.path(dir, 'DEup_combinedEdgeR_woScaling.png'),
        width = 12, height = 6)
 
@@ -475,7 +478,7 @@ ggplot(dat_sign_fdr_down_long, aes(x = Condition, y = value)) +
   geom_jitter(aes(color = Condition), size = 0.8) +
   facet_wrap(~contig,
              labeller = labeller(contig = function(x) contig_to_protein_down2[x]), 
-             ncol = 4) +
+             ncol = 7) +
   ylab('Scaled intensities') +
   xlab('') +
   theme_bw() +
@@ -483,8 +486,8 @@ ggplot(dat_sign_fdr_down_long, aes(x = Condition, y = value)) +
         legend.position = "none")
 
 # STOP, think
-ggsave(filename = file.path(dir, 'DEdown_combinedEdgeR_Scaled_24vs6Cafter.png'),
-       width = 2, height = 3)
+ggsave(filename = file.path(dir, 'DEdown_combinedEdgeR_Scaled_24vs6C.png'),
+       width = 10.8, height = 6)
 ggsave(filename = file.path(dir, 'DEdown_combinedEdgeR_woScaling.png'),
        width = 10, height = 6)
 
