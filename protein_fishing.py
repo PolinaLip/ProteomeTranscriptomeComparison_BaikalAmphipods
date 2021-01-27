@@ -26,6 +26,17 @@ def choose_the_best(aligned_peptides_dict):
             the_best_proteins.append(pr)
     return the_best_proteins
 
+def locate_peptide(protein, protein_pept_dict, protein_seq_dict):
+    peptide_locations = []
+    for peptide in protein_pept_dict[protein]:
+        protein_seq = protein_seq_dict[protein]
+        peptide_start = protein_seq[0].find(peptide)
+        if peptide_start == -1:
+            print('Peptide %s is not in the %s' % (peptide, protein))
+        else:
+            peptide_locations.append((peptide_start, peptide))
+    return peptide_locations
+
 def main():
     parser = argparse.ArgumentParser(description='To extract target proteins, their sequences and observed peptides')
     parser.add_argument('--prot_groups', type=argparse.FileType(), help='proteinGroups.txt file')
@@ -91,6 +102,32 @@ def main():
                 best = 'yes'
                 
             outp1.write('%s\t%s\t%s\t%i\t%s\t%s\t%s\t%s\n' % (prot, ';'.join(proteins_aligned_peptides[prot]), pr_group, protein_group_number, prot_group_annot[pr_group][2], prot_group_annot[pr_group][0], prot_group_annot[pr_group][1], best))
+
+            peptides_indices = locate_peptide(prot, proteins_aligned_peptides, protein_seq)
+            peptides_indices.sort()
+            
+            to_print = []
+            protein_sequence = protein_seq[prot]
+            for pep in peptides_indices:
+                if not to_print:
+                    align_str = '-' * pep[0] + pep[1]
+                    to_print.append(align_str)
+                    continue
+                intersect = True 
+                for i, string in enumerate(to_print):
+                    if len(string) < pep[0]:
+                        to_print[i] += '-' * (pep[0] - len(string)) + pep[1]
+                        intersect = False
+                        break
+                if intersect:
+                    align_str = '-' * pep[0] + pep[1]
+                    to_print.append(align_str)
+            
+            outp2.write('>%s\n\n' % (prot))
+            for s in to_print[::-1]:
+                outp2.write('%s\n' % (s))
+
+            outp2.write('%s\n\n' % (protein_sequence[0]))
 
 if __name__ == '__main__':
     main()
