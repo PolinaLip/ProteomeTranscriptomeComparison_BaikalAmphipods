@@ -4,6 +4,7 @@ import argparse
 from collections import defaultdict
 from Bio import SeqIO
 
+''' To find peptides aligned to the protein '''
 def align_peptides(protein_group_name, protein_seq_dict, peptide_seq_dict, peptide_ids):
     protein_group_name = protein_group_name.split(';')
     peptide_ids = peptide_ids.split(';') 
@@ -13,9 +14,11 @@ def align_peptides(protein_group_name, protein_seq_dict, peptide_seq_dict, pepti
             #print(protein, pep_id, protein_seq_dict[protein][0], peptide_seq_dict[pep_id], sep='\t')
             if peptide_seq_dict[pep_id] in protein_seq_dict[protein][0]:
                 protein_and_its_peptides[protein].add(peptide_seq_dict[pep_id]) # save protein name (i.e., contig name) and the list of peptides aligned to it to the dict
+    
     return protein_and_its_peptides 
 
-def choose_the_best(aligned_peptides_dict):
+''' To choose the best protein from the protein group - based on the follow: 1. The protein with the maximum number of peptides; 2. Sometimes there are several proteins with the same set of peptides. In this case, if proteins are with different lengths the protein with the minimal sequence length will be choosen; 3. If proteins are with the same lengths (but some difference in the sequence) the protein with the investigated species name will be choosen (we can rely on transcriptomic assembly) '''
+def choose_the_best(aligned_peptides_dict, protein_seq_dict, species_name):
     the_best_proteins = []
     max_len = 0
     for pr in aligned_peptides_dict:
@@ -24,8 +27,26 @@ def choose_the_best(aligned_peptides_dict):
     for pr in aligned_peptides_dict:
         if len(aligned_peptides_dict[pr]) == max_len:
             the_best_proteins.append(pr)
-    return the_best_proteins
 
+    if len(the_best_proteins) == 1:
+        return the_best_proteins
+    else:
+        best_protein = []
+        if all(len(protein_seq_dict[the_best_proteins[0]][0]) == len(protein_seq_dict[pr][0]) for pr in the_best_proteins[1:]):
+            for protein_name in the_best_proteins:
+                if species_name in protein_name:
+                    best_protein.append(protein_name)
+        else:
+            min_len = len(protein_seq_dict[the_best_proteins[0]][0])
+            for pr_name in the_best_proteins[1:]:
+                if len(protein_seq_dict[pr_name][0]) < min_len:
+                    min_len = len(protein_seq_dict[pr_name][0])
+            for pr_name in the_best_proteins:
+                if len(protein_seq_dict[pr_name][0]) == min_len:
+                    best_protein.append(pr_name)
+        return best_protein
+
+''' To find the indices of the substring (peptides) in the string (protein) '''
 def locate_peptide(protein, protein_pept_dict, protein_seq_dict):
     peptide_locations = []
     for peptide in protein_pept_dict[protein]:
@@ -35,7 +56,36 @@ def locate_peptide(protein, protein_pept_dict, protein_seq_dict):
             print('Peptide %s is not in the %s' % (peptide, protein))
         else:
             peptide_locations.append((peptide_start, peptide))
+    
     return peptide_locations
+
+''' To compose strings with peptides which will be used for the protein-peptides alignment '''
+def peptide2print(pep_indices):
+    to_print = []
+    for pep in pep_indices:
+        if not to_print:
+            align_str = '-' * pep[0] + pep[1]
+            to_print.append(align_str)
+            continue
+        intersect = True
+        for i, string in enumerate(to_print):
+            if len(string) < pep[0]:
+                to_print[i] += '-' * (pep[0] - len(string)) + pep[1]
+                intersect = False
+                break
+        if intersect:
+            align_str = '-' * pep[0] + pep[1]
+            to_print.append(align_str)
+
+    return to_print
+
+''' To launch locate_peptide function -> sorting of tuples (index, peptide sequence) -> launch peptide2print '''
+def render_peptides(protein, proteins_aligned_peptides_dict, protein_seq_dict):
+    peptides_indices = locate_peptide(protein, proteins_aligned_peptides_dict, protein_seq_dict)
+    peptides_indices.sort()
+    to_print = peptide2print(peptides_indices)
+    
+    return to_print
 
 def main():
     parser = argparse.ArgumentParser(description='To extract target proteins, their sequences and observed peptides')
@@ -46,11 +96,14 @@ def main():
     parser.add_argument('--target', help='key words to find the target protein (comma separator)')
     parser.add_argument('-o', '--output', type=argparse.FileType('w'), help='the name of the output file')
     parser.add_argument('--alignment', type=argparse.FileType('w'), help='file with proteins and peptides aligned to them')
+    parser.add_argument('--alignment_best', type=argparse.FileType('w'), help='file with the best proteins (from protein group) and peptides aligned to them')
+    parser.add_argument('--species', help='the species name; in the format used in the end of contig (protein) names (ex.: Ecy)')
 
     args = parser.parse_args()
     outp1 = args.output
     outp1.write('protein\tpeptides\tprotein_group\tpg_number\tfinal_annotation\teggnog_annotations\tdiamond_annotations\tbest_protein\n')
     outp2 = args.alignment
+    outp3 = args.alignment_best
     prot_intr = args.target.upper().split(',') # alternative names of the protein of interest
     
     ''' Choose protein groups contained key words in annotation '''
@@ -88,46 +141,37 @@ def main():
             if any(protein == record.id for protein in proteins):
                 protein_seq[record.id] = [str(record.seq)]
     
-    ''' Combine all info about protein together and create two outputs: 1. proteins and info, 2. proteins with aligned peptides '''
+    ''' Combine all info about protein together and create three outputs: 1. proteins and info, 2. proteins with aligned peptides, 3. best proteins with aligned peptides '''
     protein_group_number = 0
     for pr_group in prot_group_annot:
         protein_group_number += 1
         proteins_aligned_peptides = align_peptides(pr_group, protein_seq, peptide_id_seq, prot_group_annot[pr_group][3])
         #print(proteins_aligned_peptides)
-        the_best_proteins_list = choose_the_best(proteins_aligned_peptides)
+        the_best_proteins_list = choose_the_best(proteins_aligned_peptides, protein_seq, args.species)
 
         for prot in proteins_aligned_peptides:
             best = 'no'
             if prot in the_best_proteins_list:
                 best = 'yes'
-                
+                to_print_best = render_peptides(prot, proteins_aligned_peptides, protein_seq)
+                protein_sequence_best = protein_seq[prot]
+                outp3.write('>%s;protein_group=%i\n' % (prot, protein_group_number))
+                outp3.write('%s\n' % (protein_sequence_best[0]))
+                for s in to_print_best:
+                    outp3.write('%s\n' % (s))
+                outp3.write('\n')
+
             outp1.write('%s\t%s\t%s\t%i\t%s\t%s\t%s\t%s\n' % (prot, ';'.join(proteins_aligned_peptides[prot]), pr_group, protein_group_number, prot_group_annot[pr_group][2], prot_group_annot[pr_group][0], prot_group_annot[pr_group][1], best))
 
-            peptides_indices = locate_peptide(prot, proteins_aligned_peptides, protein_seq)
-            peptides_indices.sort()
+            to_print = render_peptides(prot, proteins_aligned_peptides, protein_seq)
             
-            to_print = []
             protein_sequence = protein_seq[prot]
-            for pep in peptides_indices:
-                if not to_print:
-                    align_str = '-' * pep[0] + pep[1]
-                    to_print.append(align_str)
-                    continue
-                intersect = True 
-                for i, string in enumerate(to_print):
-                    if len(string) < pep[0]:
-                        to_print[i] += '-' * (pep[0] - len(string)) + pep[1]
-                        intersect = False
-                        break
-                if intersect:
-                    align_str = '-' * pep[0] + pep[1]
-                    to_print.append(align_str)
             
-            outp2.write('>%s\n\n' % (prot))
-            for s in to_print[::-1]:
+            outp2.write('>%s;protein_group=%i\n' % (prot, protein_group_number))
+            outp2.write('%s\n' % (protein_sequence[0]))
+            for s in to_print:
                 outp2.write('%s\n' % (s))
-
-            outp2.write('%s\n\n' % (protein_sequence[0]))
+            outp2.write('\n')
 
 if __name__ == '__main__':
     main()
