@@ -17,7 +17,12 @@ def align_peptides(protein_group_name, protein_seq_dict, peptide_seq_dict, pepti
     
     return protein_and_its_peptides 
 
-''' To choose the best protein from the protein group - based on the follow: 1. The protein with the maximum number of peptides; 2. Sometimes there are several proteins with the same set of peptides. In this case, if proteins are with different lengths the protein with the minimal sequence length will be choosen; 3. If proteins are with the same lengths (but some difference in the sequence) the protein with the investigated species name will be choosen (we can rely on transcriptomic assembly) '''
+''' To choose the best protein from the protein group - based on the follow: 
+    1. The protein with the maximum number of peptides; 
+    2. Sometimes there are several proteins with the same set of peptides. In this case, if proteins are with different lengths 
+    the protein with the minimal sequence length will be choosen; 
+    3. If proteins are with the same lengths (but some differences in the sequence) 
+    the protein with the investigated species name will be choosen (we can rely on transcriptomic assembly) '''
 def choose_the_best(aligned_peptides_dict, protein_seq_dict, species_name):
     the_best_proteins = []
     max_len = 0
@@ -93,7 +98,7 @@ def main():
     parser.add_argument('--evidence', type=argparse.FileType(), help='evidence.txt file')
     parser.add_argument('--annot', type=argparse.FileType(), help='proteinGroups annotation file')
     parser.add_argument('--proteins', type=argparse.FileType(), help='fasta file with protein database used in MQ run')
-    parser.add_argument('--target', help='key words to find the target protein (comma separator)')
+    parser.add_argument('--target', help='key words to find the target protein (comma separator); case-insensitive')
     parser.add_argument('-o', '--output', type=argparse.FileType('w'), help='the name of the output file')
     parser.add_argument('--alignment', type=argparse.FileType('w'), help='file with proteins and peptides aligned to them')
     parser.add_argument('--alignment_best', type=argparse.FileType('w'), help='file with the best proteins (from protein group) and peptides aligned to them')
@@ -141,7 +146,8 @@ def main():
             if any(protein == record.id for protein in proteins):
                 protein_seq[record.id] = [str(record.seq)]
     
-    ''' Combine all info about protein together and create three outputs: 1. proteins and info, 2. proteins with aligned peptides, 3. best proteins with aligned peptides '''
+    ''' Combine all info about protein together and create three outputs: 
+    1. proteins and info, 2. proteins with aligned peptides, 3. best proteins with aligned peptides '''
     protein_group_number = 0
     for pr_group in prot_group_annot:
         protein_group_number += 1
