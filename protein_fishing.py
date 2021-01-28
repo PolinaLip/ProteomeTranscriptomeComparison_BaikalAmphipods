@@ -10,6 +10,8 @@ def align_peptides(protein_group_name, protein_seq_dict, peptide_seq_dict, pepti
     peptide_ids = peptide_ids.split(';') 
     protein_and_its_peptides = defaultdict(set)
     for protein in protein_group_name:
+        if 'REV__' in protein:
+            continue
         for pep_id in peptide_ids:
             #print(protein, pep_id, protein_seq_dict[protein][0], peptide_seq_dict[pep_id], sep='\t')
             if peptide_seq_dict[pep_id] in protein_seq_dict[protein][0]:
