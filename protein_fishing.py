@@ -157,8 +157,10 @@ def main():
     ''' Find peptides ids for the target proteins to connect them with evidence file '''
     for protein_group in args.prot_groups:  
         protein_group = protein_group.strip().split('\t')
+        if protein_group[0] == 'Protein IDs':
+            column_with_ids = protein_group.index('Evidence IDs')
         if protein_group[0] in prot_group_annot:
-            prot_group_annot[protein_group[0]].append(protein_group[102]) # protein_group[102] - a string with peptide ids through semicolon
+            prot_group_annot[protein_group[0]].append(protein_group[column_with_ids]) # protein_group[column_with_ids] - a string with peptide ids through semicolon
     
     ''' Make a dict with peptide ids as keys and peptide sequences as values '''
     peptide_id_seq = {}
