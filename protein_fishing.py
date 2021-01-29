@@ -105,29 +105,57 @@ def main():
     parser.add_argument('--alignment', type=argparse.FileType('w'), help='file with proteins and peptides aligned to them')
     parser.add_argument('--alignment_best', type=argparse.FileType('w'), help='file with the best proteins (from protein group) and peptides aligned to them')
     parser.add_argument('--species', help='the species name; in the format used in the end of contig (protein) names (ex.: Ecy)')
+    parser.add_argument('--exonerate_outp', type=argparse.FileType(), help='exonerate output file only with sugar format')
+    parser.add_argument('--swiss_db', type=argparse.FileType(), help='SWISS-Prot database with target sequences (needed to extracting annotations)')
 
     args = parser.parse_args()
     outp1 = args.output
-    outp1.write('protein\tpeptides\tprotein_group\tpg_number\tfinal_annotation\teggnog_annotations\tdiamond_annotations\tbest_protein\n')
+    outp1.write('protein\tpeptides\tprotein_group\tpg_number\tfinal_annotation\teggnog_annotations\tdiamond_annotations\tbest_protein\thomology_annot\tproteins_found_by_homology\n')
     outp2 = args.alignment
     outp3 = args.alignment_best
-    prot_intr = args.target.upper().split(',') # alternative names of the protein of interest
+    prot_intr = args.target.upper().split(',') # list of alternative names of the protein of interest
     
-    ''' Choose protein groups contained key words in annotation '''
+    ''' Prepare swiss database and the output data from exonerate '''
+    swiss_db = {}
+    for s in args.swiss_db:
+        if s[0] == '>':
+            pr_annotation = s.split(' ', 1)[1].split('OS=')[0]
+            pr_name = s[1:].split(' ')[0]
+            swiss_db[pr_name] = pr_annotation # dict with fasta header (cutted by the first space) as a key and annotation as a value
+
+    found_by_homology = {}
+    for p in args.exonerate_outp:
+        p = p.split(' ')
+        if p[0] == 'sugar:':
+            db_target = p[5]
+            gene_id = db_target.split('|')[1]
+            contig = p[1]
+            found_by_homology[contig] = '%s:%s' % (gene_id, swiss_db[db_target]) # dict with contig (protein) name as a key and annotation as a value 
+
+    ''' Choose protein groups contained key words in annotation or protein groups proteins in which were found by homology with the target database'''
     prot_group_annot = {}
     for pg in args.annot:
         annotation = pg.strip().split('\t')
+        pg_name = annotation[0].split(';')
+        found_proteins = []
+        annot_info = None
+        for pg_protein in pg_name:
+            if pg_protein in found_by_homology:
+                found_proteins.append(pg_protein)
+                annot_info = found_by_homology[pg_protein]
+        if found_proteins:
+            prot_group_annot[annotation[0]] = [annotation[4], annotation[5], annotation[3], ';'.join(found_proteins), annot_info]
+            continue
         if annotation[3] == '*':
             continue
         all_eggnog = annotation[4]
         all_diamond = annotation[5]
         final_annot = annotation[3]
         if any(name in all_eggnog.upper() or name in all_diamond.upper() for name in prot_intr):
-            prot_group_annot[annotation[0]] = [all_eggnog, all_diamond, final_annot] # save protein groups and their annotation to the dict
-    #print(prot_group_annot)
+            prot_group_annot[annotation[0]] = [all_eggnog, all_diamond, final_annot, '*', '*'] # save protein groups and their annotation to the dict
     
     ''' Find peptides ids for the target proteins to connect them with evidence file '''
-    for protein_group in args.prot_groups:
+    for protein_group in args.prot_groups:  
         protein_group = protein_group.strip().split('\t')
         if protein_group[0] in prot_group_annot:
             prot_group_annot[protein_group[0]].append(protein_group[102]) # protein_group[102] - a string with peptide ids through semicolon
@@ -153,7 +181,7 @@ def main():
     protein_group_number = 0
     for pr_group in prot_group_annot:
         protein_group_number += 1
-        proteins_aligned_peptides = align_peptides(pr_group, protein_seq, peptide_id_seq, prot_group_annot[pr_group][3])
+        proteins_aligned_peptides = align_peptides(pr_group, protein_seq, peptide_id_seq, prot_group_annot[pr_group][5])
         #print(proteins_aligned_peptides)
         the_best_proteins_list = choose_the_best(proteins_aligned_peptides, protein_seq, args.species)
 
@@ -169,7 +197,7 @@ def main():
                     outp3.write('%s\n' % (s))
                 outp3.write('\n')
 
-            outp1.write('%s\t%s\t%s\t%i\t%s\t%s\t%s\t%s\n' % (prot, ';'.join(proteins_aligned_peptides[prot]), pr_group, protein_group_number, prot_group_annot[pr_group][2], prot_group_annot[pr_group][0], prot_group_annot[pr_group][1], best))
+            outp1.write('%s\t%s\t%s\t%i\t%s\t%s\t%s\t%s\t%s\t%s\n' % (prot, ';'.join(proteins_aligned_peptides[prot]), pr_group, protein_group_number, prot_group_annot[pr_group][2], prot_group_annot[pr_group][0], prot_group_annot[pr_group][1], best, prot_group_annot[pr_group][4], prot_group_annot[pr_group][3]))
 
             to_print = render_peptides(prot, proteins_aligned_peptides, protein_seq)
             
