@@ -7,7 +7,7 @@ library(limma)
 library(edgeR)
 library(ggfortify) 
 
-species <- 'Eve'
+species <- 'Gla'
 
 ### 1. Upload metafile
 meta_upload <- function(path_to_file, species_name) {
@@ -23,7 +23,8 @@ path2meta <-
 meta <- meta_upload(path2meta, species)
 
 # if you want to take all 6C controls as one control group:
-meta$condition <- ifelse(grepl('CK1|CK2|VrK1|VrK2', meta$sample), '6C', '24C')
+meta$condition <- ifelse(grepl('CK1|CK2|VrK1|VrK2|LK1|LK2', meta$sample), 
+                         '6C', '24C')
 
 ### 2. Data uploading (proteinGroups file from MaxQuant)
 dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_eve/'
@@ -32,7 +33,7 @@ dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_gla/'
 proteinGroups_file <- 'proteinGroups_wo_cont_more2pept.txt' # take file with proteinGroups with 2 or more peptides quantified
 dat_init <- read.csv(file.path(dir, proteinGroups_file), sep = '\t', header = T, 
                      check.names = F) 
-pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_eve.csv'), sep = '\t',
+pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_gla.csv'), sep = '\t',
                       header = T)
 
 select_data <- function(meta_data, proteinGroups_data){
@@ -52,7 +53,7 @@ meta <- subset(meta, sample != 'VrK1_390_3' & sample != 'VrK1_390_4' &
 
 #'L1_390_3|L1_390_4'
 
-### 4. Remove raws with all NAs in at least one of the condition
+### 4. Remove rows with all NAs in at least one of the condition
 
 remove_completeNAs_inCond <- function(data2clean, metafile){
   cond <- as.factor(metafile$condition)
@@ -168,6 +169,11 @@ ggsave(filename = file.path(dir, 'pca_proteinGroups_woImput_woPools.png'))
 ### 8. Multiply the normalized data by 10^7 to make it possible to perform DE analysis
 data_sl_mult <- data_sl * 10000000 # for PSM-normalized data
 data_irs <- data_sl_mult # for PSM-normalized data
+data_sl_mult$protein_group <- row.names(data_sl_mult)
+data_sl_mult_ <- data.frame(protein_group = data_sl_mult$protein_group, 
+                            data_sl_mult[1:length(data_sl_mult)-1])
+write.table(data_sl_mult_, file.path(dir, 'intensities_after_slNorm_gla.csv'), 
+            sep = '\t', quote = F, row.names = F)
 
 #########
 # EdgeR 
