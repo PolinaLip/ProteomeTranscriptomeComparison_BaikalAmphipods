@@ -68,13 +68,27 @@ combined_data$condition <- ifelse(grepl('CK1|CK2|VrK1|VrK2|LK1|LK2', combined_da
                     '6C', '24C')
 
 to_plot <- subset(combined_data, orthogroup == 'OG0000002')
- 
+to_plot$all_labels <- sprintf("%s %s|%s, %s", to_plot$species, to_plot$protein_group,
+                              to_plot$annotation, to_plot$hsp70_type)
+
+f <- function(x) {
+  sapply(strsplit(x, '|', fixed=T), `[`, 2)
+}
+my_labeles <- c('Eve' = 'E. verrucosus', 
+                'Ecy' = 'E. cyaneus', 
+                'Gla' = 'G. lacustris')
+my_colors <- c('#7570b3', '#1b9e77', '#d95f02')
 ggplot(to_plot, aes(x = condition, y = intensities)) +
-  geom_boxplot(aes(color = species), outlier.alpha = 0) +
+  geom_boxplot(aes(color = species, fill = species), 
+               outlier.alpha = 0, alpha = 0.4) +
   geom_jitter(aes(color = species)) +
-  scale_color_manual('Species', values = c('#7570b3', '#1b9e77', '#d95f02')) +
-  facet_wrap(~species + protein_group + annotation + hsp70_type, scales = 'free') +
-  theme_bw()
+  scale_color_manual('Species', values = my_colors,
+                     labels = my_labeles) +
+  scale_fill_manual('Species', values = my_colors,
+                    labels = my_labeles) +
+  facet_wrap(~all_labels, labeller = as_labeller(f)) +
+  theme_bw() +
+  theme(legend.text = element_text(face = 'italic'))
 
 
 
