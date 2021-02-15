@@ -4,18 +4,22 @@ library(ggplot2)
 library(ggrepel)
 library(rstatix)
 
+species <- 'Gla'
 dir <- '~/labeglo2/proteome_transcr_comparision'
 transcr <- 
-  read.csv('~/labeglo2/proteome_transcr_comparision/Ecy_transcr_24vs6_all.csv', 
+  read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species,
+           '_transcr_24vs6_all.csv'), 
            sep = '\t')
 transcr <- subset(transcr, pvalue < 0.05)
 proteins <- 
-  read.csv('~/labeglo2/proteome_transcr_comparision/Ecy_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv',
+  read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species,
+           '_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv'),
           sep = '\t', header = T)
 proteins <- subset(proteins, pvalue < 0.05)
 
-annot <- read.csv(file.path(dir, 'contigs_whole_annot_Ecy.csv'), sep = '\t')
-#colnames(proteins) <- c('protein', 'geneSymbol', 'logFC', 'pvalue', 'FDR')
+annot <- read.csv(file.path(dir, 
+                            paste0('contigs_whole_annot_', 
+                                   species,'.csv')), sep = '\t')
 
 proteins$protein_group <- 1:nrow(proteins)
 proteins_sep <- separate(proteins, protein, ';', into=paste0('key', 1:30), 
@@ -192,21 +196,29 @@ joined_clip_merged$geneSymbol <- sub('PREDICTED: |', '',
                                      joined_clip_merged$geneSymbol)
 joined_clip_merged$geneSymbol <- sub('-like.*', '', 
                                      joined_clip_merged$geneSymbol)
+joined_clip_merged$geneSymbol <- sub('LOW QUALITY PROTEIN: ', '', 
+                                     joined_clip_merged$geneSymbol)
+
+var_width <- 25
+joined_clip_merged <- mutate(joined_clip_merged, 
+                          pretty_varname = str_wrap(joined_clip_merged$geneSymbol, 
+                          width = var_width))
 
 ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
   geom_hline(yintercept = 0, color = '#387490', alpha = .7) +
   geom_vline(xintercept = 0, color = '#387490', alpha = .7) +
   geom_point(color='#0099E5') +
   geom_smooth(method = 'lm', color = 'grey65', fill = 'grey85') +
-  annotate(geom='text', x = -2, y = 2.3, hjust = 0, size = 7,
+  annotate(geom='text', x = -3, y = 1.8, hjust = 0, size = 7,
            label = paste0('r2 = ', round(cor_test_res$estimate, 4), '\n',
                           'p-value ', p_format(cor_test_res$p.value,
-                                               accuracy = 0.0001))) +
-  geom_text_repel(aes(label = ifelse(grepl('uncharacterized|hypothetical|unknown|\\*',
-                                           geneSymbol),
-                                     '', geneSymbol)),
-                  max.overlaps = Inf, size = 4, max.time = 1, box.padding = 0.35,
-                  seed = 124) +
+                                               accuracy = 0.001))) +
+  geom_text_repel(aes(segment.color = 'grey70',
+                      label = ifelse(grepl('uncharacterized|hypothetical|unknown|\\*',
+                                           pretty_varname),
+                                     '', pretty_varname)),
+                  max.overlaps = Inf, size = 4, max.time = 1, box.padding = 0.7,
+                  seed = 546) +
   xlab('log2FC (24°C/6°C) transcriptome') +
   ylab('log2FC (24°C/6°C) proteome') +
   theme_light() +
@@ -214,7 +226,11 @@ ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
         axis.title.y = element_text(size = 18),
         axis.text = element_text(size = 13))
 
-ggsave(file.path(dir, 'logfc_Ecy_pvalues_24Cvs6Cafter_pvalue005both.png'), 
+ggsave(file.path(dir, paste0('logfc_', 
+                             species,'_pvalues_24Cvs6Cafter_pvalue005both.png')), 
+       scale = 3)
+ggsave(file.path(dir, paste0('logfc_', 
+                             species,'_pvalues_24Cvs6Cafter_pvalue005both.pdf')), 
        scale = 3)
 
 ### To draw plot with proteins and transcripts which have pvalue<0.05 in proteins
