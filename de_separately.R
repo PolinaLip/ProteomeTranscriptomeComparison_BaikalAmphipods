@@ -7,7 +7,7 @@ library(limma)
 library(edgeR)
 library(ggfortify) 
 
-species <- 'Gla'
+species <- 'Eve'
 
 ### 1. Upload metafile
 meta_upload <- function(path_to_file, species_name) {
@@ -33,7 +33,7 @@ dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_gla/'
 proteinGroups_file <- 'proteinGroups_wo_cont_more2pept.txt' # take file with proteinGroups with 2 or more peptides quantified
 dat_init <- read.csv(file.path(dir, proteinGroups_file), sep = '\t', header = T, 
                      check.names = F) 
-pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_gla.csv'), sep = '\t',
+pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_eve.csv'), sep = '\t',
                       header = T)
 
 select_data <- function(meta_data, proteinGroups_data){
@@ -324,8 +324,8 @@ data_4 <- data_irs[rowSums(is.na(data_irs)) == 4,]
 data_4 <- data_4[,meta[meta$experiment != 3,]$sample]
 SignProteinInfo_4 <- edger_analysis_wrap(norm_data = data_4, 
                                          protein_annotation = pep_annot, 
-                                         cond2compare = c("Gla_6C_after", 
-                                                          "Gla_24C"), 
+                                         cond2compare = c("6C", 
+                                                          "24C"), 
                                          metafile = meta)
 
 # 9 NAs/row (the 1st TMT batch) - Gla
@@ -334,8 +334,8 @@ data_9_1 <- data_9_1[,meta[meta$experiment != 2,]$sample]
 data_9_1 <- na.omit(data_9_1)
 SignProteinInfo_9_1 <- edger_analysis_wrap(norm_data = data_9_1, 
                                            protein_annotation = pep_annot, 
-                                           cond2compare = c("Gla_6C_after", 
-                                                            "Gla_24C"), 
+                                           cond2compare = c("6C", 
+                                                            "24C"), 
                                            metafile = meta)
 
 # 9 NAs/row (the 2nd TMT batch) - Gla
@@ -344,8 +344,8 @@ data_9_2 <- data_9_2[,meta[meta$experiment != 1,]$sample]
 data_9_2 <- na.omit(data_9_2)
 SignProteinInfo_9_2 <- edger_analysis_wrap(norm_data = data_9_2, 
                                            protein_annotation = pep_annot, 
-                                           cond2compare = c("Gla_6C_after", 
-                                                            "Gla_24C"), 
+                                           cond2compare = c("6C", 
+                                                            "24C"), 
                                            metafile = meta)
 
 # 9 NAs/row (the 2nd TMT batch) - Gla
@@ -354,8 +354,8 @@ data_13_1 <- data_13_1[,meta[meta$experiment != 3 & meta$experiment != 2,]$sampl
 data_13_1 <- na.omit(data_13_1)
 SignProteinInfo_13_1 <- edger_analysis_wrap(norm_data = data_13_1, 
                                             protein_annotation = pep_annot, 
-                                            cond2compare = c("Gla_6C_after", 
-                                                             "Gla_24C"), 
+                                            cond2compare = c("6C", 
+                                                             "24C"), 
                                             metafile = meta)
 
 # 9 NAs/row (the 1st TMT batch) - Gla
@@ -364,8 +364,8 @@ data_13_2 <- data_13_2[,meta[meta$experiment != 3 & meta$experiment != 1,]$sampl
 data_13_2 <- na.omit(data_13_2)
 SignProteinInfo_13_2 <- edger_analysis_wrap(norm_data = data_13_2, 
                                             protein_annotation = pep_annot, 
-                                            cond2compare = c("Gla_6C_after", 
-                                                             "Gla_24C"), 
+                                            cond2compare = c("6C", 
+                                                             "24C"), 
                                             metafile = meta)
 
 ### 10. Combine all subsets in one and calculate the adjusted p-values
@@ -387,7 +387,7 @@ nrow(subset(SPI_all_sign, logFC > 0)) # UP
 nrow(subset(SPI_all_sign, logFC < 0)) # DOWN
 
 write.table(SPI_all, 
-            file = file.path('~/labeglo2/proteome_transcr_comparision/Gla_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv'),
+            file = file.path('~/labeglo2/proteome_transcr_comparision/Eve_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv'),
             sep = '\t', quote = F, row.names = F)
 
 ########################################

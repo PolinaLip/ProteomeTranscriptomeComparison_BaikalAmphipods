@@ -4,18 +4,19 @@ library(ggplot2)
 library(ggrepel)
 library(rstatix)
 
+species <- 'Eve'
 dir <- '~/labeglo2/proteome_transcr_comparision'
 transcr <- 
-  read.csv('~/labeglo2/proteome_transcr_comparision/Ecy_transcr_24vs6_all.csv', 
+  read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species, '_transcr_24vs6_all.csv'), 
            sep = '\t')
 #transcr <- subset(transcr, padj < 0.05)
 proteins <- 
-  read.csv('~/labeglo2/proteome_transcr_comparision/Ecy_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv',
+  read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species, '_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv'),
            sep = '\t', header = T)
 proteins <- subset(proteins, FDR_recalc < 0.05)
 
-annot <- read.csv(file.path(dir, 'contigs_whole_annot_Ecy.csv'), sep = '\t')
-#colnames(proteins) <- c('protein', 'geneSymbol', 'logFC', 'pvalue', 'FDR')
+annot <- read.csv(file.path(dir, paste0('contigs_whole_annot_', species,'.csv')), 
+                  sep = '\t')
 
 proteins$protein_group <- 1:nrow(proteins)
 proteins_sep <- separate(proteins, protein, ';', into=paste0('key', 1:30), 
@@ -32,8 +33,6 @@ proteins_long <- group_by(proteins_long, protein_clip) %>%
 joined <- inner_join(transcr, proteins_long, by = c('contig' = 'protein_clip'))
 
 joined_clip <- joined[c(1, 3, 6, 7, 8, 9, 11, 12, 13)]
-
-filtered_joined_clip <- filter(joined_clip, abs(log2FoldChange) > 2 | abs(logFC) > 0.5)
 
 # it seems that I have a lot of duplicated proteins 
 # (no wonder - protein groups were splitted and transcripts matched to 
@@ -60,7 +59,7 @@ joined_clip_merged <- joined_clip %>%
 
 ### Connect joined data with intensities (proteome) and counts (transcriptome) data
 # 1. Intensities
-intensities <- read.table('~/labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_ecy/intensities_after_slNorm_ecy.csv', 
+intensities <- read.table('~/labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_eve/intensities_after_slNorm_eve.csv', 
                           header = T)
 data_prep <- function(data_intensities){
   row.names(data_intensities) <- data_intensities$protein_group
@@ -74,7 +73,6 @@ data_prep <- function(data_intensities){
 intensities <- data_prep(intensities)
 
 # 2. Counts:
-species <- 'Ecy'
 count_dir <- paste0('~/labeglo2/Transcriptomics/quantification/HS_exp_labeglo1/', 
               species, '/counts') # specify path to your samples
 
@@ -145,13 +143,52 @@ for (row in 1:nrow(joined_clip_merged)){
 colnames(combined_data)[13] <- 'values'
 colnames(combined_data)[14] <- 'sample'
 combined_data$condition <- 
-  ifelse(grepl('6C|CK1|CK2', combined_data$sample), 
+  ifelse(grepl('6C|CK1|CK2|LK1|LK2|VrK1|VrK2', combined_data$sample), 
          '6C', '24C')
 
 combined_data$method <- ifelse(grepl('rep', combined_data$sample),
                                'RNAseq', 'MS/MS')
+combined_data$geneSymbol <- sub('PREDICTED: ', '', combined_data$geneSymbol)
+combined_data$geneSymbol <- sub('-like', '', combined_data$geneSymbol)
+var_width <- 35
+combined_data <- mutate(combined_data, 
+                        pretty_varname = str_wrap(combined_data$geneSymbol, 
+                                                  width = var_width))
+combined_data$all_labels <- sprintf('%s|%s', combined_data$pg_name, 
+                                    combined_data$pretty_varname)
+combined_data$sign2plot <- 
+  ifelse(combined_data$sign == "< 0.05 (both)",
+        '< 0.05', 
+         ifelse(combined_data$sign == "< 0.05 (proteome)" & combined_data$method == 'RNAseq',
+                '> 0.05', '< 0.05'))
 
+combined_data_up <- subset(combined_data, logFC > 0)
+combined_data_down <- subset(combined_data, logFC < 0)
 
+f <- function(x) {
+  sapply(strsplit(x, '|', fixed=T), `[`, 2)
+}
+ggplot(combined_data_down, aes(x = method, y = values, color = condition)) +
+  geom_point(position=position_jitterdodge(dodge.width=1)) +
+  geom_boxplot(aes(fill = condition, 
+                   linetype = sign2plot), 
+               outlier.alpha = 0, alpha = 0.4) +
+  facet_wrap(~all_labels, labeller = as_labeller(f)) +
+  scale_linetype('adj. p-value:') +
+  scale_color_manual('Condition:', values = c('#ca0020', '#0571b0')) +
+  scale_fill_manual('Condition:', values = c('#ca0020', '#0571b0')) +
+  theme_bw() +
+  xlab('') +
+  ylab('Scaled absolute values') +
+  theme()
 
-
-
+dir_to_save <- '~/labeglo2/proteome_transcr_comparision/'
+ggsave(file.path(dir_to_save, 'eve_downDEproteinsWITHtranscripts.png'),
+       #scale = 1.2) 
+       width = 13, height = 7)
+ggsave(file.path(dir_to_save, 'eve_downDEproteinsWITHtranscripts.pdf'),
+       #scale = 1.2)
+       width = 13.3, height = 7)
+# Ecy: width = 10.5, height = 7
+# Gla: width = 8, height = 4
+# Eve: width = 12.5, height = 7
