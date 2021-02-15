@@ -1,6 +1,10 @@
 library(ggplot2)
 
-target_info <- read.csv('~/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes/orthologues_hsps_sum.tsv',
+#############################
+# Proteomics
+#############################
+
+target_info <- read.csv('~/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes/orthologues_hsps_sum_updated.tsv',
                       sep = '\t') 
 eve_intensities <- read.table('~/labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_eve/intensities_after_slNorm_eve.csv', 
                               header = T)
@@ -199,7 +203,7 @@ colnames(combined_data_transc)[8] <- 'sample'
 combined_data_transc$condition <- ifelse(grepl('6C', combined_data_transc$sample), 
                                   '6C', '24C')
 
-to_plot <- subset(combined_data_transc, orthogroup == 'OG0000000')
+to_plot <- subset(combined_data_transc, orthogroup == 'OG0000007')
 to_plot$annotation <- sub(' isoform[^,]*,?', '', to_plot$annotation)
 to_plot$annotation <- sub(' partial', '', to_plot$annotation)
 to_plot$annotation <- sub('PREDICTED: ', '', to_plot$annotation)
@@ -222,28 +226,27 @@ ggplot(to_plot, aes(x = condition, y = counts)) +
                      labels = my_labeles) +
   scale_fill_manual('Species', values = my_colors,
                     labels = my_labeles) +
-  facet_wrap(~all_labels, labeller = as_labeller(f), ncol = 4) +
+  facet_wrap(~all_labels, labeller = as_labeller(f), ncol = 3) +
   ylab('Scaled counts') +
   xlab('') +
   theme_bw() +
   theme(legend.text = element_text(face = 'italic', size = 11),
-        axis.title.y = element_text(size = 12))
-        #,
-        #strip.text = element_text(size=7))
+        axis.title.y = element_text(size = 12)
+        ,
+        strip.text = element_text(size=6))
 
-ggsave('~/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes/og19.png',
+dir_to_save <- '~/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes/hsps_transcriptomics/'
+ggsave(file.path(dir_to_save, 'og7.png'),
        #scale = 1.2) 
-       width = 6, height = 2.7)
-ggsave('~/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes/og19.pdf',
+       width = 9, height = 2.7)
+ggsave(file.path(dir_to_save, 'og7.pdf'),
        #scale = 1.2)
-       width = 6, height = 2.7)
-# og0 - width = 11, height = 7
-# og2 - default, scale = 1.2
-# og1 - width = 11, height = 6
-# og5 - width = 10, height = 2.7
+       width = 9, height = 2.7)
+# og0 - width = 10, height = 6
+# og2 - width = 8, height = 4.5
+# og1 - width = 8, height = 6
+# og5 - width = 9, height = 2.7
 # og7 - width = 9, height = 2.5, strip.text = element_text(size=6)
-# og11, og13 -  width = 9, height = 2.7
+# og11, og13, og15, og16 -  width = 9, height = 2.7
 # og19 - width = 6, height = 2.7, strip.text = element_text(size=7)
-
-
 

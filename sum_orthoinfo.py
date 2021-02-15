@@ -9,7 +9,8 @@ def make_info_dict(file_after_fish, species_name):
         protein_name = protein[0]
         pg_name = protein[2]
         annotation = protein[4]
-        protein_info_dict[protein_name] = [pg_name, annotation, species_name]
+        n_peptides = len(protein[1].split(';'))
+        protein_info_dict[protein_name] = [pg_name, annotation, species_name, n_peptides]
     
     return protein_info_dict
 
@@ -34,7 +35,7 @@ def collect_all_info(protein_list_orthofinder, exonerate_dict, info_dict, orthog
             protein_type = exonerate_dict[protein]
         protein = protein.split(';')[0]
         if protein in info_dict:
-            output_file.write('%s\t%s\t%s\t%s\t%s\t%s\n' % (protein, info_dict[protein][0], info_dict[protein][2], orthogroup_name, info_dict[protein][1], protein_type))
+            output_file.write('%s\t%s\t%s\t%s\t%s\t%s\t%i\n' % (protein, info_dict[protein][0], info_dict[protein][2], orthogroup_name, info_dict[protein][1], protein_type, info_dict[protein][3]))
 
 def main():
     parser = argparse.ArgumentParser(description='To gather information regarding found orthologues and paralogues as well as type of Hsp70 (constitutive or inducible)')
@@ -47,7 +48,7 @@ def main():
 
     args = parser.parse_args()
     outp = args.output
-    outp.write('protein\tprotein_group\tspecies\torthogroup\tannotation\thsp70_type\n')
+    outp.write('protein\tprotein_group\tspecies\torthogroup\tannotation\thsp70_type\tn_peptides\n')
 
     ecy_info_dict = make_info_dict(args.outp_fish_ecy, 'Ecy')
     eve_info_dict = make_info_dict(args.outp_fish_eve, 'Eve')
