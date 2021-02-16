@@ -1,4 +1,5 @@
 library(ggplot2)
+library(ggpubr)
 
 #############################
 # Proteomics
@@ -268,14 +269,82 @@ ggsave(file.path(dir_to_save, 'og7.pdf'),
 colnames(combined_data_proteomics) <- c(colnames(combined_data_proteomics)[1:7],
                                         "values", 
                                         colnames(combined_data_proteomics)[9:10])
+combined_data_proteomics$method <- 'MS/MS'
 colnames(combined_data_transc) <- c(colnames(combined_data_transc)[1:7],
                                         "values", 
                                         colnames(combined_data_transc)[9:10])
+combined_data_transc$method <- 'RNAseq'
 combined_data <- rbind(combined_data_proteomics, combined_data_transc)
+combined_data_proteomics$unique_name <- sprintf('%s_%s', 
+                                                combined_data_proteomics$protein,
+                                                combined_data_proteomics$species)
+combined_data_transc$unique_name <- sprintf('%s_%s', 
+                                                combined_data_transc$protein,
+                                                combined_data_transc$species)
+combined_data <- NULL
+for (row in 1:nrow(combined_data_proteomics)) {
+  if (any(grepl(combined_data_proteomics[row,][12], 
+                combined_data_transc$unique_name))) {
+    rows2add <- combined_data_transc[combined_data_transc$unique_name == as.character(combined_data_proteomics[row,][12]),]
+    combined_data <- rbind(combined_data, combined_data_proteomics[row,],
+                           rows2add)
+  }
+}
+combined_data <- unique(combined_data)
 
-ggplot(combined_data, aes())
+to_plot <- subset(combined_data, orthogroup == "OG0000000")
+to_plot$annotation <- sub(' isoform[^,]*,?', '', to_plot$annotation)
+to_plot$annotation <- sub(' partial', '', to_plot$annotation)
+to_plot$annotation <- sub('PREDICTED: ', '', to_plot$annotation)
+to_plot$annotation <- sub('-like', '', to_plot$annotation)
+to_plot$all_labels <- sprintf("%s\n%s, %s|%s", to_plot$species,
+                              to_plot$annotation, to_plot$hsp70_type,
+                              to_plot$protein_group)
 
+to_plot_ecy <- subset(to_plot, species == 'Ecy')
+to_plot_eve <- subset(to_plot, species == 'Eve')
+to_plot_gla <- subset(to_plot, species == 'Gla')
 
+plot_target_proteins <- function(to_plot){
+  f <- function(x) {
+    sapply(strsplit(x, '|', fixed=T), `[`, 1)
+  }
+  ggplot(to_plot, aes(x = method, y = values, color = condition)) +
+  geom_point(position=position_jitterdodge(dodge.width=.8)) +
+  geom_boxplot(aes(fill = condition), outlier.alpha = 0, alpha = 0.4) +
+  facet_wrap(~all_labels, labeller = as_labeller(f), nrow = 1) +
+  theme_bw()
+}
 
+(ecy_plot <- plot_target_proteins(to_plot_ecy))
+(eve_plot <- plot_target_proteins(to_plot_eve))
+(gla_plot <- plot_target_proteins(to_plot_gla))
+
+ggarrange(eve_plot, gla_plot, ecy_plot, nrow = 3, widths = c(5, 4 ,1)) 
+
+library(cowplot)
+plot_grid(eve_plot, gla_plot, ecy_plot, ncol = 1, rel_widths = c(5, 4, 1))
+
+ggdraw() +
+  draw_plot(eve_plot, 0, .66, 1, .33) +
+  draw_plot(gla_plot, 0, .33, 0.85, .33) +
+  draw_plot(ecy_plot, 0, 0, 0.3, .33)
+
+library(ggh4x)
+f <- function(x) {
+  sapply(strsplit(x, '|', fixed=T), `[`, 1)
+}
+ggplot(to_plot, aes(x = method, y = values, color = condition)) +
+  geom_point(position=position_jitterdodge(dodge.width=.8)) +
+  geom_boxplot(aes(fill = condition), outlier.alpha = 0, alpha = 0.4) +
+  facet_nested_wrap(species ~ all_labels, labeller = as_labeller(f)) +
+  theme_bw()
+
+ggplot(to_plot, aes(x = method, y = values, color = condition)) +
+  geom_point(position=position_jitterdodge(dodge.width=.8)) +
+  geom_boxplot(aes(fill = condition), outlier.alpha = 0, alpha = 0.4) +
+  facet_wrap(species ~ all_labels, labeller = as_labeller(f)) +
+  force_panelsizes(respect = T) +
+  theme_bw()
 
 
