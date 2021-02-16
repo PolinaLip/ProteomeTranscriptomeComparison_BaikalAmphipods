@@ -4,8 +4,10 @@ library(ggplot2)
 # Proteomics
 #############################
 
+### 1. Upload the info table from sum_orthoinfo.py
 target_info <- read.csv('~/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes/orthologues_hsps_sum_updated.tsv',
                       sep = '\t') 
+### 2. Upload intensities tables (after normalization) and scale it:
 eve_intensities <- read.table('~/labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_eve/intensities_after_slNorm_eve.csv', 
                               header = T)
 ecy_intensities <- read.table('~/labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_ecy/intensities_after_slNorm_ecy.csv', 
@@ -26,11 +28,13 @@ eve_intensities <- data_prep(eve_intensities)
 ecy_intensities <- data_prep(ecy_intensities)
 gla_intensities <- data_prep(gla_intensities)
 
+### 3. Upload meta file:
 meta <- read.csv(file = 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/Metadata_Proteus.tsv',
                  sep = '\t')
 meta$condition <- ifelse(grepl('CK1|CK2|VrK1|VrK2|LK1|LK2', meta$sample), 
                          '6C', '24C')
 
+### 4. Connect the intensities tables and info table:
 connect_intens_and_info <- function(row_with_info, intens_data){
   new_df <- NULL
   pg_name <- row_with_info[2]
@@ -47,31 +51,33 @@ connect_intens_and_info <- function(row_with_info, intens_data){
   return(new_df)
 }
 
-combined_data <- NULL
+combined_data_proteomics <- NULL
 for (row in 1:nrow(target_info)) {
   if (target_info[row, 'species'] == 'Ecy'){
-    combined_data <- 
-      rbind(combined_data,
+    combined_data_proteomics <- 
+      rbind(combined_data_proteomics,
         connect_intens_and_info(target_info[row,], ecy_intensities))
   }  
   else if (target_info[row, 'species'] == 'Eve') {
-    combined_data <- 
-      rbind(combined_data,
+    combined_data_proteomics <- 
+      rbind(combined_data_proteomics,
             connect_intens_and_info(target_info[row,], eve_intensities))
   }
   else if (target_info[row, 'species'] == 'Gla') {
-    combined_data <- 
-      rbind(combined_data,
+    combined_data_proteomics <- 
+      rbind(combined_data_proteomics,
             connect_intens_and_info(target_info[row,], gla_intensities))
   }
 }
 
-colnames(combined_data)[7] <- 'intensities'
-colnames(combined_data)[8] <- 'sample'
-combined_data$condition <- ifelse(grepl('CK1|CK2|VrK1|VrK2|LK1|LK2', combined_data$sample), 
-                    '6C', '24C')
+colnames(combined_data_proteomics)[8] <- 'intensities'
+colnames(combined_data_proteomics)[9] <- 'sample'
+combined_data_proteomics$condition <- ifelse(grepl('CK1|CK2|VrK1|VrK2|LK1|LK2', 
+                                             combined_data_proteomics$sample), 
+                                             '6C', '24C')
 
-to_plot <- subset(combined_data, orthogroup == 'OG0000022')
+### 5. Plot the intensities of the found proteins:
+to_plot <- subset(combined_data_proteomics, orthogroup == 'OG0000022')
 to_plot$annotation <- sub(' isoform[^,]*,?', '', to_plot$annotation)
 to_plot$annotation <- sub(' partial', '', to_plot$annotation)
 to_plot$annotation <- sub('PREDICTED: ', '', to_plot$annotation)
@@ -119,14 +125,15 @@ ggsave('~/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes/og19.pdf',
 ###########################################
 # Transcriptomics
 ###########################################
+
+### 1. Choose the species:
 species <- 'Ecy'
 species <- 'Eve'
 species <- 'Gla'
 
+### 2. Upload counts table from quantification of transcriptomic data
 dir <- paste0('~/labeglo2/Transcriptomics/quantification/HS_exp_labeglo1/', 
               species, '/counts') # specify path to your samples
-current_dir <- paste0('~/labeglo2/Transcriptomics/quantification/HS_exp_labeglo1/',
-                      species)
 
 countFiles <- list.files(dir, full.names = T)
 countFiles
@@ -135,7 +142,8 @@ counts <- lapply(countFiles, function(countsFile) {
   read.table(f, sep="\t", header=1, row.names = 1, 
              stringsAsFactors = F, comment.char = "#")
 })
-counts <- lapply(counts, function(countsTable) countsTable[, 4, drop=F])
+### 3. Take TPMs (before I took NumReads, but here is better to take normalized data)
+counts <- lapply(counts, function(countsTable) countsTable[, 3, drop=F])
 
 counts <- do.call(cbind, counts)
 sample_names <- c('24C_rep1', '24C_rep2', '24C_rep3', '24C_rep4',
@@ -144,10 +152,12 @@ sample_names <- c('24C_rep1', '24C_rep2', '24C_rep3',
                   '6C_rep1', '6C_rep2', '6C_rep3', '6C_rep4') # Gla
 colnames(counts) <- sample_names
 
+# Need to be write properly (not to repeat every time)
 counts_ecy <- counts
 counts_eve <- counts
 counts_gla <- counts
 
+### 4. Prepare counts and scale the data:
 data_prep_counts <- function(data_counts){
   data_counts_scaled <- apply(data_counts, 1, scale)
   data_counts_scaled <- t(data_counts_scaled)
@@ -159,6 +169,7 @@ counts_ecy <- data_prep_counts(counts_ecy)
 counts_eve <- data_prep_counts(counts_eve)
 counts_gla <- data_prep_counts(counts_gla)
 
+### 5. Connect counts and the info table:
 connect_counts_and_info <- function(row_with_info, counts_data, species_name){
   new_df <- NULL
   if (grepl(species_name, row_with_info[1]) == TRUE) {
@@ -198,11 +209,12 @@ for (row in 1:nrow(target_info)) {
   }
 }
 
-colnames(combined_data_transc)[7] <- 'counts'
-colnames(combined_data_transc)[8] <- 'sample'
+colnames(combined_data_transc)[8] <- 'counts'
+colnames(combined_data_transc)[9] <- 'sample'
 combined_data_transc$condition <- ifelse(grepl('6C', combined_data_transc$sample), 
                                   '6C', '24C')
 
+### 6. Plot the counts of the found target proteins:
 to_plot <- subset(combined_data_transc, orthogroup == 'OG0000007')
 to_plot$annotation <- sub(' isoform[^,]*,?', '', to_plot$annotation)
 to_plot$annotation <- sub(' partial', '', to_plot$annotation)
@@ -249,4 +261,21 @@ ggsave(file.path(dir_to_save, 'og7.pdf'),
 # og7 - width = 9, height = 2.5, strip.text = element_text(size=6)
 # og11, og13, og15, og16 -  width = 9, height = 2.7
 # og19 - width = 6, height = 2.7, strip.text = element_text(size=7)
+
+#################################
+# Proteomics + Transcriptomics
+#################################
+colnames(combined_data_proteomics) <- c(colnames(combined_data_proteomics)[1:7],
+                                        "values", 
+                                        colnames(combined_data_proteomics)[9:10])
+colnames(combined_data_transc) <- c(colnames(combined_data_transc)[1:7],
+                                        "values", 
+                                        colnames(combined_data_transc)[9:10])
+combined_data <- rbind(combined_data_proteomics, combined_data_transc)
+
+ggplot(combined_data, aes())
+
+
+
+
 
