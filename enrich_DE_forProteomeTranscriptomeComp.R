@@ -49,6 +49,12 @@ proteins_long$protein_clip[proteins_long$protein_clip ==
   'NODE_13617_length_2140_cov_215.235294_g8884_i0'
 
 
+###### Hsps
+### HSPA1A-inducible for Ecy
+# the similarity is 98.27% with the original Eve variant
+target_info$protein[target_info$protein ==
+                    'NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve'] <- 
+  'NODE_5378_length_3701_cov_2676.348850_g3383_i0.p1_Ecy'
 
 
 

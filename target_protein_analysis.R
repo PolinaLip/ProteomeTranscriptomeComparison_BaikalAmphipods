@@ -79,7 +79,7 @@ combined_data_proteomics$condition <- ifelse(grepl('CK1|CK2|VrK1|VrK2|LK1|LK2',
                                              '6C', '24C')
 
 ### 5. Plot the intensities of the found proteins:
-to_plot <- subset(combined_data_proteomics, orthogroup == 'OG0000022')
+to_plot <- subset(combined_data_proteomics, orthogroup == 'OG0000002')
 to_plot$annotation <- sub(' isoform[^,]*,?', '', to_plot$annotation)
 to_plot$annotation <- sub(' partial', '', to_plot$annotation)
 to_plot$annotation <- sub('PREDICTED: ', '', to_plot$annotation)
@@ -217,7 +217,7 @@ combined_data_transc$condition <- ifelse(grepl('6C', combined_data_transc$sample
                                   '6C', '24C')
 
 ### 6. Plot the counts of the found target proteins:
-to_plot <- subset(combined_data_transc, orthogroup == 'OG0000007')
+to_plot <- subset(combined_data_transc, orthogroup == 'OG0000002')
 to_plot$annotation <- sub(' isoform[^,]*,?', '', to_plot$annotation)
 to_plot$annotation <- sub(' partial', '', to_plot$annotation)
 to_plot$annotation <- sub('PREDICTED: ', '', to_plot$annotation)
@@ -293,7 +293,7 @@ for (row in 1:nrow(combined_data_proteomics)) {
 }
 combined_data <- unique(combined_data)
 
-to_plot <- subset(combined_data, orthogroup == "OG0000000")
+to_plot <- subset(combined_data, orthogroup == "OG0000002")
 to_plot$annotation <- sub(' isoform[^,]*,?', '', to_plot$annotation)
 to_plot$annotation <- sub(' partial', '', to_plot$annotation)
 to_plot$annotation <- sub('PREDICTED: ', '', to_plot$annotation)
@@ -399,7 +399,7 @@ combined_data$sign2plot <-
                 ifelse(combined_data$FDR_recalc > 0.05 & combined_data$method == 'MS/MS',
                                  '> 0.05', '< 0.05')))
 
-to_plot <- subset(combined_data, orthogroup == "OG0000007")
+to_plot <- subset(combined_data, orthogroup == "OG0000002")
 to_plot$annotation <- sub(' isoform[^,]*,?', '', to_plot$annotation)
 to_plot$annotation <- sub(' partial', '', to_plot$annotation)
 to_plot$annotation <- sub('PREDICTED: ', '', to_plot$annotation)
@@ -436,22 +436,22 @@ ggplot(to_plot, aes(x = method, y = values, color = condition)) +
   facet_nested_wrap(species_italic ~ all_labels, 
                     labeller = labeller(all_labels = as_labeller(f), 
                                         species_italic = label_parsed), 
-                    scales = 'free', ncol = 5) +
+                    scales = 'free', ncol = 4) +
   scale_color_manual('Condition:', values = c('#ca0020', '#0571b0')) +
   scale_fill_manual('Condition:', values = c('#ca0020', '#0571b0')) +
   scale_linetype('adj. p-value:') +
   xlab('') +
   ylab('Scaled absolute values') +
-  theme_bw() +
-  theme(strip.text = element_text(size=5.5))
+  theme_bw() 
+#  theme(strip.text = element_text(size=5.5))
 
 dir_to_save <- '/home/polina/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes'
-ggsave(file.path(dir_to_save, 'og7_proteinsWITHtranscripts.png'),
+ggsave(file.path(dir_to_save, 'og2_proteinsWITHtranscripts.png'),
        #scale = 1.2) 
-       width = 8, height = 3)
-ggsave(file.path(dir_to_save, 'og7_proteinsWITHtranscripts.pdf'),
+       width = 10, height = 5)
+ggsave(file.path(dir_to_save, 'og2_proteinsWITHtranscripts.pdf'),
        #scale = 1.2)
-       width = 9, height = 3)
+       width = 10.2, height = 5)
 # og0, og1 - width = 10, height = 5
 # og2 - width = 8, height = 5
 # og11, og5, og13, og16, og15 - width = 8, height = 3
