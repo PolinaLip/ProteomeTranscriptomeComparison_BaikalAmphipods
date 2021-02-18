@@ -5,7 +5,7 @@ library(ggrepel)
 library(rstatix)
 library(stringr)
 
-species <- 'Gla'
+species <- 'Eve'
 dir <- '~/labeglo2/proteome_transcr_comparision'
 transcr <- 
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species, '_transcr_24vs6_all.csv'), 
@@ -154,7 +154,7 @@ combined_data$method <- ifelse(grepl('rep', combined_data$sample),
                                'RNAseq', 'MS/MS')
 combined_data$geneSymbol <- sub('PREDICTED: ', '', combined_data$geneSymbol)
 combined_data$geneSymbol <- sub('-like', '', combined_data$geneSymbol)
-var_width <- 35
+var_width <- 25
 combined_data <- mutate(combined_data, 
                         pretty_varname = str_wrap(combined_data$geneSymbol, 
                                                   width = var_width))
@@ -172,12 +172,12 @@ combined_data_down <- subset(combined_data, logFC < 0)
 f <- function(x) {
   sapply(strsplit(x, '|', fixed=T), `[`, 2)
 }
-ggplot(combined_data, aes(x = method, y = values, color = condition)) +
+ggplot(combined_data_down, aes(x = method, y = values, color = condition)) +
   geom_point(position=position_jitterdodge(dodge.width=1)) +
   geom_boxplot(aes(fill = condition, 
                    linetype = sign2plot), 
                outlier.alpha = 0, alpha = 0.4) +
-  facet_wrap(~all_labels, labeller = as_labeller(f), ncol = 4) +
+  facet_wrap(~all_labels, labeller = as_labeller(f), ncol = 7) +
   scale_linetype('adj. p-value:') +
   scale_color_manual('Condition:', values = c('#ca0020', '#0571b0')) +
   scale_fill_manual('Condition:', values = c('#ca0020', '#0571b0')) +
@@ -188,13 +188,13 @@ ggplot(combined_data, aes(x = method, y = values, color = condition)) +
 
 dir_to_save <- '~/labeglo2/proteome_transcr_comparision/'
 ggsave(file.path(dir_to_save, paste0(tolower(species), 
-                                     '_DEproteinsWITHtranscripts.png')),
+                                     '_downDEproteinsWITHtranscripts.png')),
        #scale = 1.2) 
-       width = 10.5, height = 4)
+       width = 13, height = 7)
 ggsave(file.path(dir_to_save, paste0(tolower(species), 
-                                     '_DEproteinsWITHtranscripts.pdf')),
+                                     '_downDEproteinsWITHtranscripts.pdf')),
        #scale = 1.2)
-       width = 10.8, height = 4)
+       width = 13.5, height = 7)
 # Ecy: width = 10.5, height = 7
 # Gla: width = 8, height = 4
 # Eve: width = 12.5, height = 7
