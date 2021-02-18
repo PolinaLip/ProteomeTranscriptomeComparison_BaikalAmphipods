@@ -7,7 +7,7 @@ library(limma)
 library(edgeR)
 library(ggfortify) 
 
-species <- 'Eve'
+species <- 'Ecy'
 
 ### 1. Upload metafile
 meta_upload <- function(path_to_file, species_name) {
@@ -33,7 +33,7 @@ dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_gla/'
 proteinGroups_file <- 'proteinGroups_wo_cont_more2pept.txt' # take file with proteinGroups with 2 or more peptides quantified
 dat_init <- read.csv(file.path(dir, proteinGroups_file), sep = '\t', header = T, 
                      check.names = F) 
-pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_eve.csv'), sep = '\t',
+pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_ecy.csv'), sep = '\t',
                       header = T)
 
 select_data <- function(meta_data, proteinGroups_data){
@@ -172,7 +172,7 @@ data_irs <- data_sl_mult # for PSM-normalized data
 data_sl_mult$protein_group <- row.names(data_sl_mult)
 data_sl_mult_ <- data.frame(protein_group = data_sl_mult$protein_group, 
                             data_sl_mult[1:length(data_sl_mult)-1])
-write.table(data_sl_mult_, file.path(dir, 'intensities_after_slNorm_gla.csv'), 
+write.table(data_sl_mult_, file.path(dir, 'intensities_after_slNorm_ecy.csv'), 
             sep = '\t', quote = F, row.names = F)
 
 #########
@@ -387,7 +387,8 @@ nrow(subset(SPI_all_sign, logFC > 0)) # UP
 nrow(subset(SPI_all_sign, logFC < 0)) # DOWN
 
 write.table(SPI_all, 
-            file = file.path('~/labeglo2/proteome_transcr_comparision/Eve_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv'),
+            file = file.path(paste0('~/labeglo2/proteome_transcr_comparision/',
+                                    species, '_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv')),
             sep = '\t', quote = F, row.names = F)
 
 ########################################

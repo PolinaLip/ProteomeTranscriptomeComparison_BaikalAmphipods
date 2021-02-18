@@ -3,8 +3,9 @@ library(tidyr)
 library(ggplot2)
 library(ggrepel)
 library(rstatix)
+library(stringr)
 
-species <- 'Eve'
+species <- 'Gla'
 dir <- '~/labeglo2/proteome_transcr_comparision'
 transcr <- 
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species, '_transcr_24vs6_all.csv'), 
@@ -30,6 +31,7 @@ length(unique(proteins_long$protein_clip))
 proteins_long <- group_by(proteins_long, protein_clip) %>%
   slice_min(pvalue, n = 1, with_ties = F)
 
+# here enrich_DE_forProteomeTranscriptomeComp.R can be run
 joined <- inner_join(transcr, proteins_long, by = c('contig' = 'protein_clip'))
 
 joined_clip <- joined[c(1, 3, 6, 7, 8, 9, 11, 12, 13)]
@@ -59,8 +61,11 @@ joined_clip_merged <- joined_clip %>%
 
 ### Connect joined data with intensities (proteome) and counts (transcriptome) data
 # 1. Intensities
-intensities <- read.table('~/labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_eve/intensities_after_slNorm_eve.csv', 
-                          header = T)
+intensities <- 
+  read.table(paste0('~/labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_', 
+                    tolower(species),'/intensities_after_slNorm_', 
+                    tolower(species),'.csv'), 
+            header = T)
 data_prep <- function(data_intensities){
   row.names(data_intensities) <- data_intensities$protein_group
   data_intensities <- data_intensities[-1]
@@ -117,7 +122,6 @@ connect_info <- function(row_with_info, intens_data, counts_data){
       new_row[[length(new_row) + 1]] <- list_with_values[el]
       new_row[[length(new_row) + 1]] <- names(list_with_values[el])
       df2update <- rbind(df2update, new_row)
-      
     }
     return(df2update)
   }
@@ -168,12 +172,12 @@ combined_data_down <- subset(combined_data, logFC < 0)
 f <- function(x) {
   sapply(strsplit(x, '|', fixed=T), `[`, 2)
 }
-ggplot(combined_data_down, aes(x = method, y = values, color = condition)) +
+ggplot(combined_data, aes(x = method, y = values, color = condition)) +
   geom_point(position=position_jitterdodge(dodge.width=1)) +
   geom_boxplot(aes(fill = condition, 
                    linetype = sign2plot), 
                outlier.alpha = 0, alpha = 0.4) +
-  facet_wrap(~all_labels, labeller = as_labeller(f)) +
+  facet_wrap(~all_labels, labeller = as_labeller(f), ncol = 4) +
   scale_linetype('adj. p-value:') +
   scale_color_manual('Condition:', values = c('#ca0020', '#0571b0')) +
   scale_fill_manual('Condition:', values = c('#ca0020', '#0571b0')) +
@@ -183,12 +187,14 @@ ggplot(combined_data_down, aes(x = method, y = values, color = condition)) +
   theme()
 
 dir_to_save <- '~/labeglo2/proteome_transcr_comparision/'
-ggsave(file.path(dir_to_save, 'eve_downDEproteinsWITHtranscripts.png'),
+ggsave(file.path(dir_to_save, paste0(tolower(species), 
+                                     '_DEproteinsWITHtranscripts.png')),
        #scale = 1.2) 
-       width = 13, height = 7)
-ggsave(file.path(dir_to_save, 'eve_downDEproteinsWITHtranscripts.pdf'),
+       width = 10.5, height = 4)
+ggsave(file.path(dir_to_save, paste0(tolower(species), 
+                                     '_DEproteinsWITHtranscripts.pdf')),
        #scale = 1.2)
-       width = 13.3, height = 7)
+       width = 10.8, height = 4)
 # Ecy: width = 10.5, height = 7
 # Gla: width = 8, height = 4
 # Eve: width = 12.5, height = 7

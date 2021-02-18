@@ -1,5 +1,6 @@
 library(ggplot2)
 library(ggpubr)
+library(ggh4x)
 
 #############################
 # Proteomics
@@ -297,9 +298,9 @@ to_plot$annotation <- sub(' isoform[^,]*,?', '', to_plot$annotation)
 to_plot$annotation <- sub(' partial', '', to_plot$annotation)
 to_plot$annotation <- sub('PREDICTED: ', '', to_plot$annotation)
 to_plot$annotation <- sub('-like', '', to_plot$annotation)
-to_plot$all_labels <- sprintf("%s\n%s, %s|%s", to_plot$species,
-                              to_plot$annotation, to_plot$hsp70_type,
-                              to_plot$protein_group)
+to_plot$all_labels <- sprintf("%s%s|%s, %s",
+                              to_plot$species, to_plot$protein_group,
+                              to_plot$annotation, to_plot$hsp70_type)
 
 to_plot_ecy <- subset(to_plot, species == 'Ecy')
 to_plot_eve <- subset(to_plot, species == 'Eve')
@@ -332,19 +333,126 @@ ggdraw() +
 
 library(ggh4x)
 f <- function(x) {
-  sapply(strsplit(x, '|', fixed=T), `[`, 1)
+  sapply(strsplit(x, '|', fixed=T), `[`, 2)
 }
+to_plot$species <- factor(to_plot$species, levels = c('Eve', 'Gla', 'Ecy'), 
+                          labels = c('E.verrucosus', 'G.lacustris', 
+                                     'E.cyaneus'))
+to_plot$species_italic <- sprintf('italic(%s)', to_plot$species)
+to_plot$species_italic <- factor(to_plot$species_italic, 
+                                 levels = c('italic(E.verrucosus)', 
+                                            'italic(G.lacustris)', 
+                                            'italic(E.cyaneus)'))
+  
 ggplot(to_plot, aes(x = method, y = values, color = condition)) +
   geom_point(position=position_jitterdodge(dodge.width=.8)) +
   geom_boxplot(aes(fill = condition), outlier.alpha = 0, alpha = 0.4) +
-  facet_nested_wrap(species ~ all_labels, labeller = as_labeller(f)) +
+  facet_nested_wrap(species_italic ~ all_labels, 
+                    labeller = labeller(all_labels = as_labeller(f), 
+                                        species_italic = label_parsed), 
+                    nrow = 2, scales = 'free') +
+  scale_color_manual('Condition:', values = c('#ca0020', '#0571b0')) +
+  scale_fill_manual('Condition:', values = c('#ca0020', '#0571b0')) +
+  xlab('') +
+  ylab('Scaled absolute values') +
   theme_bw()
 
+### To add information about significance of the difference
+total_transc <- NULL
+total_proteins <- NULL
+all_species <- c('Eve', 'Ecy', 'Gla')
+for (species in 1:length(all_species)) {
+  sp <- all_species[species]
+  transcr <- 
+    read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', 
+                    sp, '_transcr_24vs6_all.csv'), sep = '\t')
+  transcr$unique_name <- paste0(transcr$contig, '_', sp)
+  total_transc <- rbind(total_transc, transcr)
+  proteins <- 
+    read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', 
+                    sp, 
+                    '_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv'),
+                    sep = '\t', header = T)
+  proteins$unique_name <- paste0(proteins$protein, '_', sp)
+  total_proteins <- rbind(total_proteins, proteins)
+}
+
+combined_data$pg_unique_name <- paste0(combined_data$protein_group, '_', 
+                                       combined_data$species)
+combined_data$contig_unique_name <- sub('\\.p[1-9]*_...$', '', 
+                                        combined_data$protein)
+combined_data$contig_unique_name <- paste0(combined_data$contig_unique_name, '_', 
+                                       combined_data$species)
+
+combined_data <- cbind(combined_data,
+                       total_proteins[match(combined_data$pg_unique_name, total_proteins$unique_name),][6])
+combined_data <- cbind(combined_data, 
+                       total_transc[match(combined_data$contig_unique_name, total_transc$unique_name),][6])
+
+total_proteins[total_proteins$protein == 'NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla',]
+
+combined_data$sign2plot <- 
+  ifelse(combined_data$FDR_recalc < 0.05 & combined_data$padj < 0.05,
+         '< 0.05', 
+         ifelse(combined_data$padj > 0.05 & combined_data$method == 'RNAseq',
+                '> 0.05', 
+                ifelse(combined_data$FDR_recalc > 0.05 & combined_data$method == 'MS/MS',
+                                 '> 0.05', '< 0.05')))
+
+to_plot <- subset(combined_data, orthogroup == "OG0000007")
+to_plot$annotation <- sub(' isoform[^,]*,?', '', to_plot$annotation)
+to_plot$annotation <- sub(' partial', '', to_plot$annotation)
+to_plot$annotation <- sub('PREDICTED: ', '', to_plot$annotation)
+to_plot$annotation <- sub('-like', '', to_plot$annotation)
+to_plot$all_labels <- sprintf("%s%s|%s, %s",
+                              to_plot$species, to_plot$protein_group,
+                              to_plot$annotation, to_plot$hsp70_type)
+f <- function(x) {
+  sapply(strsplit(x, '|', fixed=T), `[`, 2)
+}
+to_plot$species <- factor(to_plot$species, levels = c('Eve', 'Gla', 'Ecy'), 
+                          labels = c('E.verrucosus', 'G.lacustris', 
+                                     'E.cyaneus'))
+to_plot$species_italic <- sprintf('italic(%s)', to_plot$species)
+to_plot$species_italic <- factor(to_plot$species_italic, 
+                                 levels = c('italic(E.verrucosus)', 
+                                            'italic(G.lacustris)', 
+                                            'italic(E.cyaneus)'))
+
+to_plot <- na.omit(to_plot)
+to_plot$condition <- factor(to_plot$condition, levels = c('24C', '6C'),
+                            labels = c('24 °C', '6 °C'))
+to_plot$species_italic <- factor(to_plot$species_italic,
+                                 levels = c('italic(E.cyaneus)',
+                                            'italic(E.verrucosus)',
+                                            'italic(G.lacustris)'))
+##### if do not want ', *' in the end of annotations:
+to_plot$all_labels <- sub(', \\*', '', to_plot$all_labels)
+#####
 ggplot(to_plot, aes(x = method, y = values, color = condition)) +
   geom_point(position=position_jitterdodge(dodge.width=.8)) +
-  geom_boxplot(aes(fill = condition), outlier.alpha = 0, alpha = 0.4) +
-  facet_wrap(species ~ all_labels, labeller = as_labeller(f)) +
-  force_panelsizes(respect = T) +
-  theme_bw()
+  geom_boxplot(aes(fill = condition,
+                   linetype = sign2plot), outlier.alpha = 0, alpha = 0.4) +
+  facet_nested_wrap(species_italic ~ all_labels, 
+                    labeller = labeller(all_labels = as_labeller(f), 
+                                        species_italic = label_parsed), 
+                    scales = 'free', ncol = 5) +
+  scale_color_manual('Condition:', values = c('#ca0020', '#0571b0')) +
+  scale_fill_manual('Condition:', values = c('#ca0020', '#0571b0')) +
+  scale_linetype('adj. p-value:') +
+  xlab('') +
+  ylab('Scaled absolute values') +
+  theme_bw() +
+  theme(strip.text = element_text(size=5.5))
 
+dir_to_save <- '/home/polina/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes'
+ggsave(file.path(dir_to_save, 'og7_proteinsWITHtranscripts.png'),
+       #scale = 1.2) 
+       width = 8, height = 3)
+ggsave(file.path(dir_to_save, 'og7_proteinsWITHtranscripts.pdf'),
+       #scale = 1.2)
+       width = 9, height = 3)
+# og0, og1 - width = 10, height = 5
+# og2 - width = 8, height = 5
+# og11, og5, og13, og16, og15 - width = 8, height = 3
 
