@@ -174,9 +174,10 @@ counts_gla <- data_prep_counts(counts_gla)
 ### 5. Connect counts and the info table:
 connect_counts_and_info <- function(row_with_info, counts_data, species_name){
   new_df <- NULL
-  if (grepl(species_name, row_with_info[1]) == TRUE) {
-    contig_name <- sub(paste0('_', species_name), '', row_with_info[1])
-    contig_name <- sub('.p[1-9]*', '', contig_name)
+#  if (grepl(species_name, row_with_info[1]) == TRUE) {
+    #contig_name <- sub(paste0('_', species_name), '', row_with_info[1])
+    #contig_name <- sub('.p[1-9]*', '', contig_name)
+    contig_name <- sub('.p[1-9]*_...$', '', row_with_info[1])
     counts_list <- 
       counts_data[row.names(counts_data) == as.character(contig_name),]
     for (el in 1:length(counts_list)){
@@ -188,7 +189,7 @@ connect_counts_and_info <- function(row_with_info, counts_data, species_name){
       new_row[[length(new_row) + 1]] <- names(counts_list[el])
       new_df <- rbind(new_df, new_row)
     }
-  }
+#  }
   return(new_df)
 }
 
@@ -293,7 +294,7 @@ for (row in 1:nrow(combined_data_proteomics)) {
 }
 combined_data <- unique(combined_data)
 
-to_plot <- subset(combined_data, orthogroup == "OG0000002")
+to_plot <- subset(combined_data, orthogroup == "OG0000000")
 to_plot$annotation <- sub(' isoform[^,]*,?', '', to_plot$annotation)
 to_plot$annotation <- sub(' partial', '', to_plot$annotation)
 to_plot$annotation <- sub('PREDICTED: ', '', to_plot$annotation)
@@ -302,36 +303,6 @@ to_plot$all_labels <- sprintf("%s%s|%s, %s",
                               to_plot$species, to_plot$protein_group,
                               to_plot$annotation, to_plot$hsp70_type)
 
-to_plot_ecy <- subset(to_plot, species == 'Ecy')
-to_plot_eve <- subset(to_plot, species == 'Eve')
-to_plot_gla <- subset(to_plot, species == 'Gla')
-
-plot_target_proteins <- function(to_plot){
-  f <- function(x) {
-    sapply(strsplit(x, '|', fixed=T), `[`, 1)
-  }
-  ggplot(to_plot, aes(x = method, y = values, color = condition)) +
-  geom_point(position=position_jitterdodge(dodge.width=.8)) +
-  geom_boxplot(aes(fill = condition), outlier.alpha = 0, alpha = 0.4) +
-  facet_wrap(~all_labels, labeller = as_labeller(f), nrow = 1) +
-  theme_bw()
-}
-
-(ecy_plot <- plot_target_proteins(to_plot_ecy))
-(eve_plot <- plot_target_proteins(to_plot_eve))
-(gla_plot <- plot_target_proteins(to_plot_gla))
-
-ggarrange(eve_plot, gla_plot, ecy_plot, nrow = 3, widths = c(5, 4 ,1)) 
-
-library(cowplot)
-plot_grid(eve_plot, gla_plot, ecy_plot, ncol = 1, rel_widths = c(5, 4, 1))
-
-ggdraw() +
-  draw_plot(eve_plot, 0, .66, 1, .33) +
-  draw_plot(gla_plot, 0, .33, 0.85, .33) +
-  draw_plot(ecy_plot, 0, 0, 0.3, .33)
-
-library(ggh4x)
 f <- function(x) {
   sapply(strsplit(x, '|', fixed=T), `[`, 2)
 }
@@ -398,15 +369,23 @@ combined_data$sign2plot <-
                 '> 0.05', 
                 ifelse(combined_data$FDR_recalc > 0.05 & combined_data$method == 'MS/MS',
                                  '> 0.05', '< 0.05')))
-
-to_plot <- subset(combined_data, orthogroup == "OG0000002")
+combined_data$method <- factor(combined_data$method, 
+                               levels = c('RNAseq', 'MS/MS'))
+to_plot <- subset(combined_data, orthogroup == "OG0000007")
 to_plot$annotation <- sub(' isoform[^,]*,?', '', to_plot$annotation)
 to_plot$annotation <- sub(' partial', '', to_plot$annotation)
 to_plot$annotation <- sub('PREDICTED: ', '', to_plot$annotation)
 to_plot$annotation <- sub('-like', '', to_plot$annotation)
+var_width <- 20
+to_plot <- mutate(to_plot, 
+                  pretty_varname = str_wrap(to_plot$annotation, 
+                                              width = var_width))
 to_plot$all_labels <- sprintf("%s%s|%s, %s",
                               to_plot$species, to_plot$protein_group,
-                              to_plot$annotation, to_plot$hsp70_type)
+                              to_plot$pretty_varname, to_plot$hsp70_type)
+#to_plot$all_labels <- sprintf("%s%s|%s, %s",
+#                              to_plot$species, to_plot$protein_group,
+#                              to_plot$annotation, to_plot$hsp70_type)
 f <- function(x) {
   sapply(strsplit(x, '|', fixed=T), `[`, 2)
 }
@@ -414,10 +393,6 @@ to_plot$species <- factor(to_plot$species, levels = c('Eve', 'Gla', 'Ecy'),
                           labels = c('E.verrucosus', 'G.lacustris', 
                                      'E.cyaneus'))
 to_plot$species_italic <- sprintf('italic(%s)', to_plot$species)
-to_plot$species_italic <- factor(to_plot$species_italic, 
-                                 levels = c('italic(E.verrucosus)', 
-                                            'italic(G.lacustris)', 
-                                            'italic(E.cyaneus)'))
 
 to_plot <- na.omit(to_plot)
 to_plot$condition <- factor(to_plot$condition, levels = c('24C', '6C'),
@@ -426,6 +401,10 @@ to_plot$species_italic <- factor(to_plot$species_italic,
                                  levels = c('italic(E.cyaneus)',
                                             'italic(E.verrucosus)',
                                             'italic(G.lacustris)'))
+to_plot$species_italic <- factor(to_plot$species_italic,
+                                 levels = c('italic(E.verrucosus)',
+                                            'italic(G.lacustris)',
+                                            'italic(E.cyaneus)'))
 ##### if do not want ', *' in the end of annotations:
 to_plot$all_labels <- sub(', \\*', '', to_plot$all_labels)
 #####
@@ -436,7 +415,7 @@ ggplot(to_plot, aes(x = method, y = values, color = condition)) +
   facet_nested_wrap(species_italic ~ all_labels, 
                     labeller = labeller(all_labels = as_labeller(f), 
                                         species_italic = label_parsed), 
-                    scales = 'free', ncol = 4) +
+                    scales = 'free', ncol = 5) +
   scale_color_manual('Condition:', values = c('#ca0020', '#0571b0')) +
   scale_fill_manual('Condition:', values = c('#ca0020', '#0571b0')) +
   scale_linetype('adj. p-value:') +
@@ -446,12 +425,12 @@ ggplot(to_plot, aes(x = method, y = values, color = condition)) +
 #  theme(strip.text = element_text(size=5.5))
 
 dir_to_save <- '/home/polina/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes'
-ggsave(file.path(dir_to_save, 'og2_proteinsWITHtranscripts.png'),
+ggsave(file.path(dir_to_save, 'og7_proteinsWITHtranscripts.png'),
        #scale = 1.2) 
-       width = 10, height = 5)
-ggsave(file.path(dir_to_save, 'og2_proteinsWITHtranscripts.pdf'),
+       width = 8, height = 3.5)
+ggsave(file.path(dir_to_save, 'og7_proteinsWITHtranscripts.pdf'),
        #scale = 1.2)
-       width = 10.2, height = 5)
+       width = 8.3, height = 3.5)
 # og0, og1 - width = 10, height = 5
 # og2 - width = 8, height = 5
 # og11, og5, og13, og16, og15 - width = 8, height = 3

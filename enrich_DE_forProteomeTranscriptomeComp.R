@@ -4,7 +4,7 @@
 proteins_long$protein_clip[proteins_long$protein_clip == 
                              'NODE_4259_length_3812_cov_87.630880_g2442_i0'] <- 
   'NODE_13910_length_2189_cov_1646.189252_g8989_i0'
-# Then proceed in signDEprot_with_RNAseqData.R
+# Then proceed with signDEprot_with_RNAseqData.R
 
 ### 14-3-3zeta protein for Gla
 proteins_long$protein_clip[proteins_long$protein_clip == 
@@ -51,10 +51,9 @@ proteins_long$protein_clip[proteins_long$protein_clip ==
 
 ###### Hsps
 ### HSPA1A-inducible for Ecy
-# the similarity is 98.27% with the original Eve variant
-target_info$protein[target_info$protein ==
-                    'NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve'] <- 
+# the similarity is 98.27% with the original Eve variant;
+# change straight after target_info table creation
+target_info$protein[which(target_info$protein ==
+        'NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve')[2]] <- 
   'NODE_5378_length_3701_cov_2676.348850_g3383_i0.p1_Ecy'
-
-
-
+# change only the second one (for Ecy)
