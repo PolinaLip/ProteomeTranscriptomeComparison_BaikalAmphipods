@@ -498,4 +498,9 @@ ggsave(filename = file.path(dir, 'DEdown_combinedEdgeR_Scaled_24vs6C.png'),
 ggsave(filename = file.path(dir, 'DEdown_combinedEdgeR_woScaling.png'),
        width = 10, height = 6)
 
-
+### To try (from Isabel):
+# variance normalization and then the imputation for each of the batch
+library(DEP) 
+dat_vsn = normalize_vsn(dat_to_se_final) 
+data_imp = impute(dat_vsn, fun = "MinProb", q = 0.01) 
+# https://bioconductor.org/packages/devel/bioc/vignettes/DEP/inst/doc/DEP.html 

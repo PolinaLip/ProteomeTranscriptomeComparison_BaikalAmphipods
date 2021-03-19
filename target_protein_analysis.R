@@ -276,7 +276,7 @@ colnames(combined_data_transc) <- c(colnames(combined_data_transc)[1:7],
                                         "values", 
                                         colnames(combined_data_transc)[9:10])
 combined_data_transc$method <- 'RNAseq'
-combined_data <- rbind(combined_data_proteomics, combined_data_transc)
+#combined_data <- rbind(combined_data_proteomics, combined_data_transc)
 combined_data_proteomics$unique_name <- sprintf('%s_%s', 
                                                 combined_data_proteomics$protein,
                                                 combined_data_proteomics$species)
