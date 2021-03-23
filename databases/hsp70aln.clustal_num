@@ -1,0 +1,359 @@
+CLUSTAL O(1.2.4) multiple sequence alignment
+
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            MRN---LTMMTAPLLLLLVLSLQGTYSLTVMSVDFGTEFMKVAVVAAGVPMEIALNKESK	57
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        MRN---LKMMTMPLLLLLMLSLQGTHSLTVMSVDFGAEFMKVAVVAAGVPMEIALNKESK	57
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      ------------------------------------------------------------	0
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               ------------------------MSKKVAIGIDLGTTNSCVAVYQNGK-VDIIVSETGN	35
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       ------------------------MSKKVAIGIDLGTTNSCVAVYQNGK-VDIIVSETGN	35
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          MRVTLGLVCLAAAILCGVSAKDKKEDVGTVIGIDLGTTYSCVGVFKNGR-VEIIANDQGN	59
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      MRATLGLVCLAAAILCGVSAKDKKEDVGTVIGIDLGTTYSCVGVFKNGR-VEIIANDQGN	59
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          MRATLGLVCLAAAILCGVSAKDKKEDVGTVIGIDLGTTYSCVGVFKNGR-VEIIANDQGN	59
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          ------------------------------------------------------------	0
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         -----------------------MRAKGTAVGIDLGTTYSCVGVFQHGK-VEIIANDQGN	36
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         -----------------------MRAKGTAVGIDLGTTYSCVGVFQHGK-VEIIANDQGN	36
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          -----------------------MKVKSTAVGIDLGTTYSCVGVFQHGK-VEIIANDQGN	36
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         ------------------------MSKATAVGIDLGTTYSCVGVFQHGK-VEIIANDQGN	35
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   ------------------------MSKATAVGIDLGTTYSCVGVFQHGK-VEIIANDQGN	35
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          ------------------------MSKATAVGIDLGTTYSCVGVFQHGK-VEIIANDQGN	35
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   ------------------------MSKATAVGIDLGTTYSCVGVFQHGK-VEIIANDQGN	35
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        ------------------------------------------------------------	0
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   ------------------------MSKATAVGIDLGTTYSCVGVFQHGK-VEIIANDQGN	35
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              ------------------------MSKATAVGIDLGTTYSCVGVFQHGK-VEIIANDQGN	35
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            RKTPVAIAFR-DGERTFGDDAITAGMRSPSSVFTNVLHLLGKDVSHPIVQAYQATFPQHT	116
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        RKTPVAIAFR-DGERTFGDDAITAGMRSPSSVFTNVLHLLGKDVSHPIVQAYQATFPQHT	116
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      ------------------------------------------------------------	0
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               RVTPSFVTFEV-DEVHVGEAAKILSSTIPKNSVYEAKRLIGCRFSETTVQDDIKNWSFDV	94
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       RVTPSFVTFEV-DEVHVGEAAKILSSTIPKNSVYEAKRLIGCRFSETTVQDDIKNWSFDV	94
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          RITPSYVAFTQDGERLIGDAAKNQLTTNPENTVFDAKRLIGRDWTDKTVQSDIKLFPFRV	119
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      RITPSYVAFTQDGERLIGDAAKNQLTTNPENTVFDAKRLIGRDWTDKTVQGDIKLFPFRV	119
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          RITPSYVAFTQDGERLIGDAAKNQLTTNPENTVFDAKRLIGRDWTDKTVQGDIKLFPFRV	119
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          --TPSYVAFT-DSERLIGDAAKSHVAMNPNNTVFDAKRLIGRQFDDATVQSDMKHWPFKV	57
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         RTTPSYVAFT-DTERLIGDAAKNQVALNPTNTVFDAKRLIGRKFGDSSVNKDMEHWPFKV	95
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         RTTPSYVAFT-DTERLIGDAAKNQVALNPTNTVFDAKRLIGRKFGDSSVNKDMEHWPFKV	95
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          RTTPSYVAFT-DTERLIGDAAKNQVALNPTNTVFDAKRLIGRKFGDPSVNNDMQHWPFKV	95
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         RTTPSYVAFT-DTERLIGDAAKNQVAMNPTNTVFDAKRLIGRKFDDATVTSDRKHWPFTV	94
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   RTTPSYVAFT-DTERLIGDAAKNQVAMNPTNTVFDAKRLIGRKFDEATVQSDMKHWPFEV	94
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          RTTPSYVAFT-DTERLIGDAAKNQVAMNPTNTVFDAKRLIGRKFDEATVQSDMKHWPFEV	94
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   RTTPSYVAFT-DTERLIGDAAKNQVAMNPTNTVFDAKRLIGRKFDEATVQSDMKHWPFEV	94
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        --------------------------------------------------------PFRV	4
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   RTTPSYVAFT-DTERLIGDAAKNQVAMNPTNTVFDAKRLIGRKFDEATVQSDMKHWPFTV	94
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              RTTPSYVAFT-DTERLIGDAAKNQVAMNPTNTVFDAKRLIGRKFDEATVQSDMKHWPFRV	94
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            IEPHPVRNTVV-FKINDELRFSVEELVSQLLSHARDQASVHTQQPVKDLVITVPAFFNQA	175
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        IEPHPVRNTVV-FKINDELRFSVEELVSQLLSHARDQASVHTQQPVKDLVITVPAFFNQA	175
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      ------------------------------------------------------------	0
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               IDDNDAPKIKVPTYDGEDKIFTPEQISAFILLKLKETAEAFIGSEIQDAVITVPAYFSDS	154
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       IDDNDAPKIKVPTYDGEDKIFTPEQISAFILLKLKETAEAFIGSEIQDAVITVPAYFSDS	154
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          IEKNEKPHIKV-ATSQGDKVFAAEEISAMVLGKMREVAEAYLGKEVTHAVVTVPAYFNDA	178
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      IEKSGKPHIKV-ATSQGDKVFASEEISAMVLGKMKEVAEAYLGKEVTHAVVTVPAYFNDA	178
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          IEKNGKPHIKV-ATSQGDKVFASEEISAMVLGKMREVAEAYLGKEVTHAVVTVPAYFNDA	178
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          INDGDKPKIQV-EYKNETKIFTPEEISSMILTKMKEVAEGYLGKKVLEAVVTVPAYFNDS	116
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         VNDGGKPMIGV-EFKGESKTFSPEEISSMVLTKMREISEAYLGKEVKDAVITVPAYFNDS	154
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         VNDGGKPMIGV-EFKGESKTFSPEEISSMVLTKMREISEAYLGKEVKDAVITVPAYFNDS	154
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          VNDGGKPKIGV-EYKGDSKTFSPEEISSMVLTKMREISEAYLGKEVKDAVITVPAYFNDS	154
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         VNEGSKPKIEV-EYKGESKTFSPEEISSMVLTKMKDIAEAYLGGTVKNAVITVPAYFNDS	153
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   VNENTKPKISV-DYKGEKKTFTPEEISSMVLTKMKETADAYLGTNIKDAVVTVPAYFNDS	153
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          VNENTKPKISV-DYKGEKKTFTPEEISSMVLTKMKETADAYLGTNIKDAVVTVPAYFNDS	153
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   VNENTKPKISV-DYKGEKKTFTPEEISSMVLTKMKETADAYLGTNIKDAVVTVPAYFNDS	153
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        QNEAGKPKIRV-EYKGEDKTFSPEEVSSMVLTKMKEVAEAYMGCTLKDAVITVPAYFNDS	63
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   LNEAGKPKIRV-EYKGEDKTFSPEEVSSMVLTKMKEVAEAYLGSTLKDAVITVPAYFNDS	153
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              MNEAGKPKIRV-EYKGEDKTFSPEEVSSMVLTKMKEVAEAYLGCTLKDAVITVPAYFNDS	153
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            ERRALLDAAAIADLKVLSLISSNSAVALNYGMFRRKEINATAQHLLFYDMGSSQTTATVV	235
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        ERRALLDAAAIANLKVLSLISSNSAVALNYGMFRRKEINATAQHLLFYDMGSSQTTATVV	235
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      ------------------------------------------------------------	0
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               QRQATIDAGKIAGLNVMSIINEPTAAAIAYGVDKPG---IQDQTVLVFDFGGGTFDVSIL	211
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       QRQATIDAGKIAGLNVMSIINEPTAAAIAYGVDKKN---IQEQTVLVFDFGGGTFDVSIL	211
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          QRQATKDAGVIAGLTVMRIINEPTAAAIAYGIDKK----DGEKNILVFDLGGGTFDVSLL	234
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      QRQATKDAGVIAGLTVMRIINEPTAAAIAYGIDKK----DGEKNILVFDLGGGTFDVSLL	234
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          QRQATKDAGVIAGLTVMRIINEPTAAAIAYGIDKK----DGEKNILVFDLGGGTFDVSLL	234
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          QRQATKDAGIIAGLNILRILNEPTAAAIAYGLDKQT---AGEKNILIFDLGGGTFDVSVL	173
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         QRQATKDAGAIAGLNVLRIINEPTAAAIAYGLDKKG---EGEKNILIFDLGGGTFDVSIL	211
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         QRQATKDAGAIAGLNVLRIINEPTAAAIAYGLDKKG---EGEKNILIFDLGGGTFDVSIL	211
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          QRQATKDAGAIAGLNVLRIINEPTAAAIAYGLDKKG---RGEKNILIFDLGGGTFDVSIL	211
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         QRQATKDAGAIAGLNVQRIINEPTAAAIAYGLDKKT---GGERNILIFDLGGGTFDVSIL	210
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   QRQATKDAGTISGLNVLRIINEPTAAAIAYGLDKKV---GGERNVLIFDLGGGTFDVSIL	210
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          QRQATKDAGTISGLNVLRIINEPTAAAIAYGLDKKV---GGERNVLIFDLGGGTFDVSIL	210
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   QRQATKDAGTISGLNVLRIINEPTAAAIAYGLDKKV---GGERNVLIFDLGGGTFDVSIL	210
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        QRQATKDAGAIAGLNVLRIINEPTAAAIAYGLDKKA---GGEKNILIFDLGGGTFDVSIL	120
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   QRQATKDAGAIAGLNVLRIINEPTAAAIAYGLDKKA---GGERNILIFDLGGGTFDVSIL	210
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              QRQATKDAGAIAGLNVLRIINEPTAAAIAYGLDKKA---GGEKNILIFDLGGGTFDVSIL	210
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            AFQTVKTKDKGYSETNPQLSVLGVGFDRTLGGYEMQLRLRDFLAQKFNDMKKTSNDVFEN	295
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        AFQTVKTKDKGYSETNPQLSVLGVGFDRTLGGYEMQLRLRDFLAQKFNDMKKTSNDVFEN	295
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      ------------------------------------------------------------	0
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               SI------------SRGTYSVKAVGGDTHLGGSDIDIVLVNHFLKIMHE--KHGKGFSEN	257
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       SI------------ANNEYIVKGVGGDTHLGGSDIDMVLVNHFLEVLKT--KHGKDISTN	257
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          TI------------DSGVFEVVATNGDTHLGGEDFDQRVMEHFIKLYKK--KRGKDIRKD	280
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      TI------------DSGVFEVVATNGDTHLGGEDFDQRVMEHFIKLYKK--KRGKDIRKD	280
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          TI------------DSGVFEVVATNGDTHLGGEDFDQRVMEHFIKLYKK--KRGKDIRKD	280
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          KI------------EEGIFEVKSTAGDTHLGGEDFDNRMVTHFVEDFKR--KNNK-----	214
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         TI------------DDGIFEVKATAGDTHLGGEDFDNRLVDHFAQEFKR--KFKKDITQN	257
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         TI------------DDGIFEVKATAGDTHLGGEDFDNRLVDHFAQEFKR--KFKKDITQN	257
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          TI------------DDGIFEVKATAGDTHLGGEDFDNRLVDHFVQEFKR--KFKKDITQN	257
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         AI------------DEGIFEVKSTAGDTHLGGEDFDNRMVNHFAQEFKR--KYKKDITES	256
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   TI------------EDGIFEVKSTAGDTHLGGEDFDNRMVNHFMQEFKR--KYKKDLSEN	256
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          TI------------EDGIFEVKSTAGDTHLGGEDFDNRMVNHFMQEFKR--KYKKDLSEN	256
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   TI------------EDGIFEVKSTAGDTHLGGEDFDNRMVNHFTQEFKR--KYKKDLAEN	256
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        TI------------DDGIFEVKSTAGDTHLGGEDFDNRMVNHFVQEFKR--KYKKDIAEN	166
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   TI------------DEGIFEVKSTAGDTHLGGEDFDNRMVNHFVQEFKR--KYKKDIADN	256
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              TI------------DEGIFEVKSTAGDTHLGGEDFDNRMVNHFVQEFKR--KYKKDIADN	256
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            PRAMSKINKEAGRLKHVLSANNEH--VSQIENVMEDIDLRVMVKRSDFEGLIADLVERSS	353
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        QRAMSKINKEAGRLKHVLSANNEH--VSQIENVMEDIDLRVMVKRSDFEGLIADLVERSS	353
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      ------------------------------------------------------------	0
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               PKHFWRLREACEKAKISLSTPSGFQAKVVLHGVLGGEDFEETLSRNTFEQLNMDMFEKTM	317
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       PRHVWRLRQSCEKVKIFLSTPSGHKSKVVLHGILDGDDFQENLLRSKFEQLNMGLFNKTI	317
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          NRAVQKLRREVEKAKRALSA--SHQVRIEIESFFEGEDFSETLTRAKFEELNMDLFRSTM	338
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      NRAVQKLRREVEKAKRALSA--SHQVRIEIESFFEGEDFSETLTRAKFEELNMDLFRSTM	338
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          NRAVQKLRREVEKAKRALSA--SHQVRIEIESFFEGEDFSETLTRAKFEELNMDLFRSTM	338
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          ------------------------------------------------------------	214
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         KRALRRLRTACERAKRTLSS--SAQASIEIDSLYEGTDFYTSITRARFEEMCSDLFRGTL	315
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         KRALRRLRTACERAKRTLSS--SAQASIEIDSLYEGTDFYTSITRARFEEMCSDLFRGTL	315
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          KRALRRLRTACERAKRTLSS--SAQASIEIDSLYEGTDFYTSITRARFEEMCSDLFRGTL	315
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         KRALRRLRTACERAKRTLSS--SAQASIEIDSLFEGVDFYTSITRARFEEMCSDLFRGTL	314
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   KRSLRRLRTACERAKRTLSS--STQASIEIDSLYDGIDFYTSVTRARFEELCADLFRGTL	314
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          KRSLRRLRTACERAKRTLSS--STQASIEIDSLYDGIDFYTSVTRARFEELCADLFRGTL	314
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   KRSLRRLRTACERAKRTLSS--STQASIEIDSLYDGIDFYTSVTRARFEELCADLFRGTL	314
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        KRSLRRLRTACERAKRTLSS--STQATLEIDSLYEGIDFYTSITRARFEEMCSDLFRGTL	224
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   KRSLRRLRTACERAKRTLSS--STQATLEIDSLYEGIDFYTSITRARFEEMCSDMFRETL	314
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              KRSLRRLRTACERAKRTLSS--STQATLEIDSLYEGIDFYTSITRARFEEMCSDMFRETL	314
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            QPLNDALVAAGLDMSVIDQLVLVGGATRVPAVQEHLQQTW-GRELSRNINADEAAALGAV	412
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        QPLNDALVAAGLDMSVIDQLVLVGGATRVPAVQEHLQQIW-GRELSRNINADEAAALGAV	412
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      -----------------------------------LQQIW-GRELSRNINADEAAALGAV	24
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               EHVKSVLQDADMTPDDIDEVILIGGSSRIPKIQEMLSSLFDGKKLNSTINPDEAVAYGAA	377
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       EHVENVLKDAEMDKSEIDEVILVGGSSRIPMIQEMLRNFFDGKKMNSTINPDEAVAYGAA	377
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          KPVQKVLEDAELTKKDINEIVLVGGSTRIPKVQQLVKEFFNGKEPSRGINPDEAVAYGAA	398
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      KPVQKVLEDAELTKKDINEIVLVGGSTRIPKVQQLVKEFFNGKEPSRGINPDEAVAYGAA	398
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          KPVQKVLEDAELTKKDINEIVLVGGSTRIPKVQQLVKEFFNGKEPSRGINPDEAVAYGAA	398
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          ------------------------------------------------------------	214
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         DPVEKSLRDAKMDKGQIHEIVLVGGSTRIPKIQKLLQDFFNGKELNKTINPDEAVAYGAA	375
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         DPVEKSLRDAKMDKGQIHEIVLVGGSTRIPKIQKLLQDFFNGKELNKTINPDEAVAYGAA	375
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          DPVEKSLRDAKMDKGQIHEIVLVGGSTRIPKIQKLLQDFFNGKELNKTINPDEAVAYGAA	375
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         DPVEKSLRDAKLDKGQIQEIVLVGGSTRIPKVQKLLQDFFNGKELNKSINPDEAVAYGAA	374
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   DPVEKSLRDAKLDKGQIQEIVLVGGSTRIPKIQKLLQDFFNGKELNKSINPDEAVAYGAA	374
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          DPVEKSLRDAKLDKGQIQEIVLVGGSTRIPKIQKLLQDFFNGKELNKSINPDEAVAYGAA	374
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   DPVEKSLRDAKLDKGQIQEIVLVGGSTRIPKIQKLLQDFFNGKELNKSINPDEAVAYGAA	374
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        DPVEKSLRDAKLDKGQIHEIILVGGSTRIPKIQKLLQDFFNGKDLNKSINPDEAVAYGAA	284
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   DPVEKSLRDAKLDKSQIHEIILVGGSTRIPKIQKLLQDFFNGKDLNKSINPDEAVAYGAA	374
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              DPVEKSLRDAKLDKSQIHEIILVGGSTRIPKIQKLLQDFFNGKDLNKSINPDEAVAYGAA	374
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            YRAADMGQGFKVKTFHVKEANLYPIEVVFDRAVEQEDGSTVDRVVRRSLFAVGNLYPQKK	472
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        YRAADMGQGFKVKTFHVKEANLYPIEVVFDRAVEQEDGSTVDRVVRRSLFAVGNLYPQKK	472
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      YRAADMGQGFKVKTFHVKEANLYPIEVVFDRAVEQEDGSTVDRVVRRSLFAVGNLYPQKK	84
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               VKAAIASGEHT--IEELTLKDVVPVSLG----IENVFGNVVKF------IERNTQIPTTA	425
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       VKAALSSGEHT--IEEITLTDVVPLSLG----TDNHRGEMVTF------IKKNTRLPATA	425
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          VQAGVLSGEDD--TSDLVLLDVNPLTLG----IETVGGVMTKL------INRNTVIPTKK	446
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      VQAGVLSGEDD--TSDLVLLDVNPLTLG----IETVGGVMTKL------INRNTVIPTKK	446
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          VQAGVLSGEDD--TSDLVLLDVNPLTLG----IETVGGVMTKL------INRNTVIPTKK	446
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          ------------------------------------------------------------	214
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         VQAAILTGDNSEAVRDLLLLDVAPLSMG----IETAGGVMTAL------IKRNTTIPTKT	425
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         VQAAILTGDNSEAVRDLLLLDVAPLSMG----IETAGGVMTAL------IKRNTTIPTKT	425
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          VQAAILTGDNSEAVQDLLLLDVAPLSMG----IETAGGVMTTL------IKRNTTIPTKT	425
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         VQAAILSGDKSEAVQDLLLLDVAPLSMG----IETAGGVMTAL------IKRNTTIPTKQ	424
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   VQAAILSGDKSEAVQDLLLLDVAPLSMG----IETAGGVMTAL------IKRNTTIPTKQ	424
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          VQAAILSGDKSEAVQDLLLLDVAPLSMG----IETAGGVMTAL------IKRNTTIPTKQ	424
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   VQAAILSGDKSEAVQDLLLLDVAPLSMG----IETAGGVMTAL------IKRNTTIPTKQ	424
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        VQAAILTGDTSEAVQDLLLLDVAPLSMG----IETAGGVMTAL------IKRNTTIPTRQ	334
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   VQAAILTGDKSEAVQDLLLLDVAPLSMG----IETAGGVMTAL------IKRNTTIPTKQ	424
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              VQAAILTGDKSEAVQDLLLLDVAPLSMG----IETAGGVMTAL------IKRNTTIPTKQ	424
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            VMTFNKHTTDFDFRVNYGDMTEIMTPAQLRNQFGSKSMNISFAKVRGVTKQFNKH-VVEG	531
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        VMTFNKHTADFDFRVNYGDMTEIMTPAQLRNQFGSKSMNISYAKVRGVTKKFTKH-VVEG	531
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      VMTFNKHTADFDFRVNYGDMTEIMTPAQLRNQFGSKSMNISYAKVRGVTKKFTKH-VVEG	143
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               VQDTWSTVVDYQTEVTI------------NVFEGEQTK----AKDSHLLGSFDLLLGERV	469
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       VQKNWTTVTDYQTKVKV------------DVFEGERTL----VKNNNLLGTFDLLLGEKE	469
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          SQ-IFSTASDNQHTVTI------------QVFEGERPM----TKDNHVLGKFDLTGIPPA	489
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      SQ-IFSTASDNQHTVTI------------QVFEGERPM----TKDNHVLGKFDLTGIPPA	489
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          SQ-IFSTASDNQHTVTI------------QVFEGERPM----TKDNHVLGKFDLTGIPPA	489
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          ------------------------------------------------------------	214
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         SQ-VFSTYADNQPGVLI------------QVFEGERAM----TRDNNLLGKFELSGLPPA	468
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         SQ-VFSTYADNQPGVLI------------QVFEGERAM----TRDNNLLGKFELSGLPPA	468
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          SQ-IFSTYADNQPGVLI------------QVFEGERAM----TRDNNLLGKFELSGLPPA	468
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         TQ-TFTTYADNQPGVLI------------QVYEGERAL----TKDNNLLGKFELCGIPPS	467
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   TQ-TFTTYSDNQPGVLI------------QVYEGERAM----TKDNNLLGKFELTGIPPA	467
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          TQ-TFTTYSDNQPGVLI------------QVYEGERAM----TKDNNLLGKFELTGIPPA	467
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   TQ-TFTTYSDNQPGVLI------------QVYEGERAM----TKDNNLLGKFELTGIPPA	467
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        TQ-TFTTYSDNQPGVLI------------QVYEGERAM----TKDNNLLGKFELGGIPPA	377
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   TQ-TFTTYSDNQPGVLI------------QVYEGERAM----TKDNNLLGKFELSGIPPA	467
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              TQ-TFTTYSDNQPGVLI------------QVYEGERAM----TKDNNLLGKFELSGIPPA	467
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            DAEFKGIKAHFSMDVSGLLTVGDVEMVLERNVTVEEKAVKDEESTLTKIGSTLSKLFGGE	591
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        EAEFKGIKAHFSVDVSGLLTVGDVEMVLERNVTVEEKAAKHEESTLTKIGSTLSKLFGGE	591
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      EAEFKGIKAHFSMDVSGLLTVGDVEMVLERNVTVEEKAAKHEESTLTKIGSTLSKLFGGE	203
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               KAGIPKLKIEFEIDANGIMNVKAENLNTQSEM----------GITITANKGRL-------	512
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       KAGFAKLTFTFTVNENGILNVSGENENTKLAT----------GITISSNKGRL-------	512
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          PRGVPQIEVTFEIDANGILQVSAEDKGTGNKE----------KITITNDQNRL-------	532
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      PRGVPQIEVTFEIDANGILQVSAEDKGTGNKE----------KITITNDQNRL-------	532
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          PRGVPQIEVTFEIDANGILQVSAEDKGTGNKE----------KITITNDQNRL-------	532
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          ------------------------------------------------------------	214
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         PRGVPQIEVTFDIDANGILNVSAVDKSTGKEN----------KITITNDKGRL-------	511
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         PRGVPQIEVTFDIDANGILNVSAVDKSTGKEN----------KITITNDKGRL-------	511
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          PRGVPQIEVTFDIDANGILNVSAVDKSTGKES----------KITITNDKGRL-------	511
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         PRGVPQIDVTFDIDANGILNVSAEDKSTGKGN----------KITITNDKGRL-------	510
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   PRGVPQIEVTFDIDANGILNVSAVDKSTGKEN----------KITITNDKGRL-------	510
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          PRGVPQIEVTFDIDANGILNVSAVDKSTGKEN----------KITITNDKGRL-------	510
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   PRGVPQIEVTFDIDANGILNVSAVDKSTGKEN----------KITITNDKGRL-------	510
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        PRGVPQIEVTFDIDANGILNVSAVDKSTGKEN----------KITITNDKGRL-------	420
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   PRGVPQIEVTFDIDANGILNVSAVDKSTGKEN----------KITITNDKGRL-------	510
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              PRGVPQIEVTFDIDANGILNVSAVDKSTGKEN----------KITITNDKGRL-------	510
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            EANATGEAEAESGDSDTDKGGDGAPANGTASAEGSSTTTVSKLVTDKLALNTSQLLLDLP	651
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        EANATEEAEAGGGDSDADEDGDGGPANSTSAADGSSSTTVSKLVTDKLALNTSQLLLDLP	651
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      EANATEEAEAGGGDSDADEDGDGGPANSTSAADGSSSTTVSKLVTDKLALNTSQLLLDLP	263
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               -----------------------------------GEQEIKQMI------------QDS-	524
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       -----------------------------------EKEEIERMV------------MDA-	524
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          -----------------------------------TPEDIERMI------------KDA-	544
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      -----------------------------------TPEDIERMI------------KDA-	544
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          -----------------------------------TPEDIERMI------------KDA-	544
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          ------------------------------------------------------------	214
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         -----------------------------------SKEDIERLV------------QDA-	523
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         -----------------------------------SKEDIERLV------------QDA-	523
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          -----------------------------------SKEDIERMV------------QDA-	523
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         -----------------------------------SKEEIERMV------------KDA-	522
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   -----------------------------------SKEEIERMV------------QDA-	522
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          -----------------------------------SKEEIERMV------------QDA-	522
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   -----------------------------------SKEEIERMV------------QDA-	522
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        -----------------------------------SKEEIERLV------------QDA-	432
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   -----------------------------------SKEEIERLV------------QDA-	522
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              -----------------------------------SKEEIERLV------------QDA-	522
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            SFTTDALEQAKLKLGAINTAEAEREMRAAGRNSLETLILDVRDKMSQDEYIEASVA-EAQ	710
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        SFTADALEQAKQKLEAINTAEAEREMRAAGRNSLETLILDIRDKMSQDEYIGASVA-EAQ	710
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      SFTADALEQAKQKLEAINTAEAEREMRAAGRNSLETLILDIRDKMSQDEYIGASVA-EAQ	322
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               --------------KQQKIS*---------------------------------------	530
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       --------------KQLKIS*---------------------------------------	530
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          --------------EVFADEDKKLKERVDARNELESYSYSLKNQINDKEKLGAKLSDEEK	590
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      --------------EVFADEDKKLKERVDARNELESYSYSLKNQINDKEKLGAKLSDEEK	590
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          --------------EVFADEDKKLKERVDARNELESYSYSLKNQINDKEKLGAKLSDEEK	590
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          ------------------------------------------------------------	214
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         --------------EKYKADDDLQREKIAAKNGLESYCFNMKSTVED-DKVKDKISESDR	568
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         --------------EKYKADDDLQREKIAAKNGLESYCFNMKSTVED-DKVKDKISESDR	568
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          --------------EKYKADDDQQREKIAAKNSLESYCFNMKSTVED-EKLKDKISESDR	568
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         --------------EKYKSDDDNQRERISAKNGLESYCFNMKSTIED-DKVKDKISETDR	567
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   --------------EKYKNDDDNQRERISAKNGLESYCFNMKSTVED-DKVKDKISEDDR	567
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          --------------EKYKNDDDNQRERISAKNGLESYCFNMKSTVED-DKVKDKISEDDR	567
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   --------------EKYKNDDDNQRERISAKNGLESYCFNMKSTVED-DKVKDKISEDDR	567
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        --------------ERYKADDDNQRERITSKNNLESYCFNMKATIED-DKVKSKISDDDR	477
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   --------------ERYKAEDDNQRERITSKNNLESYCFNMKATIED-DKVKSKISDEDR	567
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              --------------ERYKAEDDSQRERITSKNNLESYCFNMKATIED-DKVKSKISDEDR	567
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            DVLAKQCAEMEDWLYEDGFDAEASTYKEKIASINSVFGPIADRVEQHRQRPQAIEALNSM	770
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        DILAKQCAEMEDWLYEDGFDAEASTYKEKIASLNSVFGPIADRVEQHRQRPQAIEALNSM	770
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      DILAKQCAEMEDWLYEDGFDAEASTYKEKIASLNSVFGPIADRVEQHRQRPQAIEALNSM	382
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               ------------------------------------------------------------	530
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       ------------------------------------------------------------	530
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          EKMEGAIDESIKWLEDHP-EAEAEEYKSQKKELEDIVQPIIAKLYQGAPPPGGEGASEG-	648
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      EKMEGAIDESIKWLEDHP-EAEAEEYKSQKKELEDIVQPIIAKLYQGAPPPGGEGASEG-	648
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          EKMEGAIDESIKWLEDHP-EAEAEEYKSQKKELEDIVQPIIAKLYQGAPPPGGEGASEG-	648
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          ------------------------------------------------------------	214
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         SKVLEACNEVLKWLDANQ-LGEKDEYEHKQKEVEKVCSPIISKLYGGGAA----GCSPGA	623
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         SKVLEACNEVLKWLDANQ-LGEKDEYEHKQKEVEKVCSPIISKLYGGGAA----GCSPGA	623
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          SKVLDACNEVLKWLDANQ-LGEKDEYEHKQKEVEKVCSPIISKLYGGGAA----G-SPGA	622
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         KTIMNACDEAVKWLDGNQ-LAEIEEYKHKQKEIEKVCTPIITKMYGGADGMP--GGMHGG	624
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   KKIMEACDEAIKWLDGNQ-LAEKEEYEHKQKEVEKVCTPIITKLYGGAGAAPPPGAAPGT	626
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          KKIMEACDEAIKWLDGNQ-LAEKEEYEHKQKEVEKVCTPIITKLYGGAGAAPPPGAAPGT	626
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   KKIMEACDEAIKWLDGNQ-LAEKEEYEHKQKEVEKVCTPIITKLYGGAGAAPPPGAAPGA	626
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        KKVSDACSEAVKWLDGNQ-LADKEEYDHKQKEVEKICAPIISKLYGGGAP----GGA---	529
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   KKVANACDDAVKWLDGNQ-LADKEEYDHKQKEVEKICAPIISKLYGGGPP----GGA---	619
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              KKVANACDDAVKWLDGNQ-LADKEEYDHKQKEVEKICAPIISKLYGGGPP----GGA---	619
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            LNRSSDFLQRARGASEAESWFTSVELQNLDDQIVETQSWLEKAEETQADLKPFEEPNLSL	830
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        LNRSSDFLQRARGTPEAESWFTSVELQNLDDQIVETQSWLEKSEEAQAELKPSEDPSLSL	830
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      LNRSSDFLQRARGTPEAESWFTSIELQNLDDQIVETQSWLEKAEEAQAELKPSEDPSLSL	442
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               ------------------------------------------------------------	530
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       ------------------------------------------------------------	530
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          --------EDEDGGDF------KDEL*---------------------------------	660
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      --------EDEDGGDF------KDEL*---------------------------------	660
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          --------EDEDGGDF------KDEL*---------------------------------	660
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          ------------------------------------------------------------	214
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         GPMPG---AANGTGPT------IEEVD*--------------------------------	641
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         GPMPG---AANGTGPT------IEEVD*--------------------------------	641
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          GPMPG---ASNGAGPT------IEEVD*--------------------------------	640
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         MPGGA---TAAAGGPT------IEEVD*--------------------------------	642
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   GAAPG---AGGAGGPT------IEEVD*--------------------------------	644
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          GAAPG---AGGAGGPT------IEEVD*--------------------------------	644
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   GAAPG---AGGAGGPT------IEEVD*--------------------------------	644
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        TGASG---S--GDGPS------IEEVD*--------------------------------	545
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   PGAPG---SGGGDGPS------IEEVD*--------------------------------	637
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              PGAPG---SGAGDGPS------IEEVD*--------------------------------	637
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            QSIAEKITDLDREMKYLFNKAKIAKAKADREAAEAKAKADKAAKEAEKEAKKAEKKNKKK	890
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        QSIAEKITDLDREMKYLFNKAKIAKAKADREAAEAKAKADKATKEAEKVAKKAEKKKKKK	890
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      QSIAEKITDLDREMKYLFNKAKIAKAKADREAAEAKAKADKATKEAEKEAKKAEKKKKKK	502
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               ------------------------------------------------------------	530
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       ------------------------------------------------------------	530
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          ------------------------------------------------------------	660
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      ------------------------------------------------------------	660
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          ------------------------------------------------------------	660
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          ------------------------------------------------------------	214
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         ------------------------------------------------------------	641
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         ------------------------------------------------------------	641
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          ------------------------------------------------------------	640
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         ------------------------------------------------------------	642
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   ------------------------------------------------------------	644
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          ------------------------------------------------------------	644
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   ------------------------------------------------------------	644
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        ------------------------------------------------------------	545
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   ------------------------------------------------------------	637
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              ------------------------------------------------------------	637
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            KQEEGEDVEEEEEEPLTDDNLEGEPKEA-EDSRPEPSLPSEPSESDEEPSVVEEDTRPEE	949
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        QEEGEEGEVEEEEEPLTDDNLEGEPKEADEDSRPEPFLPEEPSESTEPS---LEDTISDA	947
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      QEEGEEGEVEEEEEPLTDDNLEGEPKEADEDSRPEPFLPEEPSESTEPS---LEDTRSDA	559
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               ------------------------------------------------------------	530
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       ------------------------------------------------------------	530
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          ------------------------------------------------------------	660
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      ------------------------------------------------------------	660
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          ------------------------------------------------------------	660
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          ------------------------------------------------------------	214
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         ------------------------------------------------------------	641
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         ------------------------------------------------------------	641
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          ------------------------------------------------------------	640
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         ------------------------------------------------------------	642
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   ------------------------------------------------------------	644
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          ------------------------------------------------------------	644
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   ------------------------------------------------------------	644
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        ------------------------------------------------------------	545
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   ------------------------------------------------------------	637
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              ------------------------------------------------------------	637
+                                                                                                                                                                                              
+
+NODE_3019_length_4399_cov_50.489655_g1715_i0.p1_Gla;Gla;protein_group=11;Heat_shock_protein70family*;constitutive;og11            ISPDEVQAEDEPHTEL*	965
+NODE_2616_length_4997_cov_40.899960_g1639_i0.p1_Ecy;Ecy;protein_group=15;Heat_shock_protein70family*;inducible-transc;og11        ISPDEVQAEDEPHTEL*	963
+NODE_18366_length_1746_cov_59.723630_g12072_i0.p1_Eve;Eve;protein_group=10;Heat_shock_protein70family*;inducible-transc;og11      ISPDEVQAEDEPHTEL*	575
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;protein_group=16;hspa8*;downreg-transc;og0                               -----------------	530
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;protein_group=17;Hsc70-4*;const;og0                                       -----------------	530
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;protein_group=26;Hsc70-3*;inducible-transc;og2                          -----------------	660
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;protein_group=30;Hsc70-3const;inducible-transc;og2                      -----------------	660
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;protein_group=32;Hsc70-3*;inducible-transc;og2                          -----------------	660
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy;protein_group=25;HSP70const;inducible-transc;og0                          -----------------	214
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve;protein_group=21;HSPA1Ainduc;inducible-both;og0                         -----------------	641
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Ecy;protein_group=19;HSPA1Ainduc;inducible-both;og2                         -----------------	641
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;protein_group=25;HSPA1Ainduc;inducible-both;og0                          -----------------	640
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;protein_group=1;Hsc70-4const;inducible-prot;og0                         -----------------	642
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve;protein_group=33;hspa8const;const;og0                                   -----------------	644
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Ecy;protein_group=29;Hsc70-4const;induc-transc;og2                          -----------------	644
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;protein_group=23;hspa8const;const;og0                                   -----------------	644
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;protein_group=29;HSPA1Aconst;inducible-transc;og0                        -----------------	545
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;protein_group=19;Hsc70-4const;const;og0                                   -----------------	637
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;protein_group=8;HSPA1Aconst;inducible-trancs-prot_partly;og2              -----------------	637
+                                                                                                                                                   
