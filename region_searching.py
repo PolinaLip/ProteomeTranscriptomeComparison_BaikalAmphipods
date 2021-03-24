@@ -5,6 +5,7 @@ from Bio import SeqIO
 from Bio.Align import substitution_matrices # to get blosum62 matrix for distance calculation
 #from itertools import product # to perform pairwise comparison of keys from dictionary
 import scipy
+from scipy import spatial, cluster
 
 ''' To select regions inside all sequences (dictionary of seq names and aligned regions) '''
 def select_region(dict_w_seqs, index, klength):
@@ -15,8 +16,11 @@ def select_region(dict_w_seqs, index, klength):
 
 ''' To find distance between two given sequances '''
 def pairwise_comparison(seqname1, seqname2, region_dict_w_seqs, score_dict):
+    print(region_dict_w_seqs[seqname2])
     seq1 = region_dict_w_seqs[seqname1][0]
+    print(region_dict_w_seqs[seqname2])
     seq2 = region_dict_w_seqs[seqname2][0]
+    print('-----------------')
     score = 0
     for i in range(len(seq1) - 1):
         letter_seq1 = seq1[i]
@@ -32,6 +36,7 @@ def main():
     parser.add_argument('-k', type=int, help='kmer length (= 6, by default)', default=6)
     args = parser.parse_args()
     
+    outp = args.output
     kmer_length = args.k
 
     ''' Prepare blosum62 dictionary or dictionary with simple scoring system (penalty = 1 if two letters are different) '''
@@ -44,7 +49,7 @@ def main():
     
     simple_score_dict = {}
     for letter1 in aas:
-        for letter2 in ass:
+        for letter2 in aas:
             if letter1 == letter2:
                 simple_score_dict[letter1, letter2] = 0
             else:
@@ -57,23 +62,54 @@ def main():
     
     aln_length = len(str(record.seq))
 
+    ''' Prepare dictionary with wanted clusters '''
+    wanted_clusters = {}
+    for row in args.features:
+        row = row.strip()
+        values = set()
+        if row[0] == '>':
+            cluster_name = row[1:]
+        else:
+            seqnames = row.split(' ')
+            values.update(seqnames)
+            wanted_clusters[cluster_name] = values
+
     '''  '''
     #seq_combinations = product(name_seq_dict) # Creates all the possible combinations of the dictionary keys (seq names)
-    dist_matrix = []
-    seq_names = []
     for step in range(aln_length - kmer_length - 1):
+        seq_names = []
+        dist_matrix = []
         region_aln = select_region(name_seq_dict, step, kmer_length)
         
-        for protein_seq_name1 in name_seq_length:
+        for protein_seq_name1 in name_seq_dict:
             current_row = []
             seq_names.append(protein_seq_name1)
-            for protein_seq_name2 in name_seq_length:
+            for protein_seq_name2 in name_seq_dict:
                 score_value = pairwise_comparison(protein_seq_name1, protein_seq_name2, region_aln, simple_score_dict)
                 current_row.append(score_value)
             dist_matrix.append(current_row)
 
+        #print(dist_matrix)
         condensed_dist = scipy.spatial.distance.squareform(dist_matrix)
         linkage = scipy.cluster.hierarchy.linkage(condensed_dist, method='complete')
+        clusters_dict = {i:set([seqname]) for i, seqname in enumerate(seq_names)} # start the dict with clusters
+        #print(linkage)
+        for new_cl in linkage:
+            #print(clusters_dict[20])
+            #print(int(new_cl[0]))
+            clusters_dict[max(clusters_dict)+1] = clusters_dict[int(new_cl[0])] | clusters_dict[int(new_cl[1])] # overlap two exited clusters
+        
+        for cluster_name_real, cluster_real in clusters_dict.items():
+            for cluster_name_wanted, cluster_wanted in wanted_clusters.items():
+                #print(cluster_real)
+                #print('%s\n----------------\n' % (cluster_wanted))
+                if cluster_real == cluster_wanted:
+                    if len(cluster_wanted) == 1:
+                        if clusters_dict[max(clusters_dict)] - cluster_wanted not in clusters_dict.values():
+                            break
+                    outp.write('@%s\n' % (cluster_name_wanted))
+                    for seq in region_aln:
+                        outp.write('%s\t%s\n' % (seq, region_aln[seq]))
 
 if __name__ == '__main__':
     main()        
