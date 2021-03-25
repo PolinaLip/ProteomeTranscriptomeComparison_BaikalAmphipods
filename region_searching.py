@@ -16,11 +16,13 @@ def select_region(dict_w_seqs, index, klength):
 
 ''' To find distance between two given sequances '''
 def pairwise_comparison(seqname1, seqname2, region_dict_w_seqs, score_dict):
-    print(region_dict_w_seqs[seqname2])
-    seq1 = region_dict_w_seqs[seqname1][0]
-    print(region_dict_w_seqs[seqname2])
-    seq2 = region_dict_w_seqs[seqname2][0]
-    print('-----------------')
+    #print(seqname1)
+    #print(region_dict_w_seqs[seqname1])
+    seq1 = region_dict_w_seqs[seqname1]
+    #print(seqname2)
+    #print(region_dict_w_seqs[seqname2])
+    seq2 = region_dict_w_seqs[seqname2]
+    #print('-----------------')
     score = 0
     for i in range(len(seq1) - 1):
         letter_seq1 = seq1[i]
@@ -101,7 +103,6 @@ def main():
         
         for cluster_name_real, cluster_real in clusters_dict.items():
             for cluster_name_wanted, cluster_wanted in wanted_clusters.items():
-                #print(cluster_real)
                 #print('%s\n----------------\n' % (cluster_wanted))
                 if cluster_real == cluster_wanted:
                     if len(cluster_wanted) == 1:
