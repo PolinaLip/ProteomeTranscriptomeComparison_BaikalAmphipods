@@ -7,7 +7,7 @@ library(limma)
 library(edgeR)
 library(ggfortify) 
 
-species <- 'Ecy'
+species <- 'Gla'
 
 ### 1. Upload metafile
 meta_upload <- function(path_to_file, species_name) {
@@ -33,7 +33,7 @@ dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_gla/'
 proteinGroups_file <- 'proteinGroups_wo_cont_more2pept.txt' # take file with proteinGroups with 2 or more peptides quantified
 dat_init <- read.csv(file.path(dir, proteinGroups_file), sep = '\t', header = T, 
                      check.names = F) 
-pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_ecy.csv'), sep = '\t',
+pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_gla.csv'), sep = '\t',
                       header = T)
 
 select_data <- function(meta_data, proteinGroups_data){
@@ -388,7 +388,7 @@ nrow(subset(SPI_all_sign, logFC < 0)) # DOWN
 
 write.table(SPI_all, 
             file = file.path(paste0('~/labeglo2/proteome_transcr_comparision/',
-                                    species, '_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv')),
+                                    species, '_AllProteins_24vs6_proteinGroups_separatelyAnalyzed.csv')),
             sep = '\t', quote = F, row.names = F)
 
 ########################################

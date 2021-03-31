@@ -10,7 +10,7 @@ library(stringr)
 #############################
 
 ### 1. Upload the info table from sum_orthoinfo.py
-target_info <- read.csv('~/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes/orthologues_hsps_sum_updated.tsv',
+target_info <- read.csv('~/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes/orthologues_hsps_sum_proteinortho.tsv',
                         sep = '\t') 
 ### 2. Upload intensities tables (after normalization) and scale it:
 eve_intensities <- read.table('~/labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_eve/intensities_after_slNorm_eve.csv', 
