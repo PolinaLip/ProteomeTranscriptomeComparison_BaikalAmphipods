@@ -43,7 +43,7 @@ def main():
     parser.add_argument('--outp_fish_ecy', type=argparse.FileType(), help='ecy output tsv file from protein_fishing.py')
     parser.add_argument('--outp_fish_eve', type=argparse.FileType(), help='eve output tsv file from protein_fishing.py')
     parser.add_argument('--outp_fish_gla', type=argparse.FileType(), help='gla output tsv file from protein_fishing.py')
-    parser.add_argument('--outp_ortho', type=argparse.FileType(), help='tsv output file from OrthoFinder (in the folder Orthogroups)')
+    parser.add_argument('--outp_ortho', type=argparse.FileType(), help='tsv output file from Proteinortho')
     parser.add_argument('--outp_exonerate', type=argparse.FileType(), help='output file in sugar format after exonerate')
     parser.add_argument('-o', '--output', type=argparse.FileType('w'), help='generated output file')
 

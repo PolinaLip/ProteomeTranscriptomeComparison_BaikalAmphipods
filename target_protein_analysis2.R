@@ -10,7 +10,7 @@ library(stringr)
 #############################
 
 ### 1. Upload the info table from sum_orthoinfo.py
-target_info <- read.csv('~/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes/orthologues_hsps_sum_proteinortho.tsv',
+target_info <- read.csv('~/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes/orthologues_hsps_sum_proteinortho_with_selfblast.tsv',
                         sep = '\t') 
 ### 2. Upload intensities tables (after normalization) and scale it:
 eve_intensities <- read.table('~/labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_eve/intensities_after_slNorm_eve.csv', 
@@ -385,10 +385,22 @@ combined_data_full$sign2plot <-
                        '> 0.05', '< 0.05')))
 combined_data_full$method <- factor(combined_data_full$method, 
                                levels = c('RNAseq', 'MS/MS'))
+
+## here is a handling with special case (NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla)
+# we have values from both proteomics and transcriptomics but I do not have the info about 
+# p-value from proteomics. But obviously there is no difference -> put <0.05:
+combined_data_full_gla_ecy70const <- subset(combined_data_full, 
+                                            protein == 'NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla')
+combined_data_full_gla_ecy70const$sign2plot <- 
+  ifelse(combined_data_full_gla_ecy70const$method == 'RNAseq',
+         '< 0.05', '> 0.05')
+combined_data_full <- subset(combined_data_full, 
+                             protein != 'NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla')
+combined_data_full <- rbind(combined_data_full, combined_data_full_gla_ecy70const)
 ###########################
 ## To plot
 ###########################
-to_plot <- subset(combined_data_full, orthogroup == "OG0000002")
+to_plot <- subset(combined_data_full, orthogroup == 25)
 to_plot$annotation <- sub(' isoform[^,]*,?', '', to_plot$annotation)
 to_plot$annotation <- sub(' partial', '', to_plot$annotation)
 to_plot$annotation <- sub('PREDICTED: ', '', to_plot$annotation)
@@ -411,7 +423,7 @@ to_plot$species <- factor(to_plot$species, levels = c('Eve', 'Gla', 'Ecy'),
                                      'E.cyaneus'))
 to_plot$species_italic <- sprintf('italic(%s)', to_plot$species)
 
-to_plot <- na.omit(to_plot)
+#to_plot <- na.omit(to_plot)
 to_plot$condition <- factor(to_plot$condition, levels = c('24C', '6C'),
                             labels = c('24 °C', '6 °C'))
 to_plot$species_italic <- factor(to_plot$species_italic,
@@ -422,17 +434,24 @@ to_plot$species_italic <- factor(to_plot$species_italic,
                                  levels = c('italic(E.verrucosus)',
                                             'italic(G.lacustris)',
                                             'italic(E.cyaneus)'))
+to_plot$species_italic <- factor(to_plot$species_italic,
+                                 levels = c('italic(E.cyaneus)',
+                                            'italic(G.lacustris)',
+                                            'italic(E.verrucosus)'))
 ##### if do not want ', *' in the end of annotations:
 to_plot$all_labels <- sub(', \\*', '', to_plot$all_labels)
 #####
+
 ggplot(to_plot, aes(x = method, y = values, color = condition)) +
   geom_point(position=position_jitterdodge(dodge.width=.8)) +
-  geom_boxplot(aes(fill = condition,
-                   linetype = sign2plot), outlier.alpha = 0, alpha = 0.4) +
+  geom_boxplot(aes(fill = condition, linetype = sign2plot),
+              outlier.alpha = 0, alpha = 0.4) +
+             # ,
+              #linetype = 'dashed') 
   facet_nested_wrap(species_italic ~ all_labels, 
                     labeller = labeller(all_labels = as_labeller(f), 
                                         species_italic = label_parsed), 
-                    scales = 'free', ncol = 4) +
+                    scales = 'free', ncol = 5) +
   scale_color_manual('Condition:', values = c('#ca0020', '#0571b0')) +
   scale_fill_manual('Condition:', values = c('#ca0020', '#0571b0')) +
   scale_linetype('adj. p-value:') +
@@ -442,15 +461,16 @@ ggplot(to_plot, aes(x = method, y = values, color = condition)) +
 #  theme(strip.text = element_text(size=5.5))
 
 dir_to_save <- '/home/polina/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes'
-ggsave(file.path(dir_to_save, 'og0_proteinsWITHtranscripts.png'),
+ggsave(file.path(dir_to_save, 'og26_proteinortho_proteinsWITHtranscripts.png'),
        #scale = 1.2) 
-       width = 11, height = 5)
-ggsave(file.path(dir_to_save, 'og0_proteinsWITHtranscripts.pdf'),
+       width = 5, height = 3)
+ggsave(file.path(dir_to_save, 'og26_proteinortho_proteinsWITHtranscripts.pdf'),
        #scale = 1.2)
-       width = 11.3, height = 5)
-# og0, og1 - width = 11, height = 5
-# og2 - width = 8, height = 5
-# og11, og5, og13, og16, og15 - width = 8, height = 3
+       width = 5.3, height = 3)
+
+# og1 - width = 11
+# og2 - width = 11, height = 3
+# og21 - width = 5, height = 3 (two tiles)
 
 
 
