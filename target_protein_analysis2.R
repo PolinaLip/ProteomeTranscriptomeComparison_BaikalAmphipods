@@ -400,7 +400,7 @@ combined_data_full <- rbind(combined_data_full, combined_data_full_gla_ecy70cons
 ###########################
 ## To plot
 ###########################
-to_plot <- subset(combined_data_full, orthogroup == 25)
+to_plot <- subset(combined_data_full, orthogroup == 8)
 to_plot$annotation <- sub(' isoform[^,]*,?', '', to_plot$annotation)
 to_plot$annotation <- sub(' partial', '', to_plot$annotation)
 to_plot$annotation <- sub('PREDICTED: ', '', to_plot$annotation)
@@ -461,20 +461,17 @@ ggplot(to_plot, aes(x = method, y = values, color = condition)) +
 #  theme(strip.text = element_text(size=5.5))
 
 dir_to_save <- '/home/polina/labeglo2/MS_results/390/withDBfromRNAspades/hsps_orthologes'
-ggsave(file.path(dir_to_save, 'og26_proteinortho_proteinsWITHtranscripts.png'),
+ggsave(file.path(dir_to_save, 'og32_proteinortho_proteinsWITHtranscripts.png'),
        #scale = 1.2) 
-       width = 5, height = 3)
-ggsave(file.path(dir_to_save, 'og26_proteinortho_proteinsWITHtranscripts.pdf'),
+       width = 3, height = 3)
+ggsave(file.path(dir_to_save, 'og32_proteinortho_proteinsWITHtranscripts.pdf'),
        #scale = 1.2)
-       width = 5.3, height = 3)
+       width = 3.3, height = 3)
 
 # og1 - width = 11
 # og2 - width = 11, height = 3
 # og21 - width = 5, height = 3 (two tiles)
-
-
-
-
+# og25 - width = 3, height = 3 (one tile)
 
 
 

@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 
 import argparse
+import numpy as np
 from Bio import SeqIO
-from Bio.Align import substitution_matrices # to get blosum62 matrix for distance calculation
+import biotite.sequence.align # to get blosum62 matrix for distance calculation
 #from itertools import product # to perform pairwise comparison of keys from dictionary
 import scipy
 from scipy import spatial, cluster
 
+''' To get distance value for the pair of aas '''
+def get_distance(similarities, i, j):
+    s_max = (similarities[i,i] + similarities[j,j]) / 2
+    return s_max - similarities[i,j]
 
 ''' To select regions inside all sequences (dictionary of seq names and aligned regions) '''
 def select_region(dict_w_seqs, index, klength):
@@ -15,8 +20,7 @@ def select_region(dict_w_seqs, index, klength):
         region_dict[seq] = dict_w_seqs[seq][0][index:index + klength]
     return region_dict
 
-
-''' To find distance between two given sequances '''
+''' To find distance between two given sequences '''
 def pairwise_comparison(seq1, seq2, score_dict):
     score = 0
     for i in range(len(seq1) - 1):
@@ -24,7 +28,6 @@ def pairwise_comparison(seq1, seq2, score_dict):
         letter_seq2 = seq2[i]
         score += score_dict[(letter_seq1, letter_seq2)]
     return score
-
 
 def main():
     parser = argparse.ArgumentParser(
@@ -43,11 +46,29 @@ def main():
     kmer_length = args.k
 
     ''' Prepare blosum62 dictionary or dictionary with simple scoring system (penalty = 1 if two letters are different) '''
-    blosum62_mtrx = substitution_matrices.load('BLOSUM62')
-    aas = blosum62_mtrx.alphabet.replace('*', '-')
+    #blosum62_mtrx = substitution_matrices.load('BLOSUM62')
+    #aas = blosum62_mtrx.alphabet.replace('*', '-')
+    blosum62_matrix = biotite.sequence.align.SubstitutionMatrix.std_protein_matrix() # obtain blosum62
+    aas = list(blosum62_matrix.get_alphabet1()) # only aas in the right order
+    aas.append('-')
+    similarities = blosum62_matrix.score_matrix() # only values of similarities
+    distances = np.zeros(similarities.shape) 
+    for i in range(distances.shape[0]):
+        for j in range(distances.shape[1]):
+            distances[i,j] = get_distance(similarities, i, j)
+    
+    # add penalty for the indel (the maximum of the penalty from blosum62 matrix)
+    dist_with_gap_penalty = np.empty((0, len(distances[0]) + 1), int)
+    for row in distances:
+        row = list(np.append(row, distances.max()))
+        dist_with_gap_penalty = np.append(dist_with_gap_penalty, np.array([row]), axis=0)
+
+    indel_row = np.append(np.array([[distances.max()] * len(distances[0])]), 0)
+    dist_with_gap_penalty = np.append(dist_with_gap_penalty, np.array([indel_row]), axis=0)
+
     blosum62_dict = {}
     for index_row, aa in enumerate(aas):
-        for index_col, value in enumerate(blosum62_mtrx[index_row]):
+        for index_col, value in enumerate(dist_with_gap_penalty[index_row]):
            blosum62_dict[(aa, aas[index_col])] = value
 
     simple_score_dict = {}
@@ -90,7 +111,7 @@ def main():
         for seq1 in unique_seqs:
             current_row = []
             for seq2 in unique_seqs:
-                score_value = pairwise_comparison(seq1, seq2, simple_score_dict)
+                score_value = pairwise_comparison(seq1, seq2, blosum62_dict)
                 current_row.append(score_value)
             dist_matrix.append(current_row)
 

@@ -5,19 +5,28 @@ library(ggrepel)
 library(rstatix)
 library(stringr)
 
-species <- 'Gla'
+species <- 'Eve'
 dir <- '~/labeglo2/proteome_transcr_comparision'
+dir <- '~/labeglo2/proteome_transcr_comparision/3h/'
 transcr <- 
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species, '_transcr_24vs6_all.csv'), 
            sep = '\t')
+transcr <- 
+  read.csv(paste0('~/labeglo2/proteome_transcr_comparision/3h/', species, '_transcr_24vs6_all_3h.csv'), 
+           sep = '\t') # 3h
 #transcr <- subset(transcr, padj < 0.05)
 proteins <- 
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species, '_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv'),
            sep = '\t', header = T)
+proteins <- 
+  read.csv(paste0('~/labeglo2/proteome_transcr_comparision/3h/', species, '_AllProteins_24vs6_proteinGroups_separatelyAnalyzed_3h.csv'),
+           sep = '\t', header = T) # 3h
 proteins <- subset(proteins, FDR_recalc < 0.05)
 
 annot <- read.csv(file.path(dir, paste0('contigs_whole_annot_', species,'.csv')), 
                   sep = '\t')
+annot <- read.csv(file.path(dir, paste0('contigs_whole_annot_', species,'_3h.csv')), 
+                  sep = '\t') # 3h
 
 proteins$protein_group <- 1:nrow(proteins)
 proteins_sep <- separate(proteins, protein, ';', into=paste0('key', 1:30), 
@@ -66,6 +75,10 @@ intensities <-
                     tolower(species),'/intensities_after_slNorm_', 
                     tolower(species),'.csv'), 
             header = T)
+intensities <- 
+  read.table(paste0('~/labeglo2/MS_results/390/3h/', species,'/intensities_after_slNorm_', 
+                    tolower(species),'.csv'), 
+             header = T) # 3h
 data_prep <- function(data_intensities){
   row.names(data_intensities) <- data_intensities$protein_group
   data_intensities <- data_intensities[-1]
@@ -80,6 +93,8 @@ intensities <- data_prep(intensities)
 # 2. Counts:
 count_dir <- paste0('~/labeglo2/Transcriptomics/quantification/HS_exp_labeglo1/', 
               species, '/counts') # specify path to your samples
+count_dir <- paste0('~/labeglo2/Transcriptomics/quantification/HS_exp_labeglo1/3h/', 
+                    species, '/count')
 
 countFiles <- list.files(count_dir, full.names = T)
 countFiles
@@ -99,7 +114,13 @@ if (species == 'Gla'){
   sample_names <- c('24C_rep1', '24C_rep2', '24C_rep3', '24C_rep4',
                     '6C_rep1', '6C_rep2', '6C_rep3', '6C_rep4')
 }
-
+if (species == 'Eve'){
+  sample_names <- c('24C_rep1', '24C_rep2', '24C_rep3','24C_rep4',
+                    '6C_rep1', '6C_rep2', '6C_rep3', '6C_rep4')
+} else {
+  sample_names <- c('24C_rep1', '24C_rep2', '24C_rep3',
+                    '6C_rep1', '6C_rep2', '6C_rep3', '6C_rep4')
+} # 3h
 colnames(counts) <- sample_names
 
 data_prep_counts <- function(data_counts){
@@ -177,12 +198,12 @@ combined_data_down <- subset(combined_data, logFC < 0)
 f <- function(x) {
   sapply(strsplit(x, '|', fixed=T), `[`, 2)
 }
-ggplot(combined_data, aes(x = method, y = values, color = condition)) +
+ggplot(combined_data_down, aes(x = method, y = values, color = condition)) +
   geom_point(position=position_jitterdodge(dodge.width=1)) +
   geom_boxplot(aes(fill = condition, 
                    linetype = sign2plot), 
                outlier.alpha = 0, alpha = 0.4) +
-  facet_wrap(~all_labels, labeller = as_labeller(f), ncol = 4) +
+  facet_wrap(~all_labels, labeller = as_labeller(f), ncol = 5) +
   scale_linetype('adj. p-value:') +
   scale_color_manual('Condition:', values = c('#ca0020', '#0571b0')) +
   scale_fill_manual('Condition:', values = c('#ca0020', '#0571b0')) +
@@ -191,15 +212,15 @@ ggplot(combined_data, aes(x = method, y = values, color = condition)) +
   ylab('Scaled absolute values') +
   theme()
 
-dir_to_save <- '~/labeglo2/proteome_transcr_comparision/'
+dir_to_save <- '~/labeglo2/proteome_transcr_comparision/3h/'
 ggsave(file.path(dir_to_save, paste0(tolower(species), 
-                                     '_DEproteinsWITHtranscripts.png')),
+                                     '_DEproteinsWITHtranscripts_down.png')),
        #scale = 1.2) 
-       width = 9.5, height = 5)
+       width = 13, height = 8)
 ggsave(file.path(dir_to_save, paste0(tolower(species), 
-                                     '_DEproteinsWITHtranscripts.pdf')),
+                                     '_DEproteinsWITHtranscripts_down.pdf')),
        #scale = 1.2)
-       width = 10, height = 5)
+       width = 13.5, height = 8)
 # Ecy: width = 12.5, height = 7
 # Gla: width = 9.5, height = 5
 # Eve: width = 12.5, height = 7

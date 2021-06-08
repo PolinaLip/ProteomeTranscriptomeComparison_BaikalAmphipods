@@ -27,14 +27,19 @@ meta$condition <- ifelse(grepl('CK1|CK2|VrK1|VrK2|LK1|LK2', meta$sample),
                          '6C', '24C')
 
 ### 2. Data uploading (proteinGroups file from MaxQuant)
-dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_eve/'
-dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_ecy/'
-dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_gla/'
+dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_eve/' # 24h
+dir <- 'labeglo2/MS_results/390/3h/Eve/' # 3h
+dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_ecy/' # 24h
+dir <- 'labeglo2/MS_results/390/3h/Ecy/' # 3h
+dir <- 'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_gla/' # 24h
+dir <- 'labeglo2/MS_results/390/3h/Gla/' # 3h
 proteinGroups_file <- 'proteinGroups_wo_cont_more2pept.txt' # take file with proteinGroups with 2 or more peptides quantified
 dat_init <- read.csv(file.path(dir, proteinGroups_file), sep = '\t', header = T, 
                      check.names = F) 
-pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_gla.csv'), sep = '\t',
+pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_eve.csv'), sep = '\t',
                       header = T)
+pep_annot <- read.csv(file.path(dir, 'annot_proteinGroups_HS_3h_gla.csv'), sep = '\t',
+                      header = T) # 3h
 
 select_data <- function(meta_data, proteinGroups_data){
   dat_ <- proteinGroups_data[,c('Protein IDs', meta_data$measure)]
@@ -172,7 +177,7 @@ data_irs <- data_sl_mult # for PSM-normalized data
 data_sl_mult$protein_group <- row.names(data_sl_mult)
 data_sl_mult_ <- data.frame(protein_group = data_sl_mult$protein_group, 
                             data_sl_mult[1:length(data_sl_mult)-1])
-write.table(data_sl_mult_, file.path(dir, 'intensities_after_slNorm_ecy.csv'), 
+write.table(data_sl_mult_, file.path(dir, 'intensities_after_slNorm_gla.csv'), 
             sep = '\t', quote = F, row.names = F)
 
 #########
@@ -264,7 +269,7 @@ SignProteinInfo_8_1 <- edger_analysis_wrap(norm_data = data_8_1,
                                                             "24C"), 
                                            metafile = meta)
 
-# 8 NAs/row (the 2nd + 3rd TMT batches)
+# 8 NAs/row (the 2nd + 3rd TMT batches) Eve
 data_8_2 <- data_irs[rowSums(is.na(data_irs)) == 8,]
 data_8_2 <- data_8_2[,grepl('_4$|_5$|_6$|VrK1_390_7|Vr1_390_7|Vr1_390_8|VrK1_390_8', 
                             colnames(data_8_2))]
@@ -275,7 +280,7 @@ SignProteinInfo_8_2 <- edger_analysis_wrap(norm_data = data_8_2,
                                                             "24C"), 
                                            metafile = meta)
 
-# 11 NAs/row (the 1st TMT batch)
+# 11 NAs/row (the 1st TMT batch) Eve
 data_11_1 <- data_irs[rowSums(is.na(data_irs)) == 11,]
 data_11_1 <- data_11_1[,!grepl('Vr1_390_7|Vr1_390_8|VrK1_390_8', 
                              colnames(data_11_1))]
@@ -387,8 +392,8 @@ nrow(subset(SPI_all_sign, logFC > 0)) # UP
 nrow(subset(SPI_all_sign, logFC < 0)) # DOWN
 
 write.table(SPI_all, 
-            file = file.path(paste0('~/labeglo2/proteome_transcr_comparision/',
-                                    species, '_AllProteins_24vs6_proteinGroups_separatelyAnalyzed.csv')),
+            file = file.path(paste0('~/labeglo2/proteome_transcr_comparision/3h/',
+                                    species, '_AllProteins_24vs6_proteinGroups_separatelyAnalyzed_3h.csv')),
             sep = '\t', quote = F, row.names = F)
 
 ########################################
