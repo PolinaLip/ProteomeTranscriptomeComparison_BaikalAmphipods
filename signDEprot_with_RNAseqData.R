@@ -175,12 +175,17 @@ combined_data$method <- ifelse(grepl('rep', combined_data$sample),
                                'RNAseq', 'MS/MS')
 combined_data$geneSymbol <- sub('PREDICTED: ', '', combined_data$geneSymbol)
 combined_data$geneSymbol <- sub('-like', '', combined_data$geneSymbol)
-var_width <- 35
+combined_data$geneSymbol <- sub(', partial', '', combined_data$geneSymbol)
+var_width <- 25
 combined_data <- mutate(combined_data, 
                         pretty_varname = str_wrap(combined_data$geneSymbol, 
                                                   width = var_width))
 combined_data$all_labels <- sprintf('%s|%s', combined_data$pg_name, 
                                     combined_data$pretty_varname)
+combined_data$all_labels2 <- factor(combined_data$all_labels,
+                             levels=unique(
+                             combined_data$all_labels[order(combined_data$pretty_varname)]))
+
 combined_data$sign2plot <- 
   ifelse(combined_data$sign == "< 0.05 (both)",
         '< 0.05', 
@@ -190,37 +195,45 @@ combined_data$sign2plot <-
 combined_data$method <- factor(combined_data$method, 
                                levels = c('RNAseq', 'MS/MS'))
 combined_data$condition <- factor(combined_data$condition, 
-                                  levels = c('24C', '6C'),
-                                  labels = c('24 °C', '6 °C'))
+                                  levels = c('6C', '24C'),
+                                  labels = c('6 °C', '24.6 °C'))
 combined_data_up <- subset(combined_data, logFC > 0)
+write.table(combined_data_up, 
+            file = file.path(dir, 
+                   paste(species, '_AllupProteins_joinedWithTranscripts.csv')))
 combined_data_down <- subset(combined_data, logFC < 0)
+write.table(combined_data_down, 
+            file = file.path(dir, 
+            paste(species, '_AlldownProteins_joinedWithTranscripts.csv')))
 
 f <- function(x) {
   sapply(strsplit(x, '|', fixed=T), `[`, 2)
 }
-ggplot(combined_data_down, aes(x = method, y = values, color = condition)) +
-  geom_point(position=position_jitterdodge(dodge.width=1)) +
+ggplot(combined_data, aes(x = method, y = values, color = condition)) +
+  geom_point(position=position_jitterdodge(dodge.width=1),
+             size = 0.7) +
   geom_boxplot(aes(fill = condition, 
                    linetype = sign2plot), 
                outlier.alpha = 0, alpha = 0.4) +
-  facet_wrap(~all_labels, labeller = as_labeller(f), ncol = 5) +
+  facet_wrap(~all_labels2, labeller = as_labeller(f), ncol = 5) +
   scale_linetype('adj. p-value:') +
-  scale_color_manual('Condition:', values = c('#ca0020', '#0571b0')) +
-  scale_fill_manual('Condition:', values = c('#ca0020', '#0571b0')) +
+  scale_color_manual('Condition:', values = c('#0571b0', '#ca0020')) +
+  scale_fill_manual('Condition:', values = c('#0571b0', '#ca0020')) +
   theme_bw() +
-  xlab('') +
   ylab('Scaled absolute values') +
-  theme()
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_text(size = 12),
+        strip.text = element_text(size = 8, margin = margin(2,2,2,2)))
 
-dir_to_save <- '~/labeglo2/proteome_transcr_comparision/3h/'
+dir_to_save <- '~/labeglo2/proteome_transcr_comparision/'
 ggsave(file.path(dir_to_save, paste0(tolower(species), 
-                                     '_DEproteinsWITHtranscripts_down.png')),
-       #scale = 1.2) 
-       width = 13, height = 8)
+                                     '_DEproteinsWITHtranscripts_up.png')),
+       scale = 0.8,
+       width = 11.5, height = 7)
 ggsave(file.path(dir_to_save, paste0(tolower(species), 
-                                     '_DEproteinsWITHtranscripts_down.pdf')),
-       #scale = 1.2)
-       width = 13.5, height = 8)
+                                     '_DEproteinsWITHtranscripts_up.pdf')),
+       scale = 0.8,
+       width = 12, height = 7)
 # Ecy: width = 12.5, height = 7
 # Gla: width = 9.5, height = 5
 # Eve: width = 12.5, height = 7

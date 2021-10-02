@@ -4,18 +4,18 @@ library(ggplot2)
 library(ggrepel)
 library(rstatix)
 
-species <- 'Gla'
+species <- 'Ecy'
 dir <- '~/labeglo2/proteome_transcr_comparision'
 dir <- '~/labeglo2/proteome_transcr_comparision/3h/'
 transcr <- 
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species,
            '_transcr_24vs6_all.csv'), 
            sep = '\t') # 24h
-transcr <- 
+transcr <-
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/3h/', species,
                   '_transcr_24vs6_all_3h.csv'), 
            sep = '\t') # 3h
-transcr <- subset(transcr, pvalue < 0.05)
+#transcr <- subset(transcr, pvalue < 0.05)
 proteins <- 
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species,
            '_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv'),
@@ -24,7 +24,7 @@ proteins <-
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/3h/', species,
                   '_AllProteins_24vs6_proteinGroups_separatelyAnalyzed_3h.csv'),
            sep = '\t', header = T) # 3h
-proteins <- subset(proteins, pvalue < 0.05)
+#proteins <- subset(proteins, pvalue < 0.05)
 
 annot <- read.csv(file.path(dir, 
                             paste0('contigs_whole_annot_', 
@@ -51,6 +51,19 @@ joined <- inner_join(transcr, proteins_long, by = c('contig' = 'protein_clip'))
 joined_clip <- joined[c(1, 3, 5, 7, 8, 9, 11, 12, 13)]
 
 filtered_joined_clip <- filter(joined_clip, abs(log2FoldChange) > 2 | abs(logFC) > 0.5)
+
+##### add ORF length to all complete ORFs
+orf_type <- read.table(file = file.path(dir, 'all_species_orf_type.tsv'))
+colnames(orf_type) <- c('protein_name', 'orf', 'length')
+complete_orf <- subset(orf_type, orf == 'complete')
+complete_orf[match(proteins_long$protein, complete_orf$protein_name),]
+proteins_long_complete <- subset(proteins_long, protein %in% complete_orf$protein_name)
+proteins_long_complete$orf_length <- 
+  complete_orf[match(proteins_long_complete$protein, complete_orf$protein_name),]$length
+
+joined <- inner_join(transcr, proteins_long_complete, by = c('contig' = 'protein_clip'))
+
+joined_clip <- joined[c(1, 3, 5, 7, 8, 9, 11, 12, 13, 14)]
 
 # it seems that I have a lot of duplicated proteins 
 # (no wonder - protein groups were splitted and transcripts matched to 
@@ -123,6 +136,8 @@ ggsave(file.path(dir, 'transcr_proteome_logfc_Gla_pvalues_24Cvs6Cafter.png'),
 
 # figure with correlation curve and cor_test results
 
+#joined_clip_merged_ <- joined_clip_merged
+joined_clip_merged <- subset(joined_clip_merged_, orf_length >= 200)
 cor_test_res <- cor.test(joined_clip_merged$best_tlfc, joined_clip_merged$logFC)
 
 ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
@@ -133,7 +148,7 @@ ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
   annotate(geom='text', x = -5.5, y = 1.6, hjust = 0, size = 6,
            label = paste0('r2 = ', round(cor_test_res$estimate, 4), '\n',
                           'p-value ', p_format(cor_test_res$p.value,
-                                               accuracy = 0.05))) +
+                                               accuracy = 0.00001))) +
 #  geom_point(aes(shape = sign), data=filtered_joined_clip_merged, color='red') +
   scale_shape_manual('p-value:', values = c(8, 16, 17, 1)) +
   #xlab('log2FC (24°C/6°C) transcriptome') + # 24h
@@ -220,9 +235,9 @@ joined_clip_merged <- mutate(joined_clip_merged,
                           pretty_varname = stringr::str_wrap(joined_clip_merged$geneSymbol, 
                           width = var_width))
 
-#write.table(joined_clip_merged, 
-#            file = file.path(dir, paste0(species, '_3h_table_for_cor_plot.csv')),
-#            sep = '\t')
+write.table(joined_clip_merged, 
+            file = file.path(dir, paste0(species, '_3h_table_for_cor_plot_All.csv')),
+            sep = '\t')
 ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
   geom_hline(yintercept = 0, color = '#387490', alpha = .7) +
   geom_vline(xintercept = 0, color = '#387490', alpha = .7) +

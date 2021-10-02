@@ -7,7 +7,7 @@ library(limma)
 library(edgeR)
 library(ggfortify) 
 
-species <- 'Gla'
+species <- 'Eve'
 
 ### 1. Upload metafile
 meta_upload <- function(path_to_file, species_name) {
@@ -36,9 +36,13 @@ dir <- 'labeglo2/MS_results/390/3h/Gla/' # 3h
 proteinGroups_file <- 'proteinGroups_wo_cont_more2pept.txt' # take file with proteinGroups with 2 or more peptides quantified
 dat_init <- read.csv(file.path(dir, proteinGroups_file), sep = '\t', header = T, 
                      check.names = F) 
-pep_annot <- read.csv(file.path(dir, 'annot_protein_groups_eve.csv'), sep = '\t',
+pep_annot <- read.csv(file.path(dir, 
+                      paste0('annot_protein_groups_', tolower(species),'.csv')), 
+                      sep = '\t',
                       header = T)
-pep_annot <- read.csv(file.path(dir, 'annot_proteinGroups_HS_3h_gla.csv'), sep = '\t',
+pep_annot <- read.csv(file.path(dir, 
+                      paste0('annot_proteinGroups_HS_3h_', tolower(species),'.csv')), 
+                      sep = '\t',
                       header = T) # 3h
 
 select_data <- function(meta_data, proteinGroups_data){
@@ -52,9 +56,11 @@ select_data <- function(meta_data, proteinGroups_data){
 dat <- select_data(meta, dat_init)
 
 ### 3. Get rid of the outliers and samples, which you do not want to analyze
-dat <- dat[,!grepl('VrK1_390_3|VrK1_390_4|pool', colnames(dat))]
+dat <- dat[, !grepl('VrK1_390_3|VrK1_390_4|pool', colnames(dat))]
+dat <- dat[, !grepl('pool', colnames(dat))]
 meta <- subset(meta, sample != 'VrK1_390_3' & sample != 'VrK1_390_4' &
                  !grepl('pool', sample))
+meta <- subset(meta, !grepl('pool', sample))
 
 #'L1_390_3|L1_390_4'
 
@@ -112,7 +118,7 @@ exp3_raw <- data_raw[,subset(meta, experiment == 3)$sample]
 
 target <- mean(c(colSums(exp1_raw, na.rm = T), colSums(exp2_raw, na.rm = T), 
                colSums(exp3_raw, na.rm = T)),
-               na.rm = T)
+               na.rm = T) # for eve, with median I got the same results in the end 
 target <- mean(c(colSums(exp1_raw, na.rm = T), colSums(exp2_raw, na.rm = T)),
                na.rm = T)
 norm_facs <- target / colSums(exp1_raw, na.rm = T)
@@ -164,16 +170,34 @@ plotMDS(log2(data_sl), col = col_vec)
 dev.off()
 
 ## 7.3 PCA-plot
-data_sl_t <- na.omit(data_sl) %>% t %>% as.data.frame
+data_sl_t <- na.omit(log2(data_sl)) %>% t %>% as.data.frame
 pca_res <- prcomp(data_sl_t)
 meta2 <- meta
 meta2$experiment <- as.factor(meta2$experiment)
-autoplot(pca_res, data=meta2, colour='condition') + theme_light()
-ggsave(filename = file.path(dir, 'pca_proteinGroups_woImput_woPools.png'))
+meta2$Condition <- factor(meta2$condition, levels = c('6C', '24C'),
+                           labels = c('6 °C', '24 °C'))
+meta2$sample2 <- sub('_390_', '-', meta2$sample)
+set.seed(666)
+autoplot(pca_res, data=meta2, colour='Condition', fill = 'Condition', frame = T, 
+         x = 1, y = 2) +
+  geom_text_repel(label = meta2$sample2, size = 3) +
+  theme_light() + 
+  scale_color_manual(values = c('#0571b0', '#ca0020')) +
+  scale_fill_manual(values = c('#0571b0', '#ca0020'))
+ggsave(filename = file.path(dir, 'pca_log2transformedData.png'),
+       scale = 1.1)
+
+pca_res_wout <- pca_res
+### log2-transformation
+
+#data_sl_log2 <- log2(data_sl)
 
 ### 8. Multiply the normalized data by 10^7 to make it possible to perform DE analysis
 data_sl_mult <- data_sl * 10000000 # for PSM-normalized data
+#data_sl_mult_log2 <- log2(data_sl_mult)
 data_irs <- data_sl_mult # for PSM-normalized data
+#data_irs <- data_sl_mult_log2
+#data_irs <- data_irs - min(data_irs %>% as.matrix, na.rm = T)
 data_sl_mult$protein_group <- row.names(data_sl_mult)
 data_sl_mult_ <- data.frame(protein_group = data_sl_mult$protein_group, 
                             data_sl_mult[1:length(data_sl_mult)-1])
@@ -293,7 +317,7 @@ SignProteinInfo_11_1 <- edger_analysis_wrap(norm_data = data_11_1,
                                                              "24C"), 
                                             metafile = meta)
 
-# 11 NAs/row (the 2nd TMT batch)
+# 11 NAs/row (the 2nd TMT batch) Eve
 data_11_2 <- data_irs[rowSums(is.na(data_irs)) == 11,]
 data_11_2 <- data_11_2[,!grepl('Vr1_390_7|Vr1_390_8|VrK1_390_8', 
                              colnames(data_11_2))]
@@ -305,6 +329,11 @@ SignProteinInfo_11_2 <- edger_analysis_wrap(norm_data = data_11_2,
                                             cond2compare = c("6C", 
                                                              "24C"), 
                                             metafile = meta)
+
+data_tmp <- data_irs[rowSums(is.na(data_irs)) != 0 &
+                       rowSums(is.na(data_irs)) != 11 & 
+                       rowSums(is.na(data_irs)) != 8 & 
+                       rowSums(is.na(data_irs)) != 3 ,]
 
 # 9 NAs/row (the 2nd TMT batch) - Ecy
 data_9 <- data_irs[rowSums(is.na(data_irs)) == 9,]
@@ -323,6 +352,10 @@ SignProteinInfo_8 <- edger_analysis_wrap(norm_data = data_8,
                                          cond2compare = c("6C", 
                                                           "24C"), 
                                          metafile = meta)
+
+data_tmp <- data_irs[rowSums(is.na(data_irs)) != 0 &
+                       rowSums(is.na(data_irs)) != 8 & 
+                       rowSums(is.na(data_irs)) != 9 ,]
 
 # 4 NAs/row - Gla
 data_4 <- data_irs[rowSums(is.na(data_irs)) == 4,]

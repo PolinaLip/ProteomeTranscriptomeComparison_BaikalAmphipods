@@ -2,7 +2,7 @@
 library(cowplot)
 dir <- "~/labeglo2/proteome_transcr_comparision"
 
-species <- 'Eve'
+species <- 'Ecy'
 data_up <- read.table(file.path(dir, 
                                 paste(species, '_AllupProteins_joinedWithTranscripts.csv')))
 data_down <- read.table(file.path(dir, 
@@ -33,12 +33,12 @@ f <- function(x) {
   geom_boxplot(aes(fill = condition, 
                    linetype = sign2plot), 
                outlier.alpha = 0, alpha = 0.4) +
-  facet_wrap(~all_labels2, labeller = as_labeller(f), ncol = 5) +
+  facet_wrap(~all_labels2, labeller = as_labeller(f), ncol = 4) +
   scale_linetype('adj. p-value:') +
   scale_color_manual('Condition:', values = c('#0571b0', '#ca0020')) +
   scale_fill_manual('Condition:', values = c('#0571b0', '#ca0020')) +
   theme_bw() +
-  ylab('Scaled absolute values') +
+  ylab('Scaled absolute\nvalues') +
   theme(axis.title.x = element_blank(),
         axis.title.y = element_text(size = 12),
         strip.text = element_text(size = 8, margin = margin(2,2,2,2)))
@@ -49,23 +49,29 @@ f <- function(x) {
   geom_boxplot(aes(fill = condition, 
                    linetype = sign2plot), 
                outlier.alpha = 0, alpha = 0.4) +
-  facet_wrap(~all_labels2, labeller = as_labeller(f), ncol = 5) +
+  facet_wrap(~all_labels2, labeller = as_labeller(f), ncol = 4) +
   scale_linetype('adj. p-value:') +
   scale_color_manual('Condition:', values = c('#0571b0', '#ca0020')) +
   scale_fill_manual('Condition:', values = c('#0571b0', '#ca0020')) +
   theme_bw() +
-  ylab('Scaled absolute values') +
+  ylab('Scaled absolute\nvalues') +
   theme(axis.title.x = element_blank(),
         axis.title.y = element_text(size = 12),
         strip.text = element_text(size = 8, margin = margin(2,2,2,2)))
 )
 
 (together <- plot_grid(gg_up + theme(legend.position="none"),
-                   gg_down + theme(legend.position="none"),
-                   #align = 'vh',
+                       gg_down + theme(legend.position="none"),
+                   #plot_grid(gg_down + theme(legend.position="none"),
+                  #           grid.rect(gp=gpar(col='white')),
+                  #           nrow=1, rel_widths = c(1, 1.26)),
                    labels = c("A", "B"),
+                   label_y = 1.02,
                    hjust = -1,
-                   nrow = 2)
+                   nrow = 2
+                   ,
+                   rel_heights = c(0.9, 1) #Ecy
+                   )
 )
 legend_b <- get_legend(gg_up + theme(legend.position="bottom"))
 
@@ -73,7 +79,7 @@ legend_b <- get_legend(gg_up + theme(legend.position="bottom"))
                         rel_heights = c(1, .05)))
 
 ggsave(file.path(dir, paste(species, '_upAndDown_proteins_together.png')), 
-       scale = 0.7, width = 12, height = 15)
+       scale = 0.7, width = 10, height = 8)
 
 
 
