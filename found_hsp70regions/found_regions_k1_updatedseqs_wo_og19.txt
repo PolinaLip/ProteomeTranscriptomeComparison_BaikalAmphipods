@@ -1,0 +1,792 @@
+@inducible-both2, pos = 50, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             -
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 D
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 D
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             D
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 -
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         -
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            K
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        K
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            K
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        M
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             M
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           -
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          -
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  -
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     -
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      -
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      -
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                -
+@inducible-both2, pos = 112, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             -
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 T
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 T
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             T
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 T
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         T
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            T
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        T
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            T
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                M
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        L
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             L
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           M
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          M
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  M
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     M
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      -
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      M
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                M
+@inducible-both2, pos = 130, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             -
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 D
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 D
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             E
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 S
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         S
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            T
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        T
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            T
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                D
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        G
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             G
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           D
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          D
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  D
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     D
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      -
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      D
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                D
+@inducible-both2, pos = 133, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             -
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 E
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 E
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             E
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 T
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         T
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            T
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        T
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            T
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                T
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        S
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             S
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           T
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          T
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  T
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     T
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      -
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      T
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                T
+@inducible-both2, pos = 135, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             -
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 K
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 K
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             K
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 Q
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         Q
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            Q
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        Q
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            Q
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                Q
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        N
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             N
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           T
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          T
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  Q
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     Q
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      -
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      Q
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                Q
+@inducible-both2, pos = 155, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             -
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 -
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 -
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             -
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 K
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         K
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            K
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        K
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            K
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                Q
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        G
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             G
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           E
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          E
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  S
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     S
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      R
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      R
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                R
+@downreg-transc, pos = 297, full
+# observed: NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+# wanted:   NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             F
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 F
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 F
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             F
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 M
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         L
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            Y
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        Y
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            Y
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                F
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        F
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             F
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           F
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          F
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  F
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     F
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      F
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      F
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                F
+@inducible-both2, pos = 301, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             H
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 Q
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 Q
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             Q
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 H
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         H
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            R
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        R
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            R
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                N
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        F
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             F
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           Y
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          Y
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  Y
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     Y
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      Y
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      Y
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                Y
+@downreg-transc, pos = 304, full
+# observed: NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+# wanted:   NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             D
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 D
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 D
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             D
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 G
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         D
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            D
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        D
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            D
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        D
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             D
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           D
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          D
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  D
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     D
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      D
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      D
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                D
+@inducible-both2, pos = 307, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             G
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 K
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 K
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             K
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 E
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         T
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            K
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        K
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            K
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        Q
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             Q
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           E
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          E
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  E
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     E
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      E
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      D
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                D
+@inducible-prot, pos = 308, full
+# observed: NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1
+# wanted:   NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             N
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 D
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 D
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             D
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 N
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         N
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            D
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        D
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            D
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        N
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             N
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           S
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          N
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  N
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     N
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      N
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      N
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                N
+@downreg-transc, pos = 356, full
+# observed: NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+# wanted:   NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             T
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 T
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 T
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             T
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 S
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         L
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            T
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        T
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            T
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        T
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             T
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           T
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          T
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  T
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     T
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      T
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      T
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                T
+@downreg-transc, pos = 381, full
+# observed: NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+# wanted:   NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             S
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 K
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 K
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             K
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 Q
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         K
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            E
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        E
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            E
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        R
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             R
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           R
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          R
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  R
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     R
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      R
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      R
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                R
+@downreg-transc, pos = 412, full
+# observed: NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+# wanted:   NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             F
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 I
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 I
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             I
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 L
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         F
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            F
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        F
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            F
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        F
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             F
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           F
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          F
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  F
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     F
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      F
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      F
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                F
+@downreg-transc, pos = 453, full
+# observed: NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+# wanted:   NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             A
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 L
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 L
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             L
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 K
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         T
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            L
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        L
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            L
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        L
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             L
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           L
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          L
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  L
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     L
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      L
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      L
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                L
+@downreg-transc, pos = 458, full
+# observed: NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+# wanted:   NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             N
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 L
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 L
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             L
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 V
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         L
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            L
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        L
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            L
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        L
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             L
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           L
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          L
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  L
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     L
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      L
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      L
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                L
+@downreg-transc, pos = 478, full
+# observed: NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+# wanted:   NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             W
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 T
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 T
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             T
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 Q
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         R
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            V
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        V
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            V
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        T
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             T
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           T
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          T
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  T
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     T
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      T
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      T
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                T
+@inducible-both2, pos = 516, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             Q
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 A
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 S
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             A
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 K
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         K
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            K
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        K
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            K
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        R
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             R
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           K
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          K
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  K
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     K
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      K
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      K
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                K
+@downreg-transc, pos = 518, full
+# observed: NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+# wanted:   NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             E
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 N
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 N
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             N
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 S
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         N
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            N
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        N
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            N
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        N
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             N
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           N
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          N
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  N
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     N
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      N
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      N
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                N
+@inducible-both2, pos = 532, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             N
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 I
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 I
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             I
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 G
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         G
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            I
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        I
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            I
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        L
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             L
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           I
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          I
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  I
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     I
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      I
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      I
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                I
+@downreg-transc, pos = 584, full
+# observed: NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+# wanted:   NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             H
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 E
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 E
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             E
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 K
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         E
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            E
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        E
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            E
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        E
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             E
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           E
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          E
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  E
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     E
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      E
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      E
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                E
+@downreg-transc, pos = 585, full
+# observed: NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+# wanted:   NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             D
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 N
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 N
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             N
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 Q
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         R
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            R
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        R
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            R
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        R
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             R
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           R
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          R
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  R
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     R
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      R
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      R
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                R
+@downreg-transc, pos = 590, full
+# observed: NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+# wanted:   NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             L
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 A
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 A
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             A
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 S
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         A
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            A
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        A
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            A
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        A
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             A
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           A
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          A
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  A
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     A
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      A
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      A
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                A
+@downreg-transc, pos = 593, full
+# observed: NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+# wanted:   NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             F
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 Y
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 Y
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             Y
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 Q
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         L
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            F
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        F
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            F
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        Y
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             Y
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           Y
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          Y
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  Y
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     Y
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      Y
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      Y
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                Y
+@inducible-both2, pos = 603, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             V
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 L
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 L
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             L
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 -
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         -
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            R
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        R
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            R
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        K
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             K
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           R
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          R
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  R
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     R
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      R
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      R
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                R
+@inducible-both2, pos = 640, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             T
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 T
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 T
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             T
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 -
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         -
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            E
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        E
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            E
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        S
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             S
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           K
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          K
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  K
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     K
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      K
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      K
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                K
+@inducible-both2, pos = 647, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             E
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 V
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 A
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             A
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 -
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         -
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            D
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        D
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            D
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        N
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             N
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           D
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          D
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  D
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     D
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      S
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      D
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                D
+@inducible-both2, pos = 659, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             A
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 A
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 A
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             A
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 -
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         -
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            A
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        A
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            A
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        G
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             G
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           A
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          A
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  A
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     A
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      A
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      A
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                A
+@inducible-both2, pos = 662, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             E
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 E
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 E
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             E
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 -
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         -
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            E
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        E
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            E
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        D
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             D
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           E
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          E
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  E
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     E
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      E
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      E
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                E
+@inducible-both2, pos = 689, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             V
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 E
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 E
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             E
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 -
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         -
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            -
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        -
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            -
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        G
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             G
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           M
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          M
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  A
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     A
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      -
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      -
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                -
+@inducible-prot, pos = 703, full
+# observed: NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1
+# wanted:   NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             I
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 S
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 S
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             S
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 -
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         -
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            -
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        -
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            -
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        -
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             -
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           H
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          P
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  P
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     P
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      -
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      -
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                -
+@inducible-both2, pos = 707, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             P
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 P
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 P
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             P
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 -
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         -
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            P
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        P
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            P
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        S
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             S
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           P
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          P
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  P
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     P
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      -
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      -
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                -
+@inducible-both2, pos = 708, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             K
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 H
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 H
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             H
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 -
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         -
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            G
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        G
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            G
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        P
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             P
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           G
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          G
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  G
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     G
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      -
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      -
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                -
+@inducible-both2, pos = 712, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             R
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 K
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 K
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             K
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 -
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         -
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            A
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        A
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            A
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        P
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             P
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           -
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          G
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  A
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     A
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      G
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      G
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                G
+@inducible-both2, pos = 713, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             V
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 S
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 S
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             S
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 -
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         -
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            S
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        S
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            S
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        M
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             M
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           -
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          G
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  A
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     A
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      A
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      A
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                A
+@inducible-both2, pos = 718, full
+# observed: NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+# wanted:   NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1 NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1
+NODE_15948_length_2004_cov_18.541176_g10374_i0.p1_Ecy;Ecy+Eve;Hsc70-4;constitutive;og21                                             A
+NODE_7059_length_3014_cov_201.101180_g4155_i0.p1_Gla;Gla;Hsc70-5*;constitutive;og12                                                 -
+NODE_8255_length_2956_cov_228.994152_g5233_i0.p1_Ecy;Ecy;Hsc70-5*;constitutive;og12                                                 -
+NODE_8028_length_2937_cov_247.428324_g5087_i0.p1_Eve;Eve;Hsc70-5*;inducible-transc;og12                                             -
+NODE_2616_length_4925_cov_126.968417_g1599_i0.p1_Eve;Eve;hspa8*;downreg-transc;og26                                                 -
+NODE_2931_length_4714_cov_46.984137_g1599_i2.p1_Eve;Eve;Hsc70-4*;const;og26                                                         -
+NODE_9055_length_2652_cov_1030.290434_g5368_i0.p1_Gla;Gla;Hsc70-3*;inducible-transc;og14                                            E
+NODE_9497_length_2742_cov_1201.469365_g6044_i0.p1_Ecy;Ecy;Hsc70-3const;inducible-transc;og14                                        E
+NODE_8288_length_2890_cov_1370.789863_g5261_i0.p1_Eve;Eve;Hsc70-3*;inducible-transc;og14                                            E
+NODE_61599_length_642_cov_3.397976_g47390_i0.p1_Ecy;Ecy+Eve+Gla;HSP70const;inducible-transc(Ecy);og8                                -
+NODE_3822_length_4220_cov_2696.563654_g2376_i0.p1_Eve;Eve+Ecy;HSPA1Ainduc;inducible-both;og1                                        N
+NODE_9047_length_2654_cov_753.071785_g5362_i0.p1_Gla;Gla;HSPA1Ainduc;inducible-both;og1                                             N
+NODE_10173_length_2564_cov_954.636581_g6366_i1.p1_Eve;Eve;Hsc70-4const;inducible-prot;og1                                           A
+NODE_9313_length_2618_cov_250.297392_g5535_i0.p1_Gla;Gla;Hsc70-4const;inducible-transc;og1                                          A
+NODE_9217_length_2788_cov_3058.970427_g5866_i0.p1_Ecy;Eve+Ecy;hspa8const;const;og1                                                  G
+NODE_7313_length_2961_cov_2651.864698_g3984_i1.p1_Gla;Gla;hspa8const;const;og25                                                     G
+NODE_9748_length_2552_cov_608.789053_g5828_i0.p1_Gla;Gla;HSPA1Aconst;inducible-transc;og32_gla                                      -
+NODE_3272_length_4517_cov_606.750895_g420_i1.p1_Eve;Eve;Hsc70-4const;const;og1                                                      G
+NODE_1500_length_6019_cov_471.103350_g973_i0.p1_Ecy;Ecy;HSPA1Aconst;inducible-trancs-prot_partly;og1                                A
