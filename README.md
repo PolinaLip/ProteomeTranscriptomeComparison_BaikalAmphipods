@@ -1,5 +1,5 @@
 ## ProteomeTranscriptomeComparison_BaikalAmphipods
-Here are scripts for the comparison of the proteome and transcriptome of the Baikal amphipods exposed to 24C (for 24 hours, heat shock).  
+Here are scripts for the comparison between the proteome and transcriptome of two endemic Baikal amphipods (E. verrucosus and E. cyaneus) and a Holarctic species (G. lacustris) exposed to 24C (for 24 hours, heat shock experiment). The here studied species are non-model organisms with no full-assembled genome available.
 
 ### prot_transcr_lfc.R: 
 1. relates each protein group to their transcripts; 
