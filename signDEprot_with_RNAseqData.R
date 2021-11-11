@@ -177,6 +177,7 @@ combined_data$geneSymbol <- sub('PREDICTED: ', '', combined_data$geneSymbol)
 combined_data$geneSymbol <- sub('-like', '', combined_data$geneSymbol)
 combined_data$geneSymbol <- sub(', partial', '', combined_data$geneSymbol)
 var_width <- 25
+#combined_data <- tmp
 combined_data <- mutate(combined_data, 
                         pretty_varname = str_wrap(combined_data$geneSymbol, 
                                                   width = var_width))
