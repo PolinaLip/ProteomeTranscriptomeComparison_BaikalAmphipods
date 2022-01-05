@@ -14,3 +14,6 @@ To plot boxplots with MS/MS and RNAseq data for all differentialy abundant prote
 
 ### fig_cor.R:
 To plot fig. 1 - Correlation between log2 of fold changes of transcriptome and proteome at 24.6 °C compared to 6 °C (24h proteome with 24h and 3h transcriptome).
+
+### DE_analysis_[species_name].R
+For DEA of the transcriptomes of different species using "counts" tables and DESeq2. 
