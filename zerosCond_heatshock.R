@@ -58,15 +58,17 @@ ixs <- order(condition)
 dat_ <- dat[, ixs]
 condition <- condition[ixs]
 
+row_ixs <- rep(F, nrow(dat_))
 for (level in levels(condition)) {
   col_ixs <- condition == level
-  dat_ <- dat_[rowSums(is.na(dat_[,col_ixs])) == sum(col_ixs),]
+  row_ixs <- row_ixs | rowSums(is.na(dat_[,col_ixs, drop=F])) == sum(col_ixs)
 }
 
-View(dat_)
+View(dat_[row_ixs,])
 # For E. verrucosus: 15 proteins with NAs in all samples -> exclude from analysis
 # For E. cyaneus: 11 proteins with NAs in all samples -> exclude from analysis
 # For G. lacustris: 9 proteins with NAs in all samples -> exclude from analysis
+# and 48 proteins with intensities only in LK1 (before exposition) - in the same 4 replicates from one TMT-batch
 
 # It turned out that we do not have proteins with all zeros in only one condition
 
