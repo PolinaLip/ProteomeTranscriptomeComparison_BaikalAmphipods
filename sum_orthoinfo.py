@@ -39,7 +39,7 @@ def collect_all_info(protein_list_orthofinder, exonerate_dict, info_dict, orthog
             output_file.write('%s\t%s\t%s\t%s\t%s\t%s\t%i\n' % (protein, info_dict[protein][0], info_dict[protein][2], orthogroup_name, info_dict[protein][1], protein_type, info_dict[protein][3]))
 
 def main():
-    parser = argparse.ArgumentParser(description='To gather information regarding found orthologues and paralogues as well as type of Hsp70 (constitutive or inducible)')
+    parser = argparse.ArgumentParser(description='To gather information regarding the found orthologues and paralogues as well as type of Hsp70 (constitutive or inducible)')
     parser.add_argument('--outp_fish_ecy', type=argparse.FileType(), help='ecy output tsv file from protein_fishing.py')
     parser.add_argument('--outp_fish_eve', type=argparse.FileType(), help='eve output tsv file from protein_fishing.py')
     parser.add_argument('--outp_fish_gla', type=argparse.FileType(), help='gla output tsv file from protein_fishing.py')

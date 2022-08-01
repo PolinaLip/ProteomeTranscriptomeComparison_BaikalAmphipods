@@ -24,7 +24,7 @@ def align_peptides(protein_group_name, protein_seq_dict, peptide_seq_dict, pepti
     2. Sometimes there are several proteins with the same set of peptides. In this case, if proteins are with different lengths 
     the protein with the minimal sequence length will be choosen; 
     3. If proteins are with the same lengths (but some differences in the sequence) 
-    the protein with the investigated species name will be choosen (we can rely on transcriptomic assembly) '''
+    the protein with the investigated species name will be chosen (we can rely on transcriptomic assembly) '''
 def choose_the_best(aligned_peptides_dict, protein_seq_dict, species_name):
     the_best_proteins = []
     max_len = 0
@@ -106,7 +106,7 @@ def main():
     parser.add_argument('--alignment_best', type=argparse.FileType('w'), help='file with the best proteins (from protein group) and peptides aligned to them')
     parser.add_argument('--species', help='the species name; in the format used in the end of contig (protein) names (ex.: Ecy)')
     parser.add_argument('--exonerate_outp', type=argparse.FileType(), help='exonerate output file only with sugar format')
-    parser.add_argument('--swiss_db', type=argparse.FileType(), help='SWISS-Prot database with target sequences (needed to extracting annotations)')
+    parser.add_argument('--swiss_db', type=argparse.FileType(), help='SWISS-Prot database with target sequences (needed to extract annotations)')
 
     args = parser.parse_args()
     outp1 = args.output
