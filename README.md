@@ -23,7 +23,7 @@ I checked proteins for cases when there are all NAs in one condition. We do not 
 
 ### signDEprot_with_RNAseqData.R: 
 To plot boxplots with MS/MS and RNAseq data for all differentialy abundant proteins.
-## enrich_DE_forProteomeTranscriptomeComp.R:
+#### enrich_DE_forProteomeTranscriptomeComp.R:
 For several DA proteins, the protein group names contained only contig names with assignment to other species (e.g. in the case of E. verrucosus proteome, there were protein groups contains contigs with _Gla (contig came from transcriptome assembly of G. lacustris)). I found the closest sequences for these protein groups in the transcriptome assembly of the targeted species; and I used these transcipts for the analysis and the plotting. 
 
 ### fig_cor.R:
