@@ -38,3 +38,5 @@ To gather information regarding the found orthologues and paralogues as well as 
 ### target_protein_analysis2.R:
 To plot boxplots with found Hsps both for transcriptome and proteome. The input file is an output from sum_orthoinfo.py.
 
+### _sliceMinPvalue.R and _sliceMinPadj.R scripts:
+The scripts with suffix: sliceMinPvalue (fig_cor_sliceMinPvalue.R, prot_transcr_lfc_sliceMinPvalue.R) or sliceMinPadj (signDEprot_with_RNAseqData_sliceMinPadj.R, fig_upAndDown_sliceMinPadj.R) were changed in the part with construction of joined_clip_merged. Instead of using the maximal log-fold change, I used the lowest adjusted p-value to choose for the best transcript during transcript and protein merging (merging is needed because protein groups are usually consist of several contig names).
