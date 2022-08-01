@@ -28,3 +28,13 @@ For several DA proteins, the protein group names contained only contig names wit
 
 ### fig_cor.R:
 To plot fig. 1 - Correlation between log2 of fold changes of transcriptome and proteome at 24.6 °C compared to 6 °C (24h proteome with 24h and 3h transcriptome).
+
+### protein_fishing.py
+To extract target proteins, their sequences, and observed peptides. Combine together all info about a protein and create three outputs: 1. target proteins and info (summary), 2. proteins with aligned peptides, 3. "best" proteins with aligned peptides.
+
+### sum_orthoinfo.py
+To gather information regarding the found orthologues and paralogues as well as type of Hsp70 (constitutive or inducible). Take outputs from protein_fishing.py (the summary file), a tsv output file from Proteinortho, and an output file in sugar format after exonerate.
+
+### target_protein_analysis2.R:
+To plot boxplots with found Hsps both for transcriptome and proteome. The input file is an output from sum_orthoinfo.py.
+
