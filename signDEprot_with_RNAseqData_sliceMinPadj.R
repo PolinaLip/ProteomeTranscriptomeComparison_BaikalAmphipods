@@ -9,14 +9,16 @@ species <- 'Eve'
 dir <- '~/labeglo2/proteome_transcr_comparision'
 dir <- '~/labeglo2/proteome_transcr_comparision/3h/'
 transcr <- 
-  read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species, '_transcr_24vs6_all.csv'), 
+  read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', 
+                  species, '_transcr_24vs6_all.csv'), 
            sep = '\t')
 transcr <- 
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/3h/', species, '_transcr_24vs6_all_3h.csv'), 
            sep = '\t') # 3h
 #transcr <- subset(transcr, padj < 0.05)
 proteins <- 
-  read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species, '_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv'),
+  read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', 
+                  species, '_AllProteins_24vs6after_proteinGroups_separatelyAnalyzed.csv'),
            sep = '\t', header = T)
 proteins <- 
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/3h/', species, '_AllProteins_24vs6_proteinGroups_separatelyAnalyzed_3h.csv'),
@@ -52,11 +54,10 @@ joined_clip <- joined[c(1, 3, 6, 7, 8, 9, 11, 12, 13)]
 absmax <- function(x) { x[which.max(abs(x))][1] }
 joined_clip_merged <- joined_clip %>% 
   group_by(protein_group) %>%
-#  mutate(best_tlfc = absmax(log2FoldChange)) %>% # tlfc - transcriptome lfc
-  slice_max(abs(log2FoldChange), n = 1, with_ties = F) %>%
-  mutate(padj_tran = min(padj)) %>%
   mutate(transcr_groups = paste0(contig, collapse = ';')) %>%
   mutate(proteome_groups = paste0(protein, collapse = ';')) %>%
+  slice_min(padj, n = 1, with_ties = F) %>%
+  mutate(padj_tran = padj) %>%
   mutate(sign = ifelse(
     FDR_recalc < 0.05 & !is.na(FDR_recalc) & padj_tran < 0.05 & !is.na(padj_tran), 
     "< 0.05 (both)",
@@ -64,9 +65,8 @@ joined_clip_merged <- joined_clip %>%
            ifelse(FDR_recalc < 0.05 & !is.na(FDR_recalc), 
                   "< 0.05 (proteome)", "> 0.05 (both)")))) %>%
   ungroup() %>%
-#  dplyr::select(!c(contig, log2FoldChange, protein, padj)) %>%
-  dplyr::select(!c(protein, padj)) %>%
-  unique()
+  #  dplyr::select(!c(contig, log2FoldChange, protein, padj)) %>%
+  dplyr::select(!c(protein, padj))
 
 ### Connect joined data with intensities (proteome) and counts (transcriptome) data
 # 1. Intensities
@@ -74,7 +74,7 @@ intensities <-
   read.table(paste0('~/labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_', 
                     tolower(species),'/intensities_after_slNorm_', 
                     tolower(species),'.csv'), 
-            header = T)
+             header = T)
 intensities <- 
   read.table(paste0('~/labeglo2/MS_results/390/3h/', species,'/intensities_after_slNorm_', 
                     tolower(species),'.csv'), 
@@ -92,7 +92,7 @@ intensities <- data_prep(intensities)
 
 # 2. Counts:
 count_dir <- paste0('~/labeglo2/Transcriptomics/quantification/HS_exp_labeglo1/', 
-              species, '/counts') # specify path to your samples
+                    species, '/counts') # specify path to your samples
 count_dir <- paste0('~/labeglo2/Transcriptomics/quantification/HS_exp_labeglo1/3h/', 
                     species, '/count')
 
@@ -184,12 +184,12 @@ combined_data <- mutate(combined_data,
 combined_data$all_labels <- sprintf('%s|%s', combined_data$pg_name, 
                                     combined_data$pretty_varname)
 combined_data$all_labels2 <- factor(combined_data$all_labels,
-                             levels=unique(
-                             combined_data$all_labels[order(combined_data$pretty_varname)]))
+                                    levels=unique(
+                                      combined_data$all_labels[order(combined_data$pretty_varname)]))
 
 combined_data$sign2plot <- 
   ifelse(combined_data$sign == "< 0.05 (both)",
-        '< 0.05', 
+         '< 0.05', 
          ifelse(combined_data$sign == "< 0.05 (proteome)" & combined_data$method == 'RNAseq',
                 '> 0.05', '< 0.05'))
 
@@ -201,11 +201,11 @@ combined_data$condition <- factor(combined_data$condition,
 combined_data_up <- subset(combined_data, logFC > 0)
 write.table(combined_data_up, 
             file = file.path(dir, 
-                   paste(species, '_AllupProteins_joinedWithTranscripts.csv')))
+                             paste(species, '_AllupProteins_joinedWithTranscripts_sliceMinPadj.csv')))
 combined_data_down <- subset(combined_data, logFC < 0)
 write.table(combined_data_down, 
             file = file.path(dir, 
-            paste(species, '_AlldownProteins_joinedWithTranscripts.csv')))
+                             paste(species, '_AlldownProteins_joinedWithTranscripts_sliceMinPadj.csv')))
 
 f <- function(x) {
   sapply(strsplit(x, '|', fixed=T), `[`, 2)

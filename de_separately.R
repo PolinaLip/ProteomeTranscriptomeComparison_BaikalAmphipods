@@ -6,6 +6,7 @@ library(tidyverse)
 library(limma) 
 library(edgeR)
 library(ggfortify) 
+library(ggrepel)
 
 species <- 'Eve'
 
@@ -425,8 +426,8 @@ nrow(subset(SPI_all_sign, logFC > 0)) # UP
 nrow(subset(SPI_all_sign, logFC < 0)) # DOWN
 
 write.table(SPI_all, 
-            file = file.path(paste0('~/labeglo2/proteome_transcr_comparision/3h/',
-                                    species, '_AllProteins_24vs6_proteinGroups_separatelyAnalyzed_3h.csv')),
+            file = file.path(paste0('~/labeglo2/proteome_transcr_comparision/',
+            species, '_AllProteins_24vs6_proteinGroups_separatelyAnalyzed_checked.csv')),
             sep = '\t', quote = F, row.names = F)
 
 ########################################
@@ -542,3 +543,38 @@ library(DEP)
 dat_vsn = normalize_vsn(dat_to_se_final) 
 data_imp = impute(dat_vsn, fun = "MinProb", q = 0.01) 
 # https://bioconductor.org/packages/devel/bioc/vignettes/DEP/inst/doc/DEP.html 
+
+### Volcano plots
+
+ecy_spi_all <- 
+  read.csv('~/labeglo2/proteome_transcr_comparision/Ecy_AllProteins_24vs6_proteinGroups_separatelyAnalyzed_sorted.csv',
+           sep = '\t')
+ecy_spi_all$species <- 'E. cyaneus'
+#ecy_spi_all$species <- substitute(paste(italic('E. cyaneus')))
+gla_spi_all <- 
+  read.csv('~/labeglo2/proteome_transcr_comparision/Gla_AllProteins_24vs6_proteinGroups_separatelyAnalyzed_sorted.csv',
+           sep = '\t')
+gla_spi_all$species <-'G. lacustris'
+eve_spi_all <- 
+  read.csv('~/labeglo2/proteome_transcr_comparision/Eve_AllProteins_24vs6_proteinGroups_separatelyAnalyzed_sorted.csv',
+           sep = '\t')
+eve_spi_all$species <- 'E. verrucosus'
+
+spi_all_species <- rbind(eve_spi_all, ecy_spi_all, gla_spi_all)
+spi_all_species$species <- factor(spi_all_species$species, 
+                                  levels = c('E. verrucosus', 'E. cyaneus', 'G. lacustris'))
+
+ggplot(spi_all_species, aes(logFC, -log10(FDR_recalc))) +
+  facet_wrap(~species) +
+  geom_point(color = ifelse(-log10(spi_all_species$FDR_recalc) >= 1.30103 & spi_all_species$logFC < 0, 'midnightblue', 
+                            ifelse(-log10(spi_all_species$FDR_recalc) >= 1.30103 & spi_all_species$logFC > 0, 'firebrick', 
+                                   'grey60')),
+             alpha = 0.6) +
+  geom_hline(yintercept = 1.30103, linetype = 'dashed', color = 'grey30') +
+  ylab('-log10(FDR)') +
+  xlab('log2(FC)') + 
+  theme_bw() + 
+  theme(strip.text = element_text(face = 'italic'))
+
+ggsave(file.path('~/labeglo2/proteome_transcr_comparision/', 'Volcano_plots.png'), 
+       scale = 1.2, height = 3, width = 5)

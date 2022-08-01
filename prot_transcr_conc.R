@@ -4,11 +4,13 @@ library(tibble)
 library(ggplot2)
 library(rstatix)
 
+species <- 'Eve'
 ### Intensity values preparation:
-intensities <- read.csv('labeglo2/proteome_transcr_comparision/norm_counts_Ecy_HS_protGroups_withNA.csv')
-rownames(intensities) <- intensities$X
+intensities <- read.csv('labeglo2/proteome_transcr_comparision/norm_counts_Eve_HS_protGroups_withNA.csv')
+intensities <- read.csv('labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_eve/intensities_after_slNorm_eve.csv', sep = '\t')
+rownames(intensities) <- intensities$protein_group
 intensities <- intensities[-1]
-intensities <- log2(intensities)
+#intensities <- log2(intensities)
 meta <- 
   read.csv(file = 
              'labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/Metadata_Proteus.tsv',
@@ -20,7 +22,7 @@ intensities <- intensities[,grepl('VrK2|Vr1|CK2|C1|LK2|L1',
                                   colnames(intensities))]
 
 pep_annot <- 
-  read.csv('labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_ecy/annot_protein_groups_ecy.csv', 
+  read.csv('labeglo2/MS_results/390/withDBfromRNAspades/wIMBR2/protein_groups_eve/annot_protein_groups_eve.csv', 
            sep = '\t',
            header = T)
 
@@ -37,11 +39,20 @@ intens_long$condition <- ifelse(grepl('K', intens_long$sample), '6C', '24C')
 intens_long <- as.data.frame(intens_long)
 intens_long_mean <- aggregate(intensity ~ protein_group + condition + annotation, 
                               data = intens_long, median, na.rm = T)
+intens_long_sd <- aggregate(intensity ~ protein_group + condition + annotation, 
+                              data = intens_long, sd, na.rm = T)
 
+hist(intens_long_sd$intensity)
+intens_long_sd_sub <- subset(intens_long_sd, intensity < 170000)
+intens_long_mean$sd <- intens_long_sd$intensity
+intens_long_mean_sub <- subset(intens_long_mean, sd < 75000)
+  
 ### Counts preparation:
-annot <- read.csv('labeglo2/proteome_transcr_comparision/contigs_whole_annot_Ecy.csv', 
+annot <- read.csv(
+  paste0('labeglo2/proteome_transcr_comparision/contigs_whole_annot_', species, '.csv'), 
                   sep = '\t')
-dir_transcr <- '~/labeglo2/Transcriptomics/quantification/HS_exp_labeglo1/Ecy/counts' # specify path to your samples
+dir_transcr <- 
+  paste0('~/labeglo2/Transcriptomics/quantification/HS_exp_labeglo1/', species, '/counts') # specify path to your samples
 
 files_names <- c('Eve_6C_rep1', 'Eve_6C_rep2', 'Eve_6C_rep3', 'Eve_6C_rep4', 
                  'Eve_24C_rep1', 'Eve_24C_rep2', 'Eve_24C_rep3', 'Eve_24C_rep4') # specify the names of folders with quant.sf data, Eve
@@ -59,7 +70,7 @@ counts <- lapply(countFiles, function(countsFile) {
   read.table(f, sep="\t", header=1, row.names = 1, 
              stringsAsFactors = F, comment.char = "#")
 })
-counts <- lapply(counts, function(countsTable) countsTable[, 3, drop=F])
+counts <- lapply(counts, function(countsTable) countsTable[, 3, drop=F]) # take TPMs (3rd column)
 
 counts <- do.call(cbind, counts)
 sample_names <- c('24C_rep1', '24C_rep2', '24C_rep3', '24C_rep4',
@@ -78,14 +89,26 @@ counts_long$condition <- ifelse(grepl('24C', counts_long$transc_sample),
 counts_long_mean <- aggregate(counts ~ contig + condition + transcr_annot, 
                               data = counts_long, median, na.rm = T)
 
+counts_long_sd <- aggregate(counts ~ contig + condition + transcr_annot, 
+                            data = counts_long, sd, na.rm = T)
+
+hist(counts_long_sd$counts, breaks = 100)
+counts_long_sd_sub <- subset(counts_long_sd, counts < 10)
+counts_long_mean$sd <- counts_long_sd$counts
+counts_long_mean_sub <- subset(counts_long_mean, sd < 10)
+
 ### 24C and 6C correlation
 
-intens_long_mean_24C <- subset(intens_long_mean, condition == 'Gla_24C')
+intens_long_mean_24C <- subset(intens_long_mean, condition == '24C')
 intens_long_mean_24C <- intens_long_mean_24C[-2]
-intens_long_mean_6C <- subset(intens_long_mean, condition == 'Gla_6C_after')
+#intens_long_mean_6C <- subset(intens_long_mean, condition == 'Gla_6C_after')
 intens_long_mean_6C <- subset(intens_long_mean, condition == '6C')
 intens_long_mean_6C <- intens_long_mean_6C[-2]
-
+# or (with limit in sd)
+intens_long_mean_24C <- subset(intens_long_mean_sub, condition == '24C')
+intens_long_mean_24C <- intens_long_mean_24C[-2]
+intens_long_mean_6C <- subset(intens_long_mean_sub, condition == '6C')
+intens_long_mean_6C <- intens_long_mean_6C[-2]
 # choose condition:
 intens_to_analise <- intens_long_mean_24C
 intens_to_analise <- intens_long_mean_6C
@@ -110,7 +133,11 @@ counts_long_mean_24C <- subset(counts_long_mean, condition == '24C')
 counts_long_mean_24C <- counts_long_mean_24C[-2]
 counts_long_mean_6C <- subset(counts_long_mean, condition == '6C')
 counts_long_mean_6C <- counts_long_mean_6C[-2]
-
+# or with limit in sd
+counts_long_mean_24C <- subset(counts_long_mean_sub, condition == '24C')
+counts_long_mean_24C <- counts_long_mean_24C[-2]
+counts_long_mean_6C <- subset(counts_long_mean_sub, condition == '6C')
+counts_long_mean_6C <- counts_long_mean_6C[-2]
 # choose condition:
 counts_to_analyse <- counts_long_mean_24C
 counts_to_analyse <- counts_long_mean_6C
@@ -127,7 +154,7 @@ joined_merged <- joined %>%
   dplyr::select(!c(contig, counts, protein, transcr_annot)) %>%
   unique()
 
-ggplot(joined, aes(log2(counts), intensity)) +
+ggplot(joined, aes(log2(counts), log2(intensity))) +
   geom_point(alpha=.5, color='gray70') +
   geom_smooth() +
 #  geom_point(data=filtered_joined_clip, color='red') +
@@ -140,24 +167,25 @@ ggplot(joined, aes(log2(counts), intensity)) +
         axis.title.y = element_text(size = 15))
 # this plot will give duplicated values, below is without duplicates
 cor.test(joined_merged$max_count, exp(joined_merged$intensity))
+cor.test(joined_merged$max_count, joined_merged$intensity)
 
-tmp <- filter(proteins_long, grepl('Serpin', annotation))
+#tmp <- filter(proteins_long, grepl('Serpin', annotation))
 ggplot(joined_merged, aes(log2(max_count), intensity)) +
   geom_point(aes(color=grepl(paste0(tmp$protein_clip, collapse='|'), transcr_groups)), alpha=.5)
 tmp2 <- filter(joined_merged,
                grepl(paste0(tmp$protein_clip, collapse='|'), transcr_groups))
 
 cor_test_res <- cor.test(joined_merged$max_count, exp(joined_merged$intensity))
-
+cor_test_res <- cor.test(joined_merged$max_count, joined_merged$intensity)
 joined_merged <- subset(joined_merged, max_count != 0)
 
-ggplot(joined_merged, aes(log2(max_count), intensity)) +
+ggplot(joined_merged, aes(log2(max_count), log2(intensity))) +
   geom_point(alpha=.5, color='gray70') +
   geom_smooth(method='lm') +
   #  geom_point(data=filtered_joined_clip, color='red') +
   #  geom_text_repel(aes(label= geneSymbol),
   #                  data = filtered_joined_clip) +
-  annotate(geom='text', x = -4.5, y = 12, hjust = 0,
+  annotate(geom='text', x = -4.5, y = 20.5, hjust = 0,
            label = paste0('r2 = ', round(cor_test_res$estimate, 4), '\n',
                           'p-value ', p_format(cor_test_res$p.value,
                                                  accuracy = 0.000001))) +

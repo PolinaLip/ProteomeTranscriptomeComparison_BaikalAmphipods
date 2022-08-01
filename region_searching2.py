@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+q#!/usr/bin/env python3
 
 import argparse
 import numpy as np
@@ -8,7 +8,7 @@ import biotite.sequence.align # to get blosum62 matrix for distance calculation
 import scipy
 from scipy import spatial, cluster
 
-''' To get distance value for the pair of aas '''
+''' To get a distance value for the pair of AAs '''
 def get_distance(similarities, i, j):
     s_max = (similarities[i,i] + similarities[j,j]) / 2
     return s_max - similarities[i,j]

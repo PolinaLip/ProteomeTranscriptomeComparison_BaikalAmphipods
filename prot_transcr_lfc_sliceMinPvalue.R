@@ -6,27 +6,27 @@ library(ggplot2)
 library(ggrepel)
 library(rstatix)
 
-species <- 'Ecy'
+species <- 'Eve'
 dir <- '~/labeglo2/proteome_transcr_comparision'
-#dir <- '~/labeglo2/proteome_transcr_comparision/3h/'
+dir <- '~/labeglo2/proteome_transcr_comparision/3h/'
 transcr <- 
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species,
-           '_transcr_24vs6_all.csv'), 
+                  '_transcr_24vs6_all.csv'), 
            sep = '\t') # 24h
 transcr <-
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/3h/', species,
                   '_transcr_24vs6_all_3h.csv'), 
            sep = '\t') # 3h
-#transcr <- subset(transcr, pvalue < 0.05)
+transcr <- subset(transcr, pvalue < 0.05)
 proteins <- 
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species,
-           '_AllProteins_24vs6_proteinGroups_separatelyAnalyzed.csv'),
-          sep = '\t', header = T) # 24h
+                  '_AllProteins_24vs6_proteinGroups_separatelyAnalyzed.csv'),
+           sep = '\t', header = T) # 24h
 proteins <- 
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/3h/', species,
                   '_AllProteins_24vs6_proteinGroups_separatelyAnalyzed_3h.csv'),
            sep = '\t', header = T) # 3h
-#proteins <- subset(proteins, pvalue < 0.05)
+proteins <- subset(proteins, pvalue < 0.05)
 
 annot <- read.csv(file.path(dir, 
                             paste0('contigs_whole_annot_', 
@@ -37,7 +37,7 @@ annot <- read.csv(file.path(dir,
                                    species,'_3h.csv')), sep = '\t') # 3h
 
 proteins$protein_group <- 1:nrow(proteins)
-proteins_sep <- separate(proteins, protein, ';', into=paste0('key', 1:30), 
+proteins_sep <- separate(proteins, protein, ';', into=paste0('key', 1:31), 
                          fill='right')
 proteins_long <- pivot_longer(proteins_sep, starts_with('key'),
                               names_to = NULL, values_to = 'protein') %>%
@@ -74,19 +74,19 @@ filtered_joined_clip <- filter(joined_clip, abs(log2FoldChange) > 2 | abs(logFC)
 absmax <- function(x) { x[which.max(abs(x))][1] }
 joined_clip_merged <- joined_clip %>% 
   group_by(protein_group) %>%
-  mutate(best_tlfc = absmax(log2FoldChange)) %>% # tlfc - transcriptome lfc
-  mutate(pvalue_tran = min(pvalue.x)) %>%
   mutate(transcr_groups = paste0(contig, collapse = ';')) %>%
   mutate(proteome_groups = paste0(protein, collapse = ';')) %>%
+  slice_min(pvalue.x, n = 1, with_ties = F) %>%
+  mutate(best_tlfc = log2FoldChange) %>% # tlfc - transcriptome lfc
+  mutate(pvalue_tran = pvalue.x) %>%
   mutate(sign = ifelse(
     pvalue.y < 0.05 & !is.na(pvalue.y) & pvalue_tran < 0.05 & !is.na(pvalue_tran), 
-                       "< 0.05 (both)",
-      ifelse(pvalue_tran < 0.05 & !is.na(pvalue_tran), "< 0.05 (transcriptome)", 
-             ifelse(pvalue.y < 0.05 & !is.na(pvalue.y), 
-                    "< 0.05 (proteome)", "> 0.05 (both)")))) %>%
+    "< 0.05 (both)",
+    ifelse(pvalue_tran < 0.05 & !is.na(pvalue_tran), "< 0.05 (transcriptome)", 
+           ifelse(pvalue.y < 0.05 & !is.na(pvalue.y), 
+                  "< 0.05 (proteome)", "> 0.05 (both)")))) %>%
   ungroup() %>%
-  dplyr::select(!c(contig, log2FoldChange, protein, pvalue.x)) %>%
-  unique()
+  dplyr::select(!c(contig, log2FoldChange, protein, pvalue.x))
 
 joined_clip_merged$sign <- factor(joined_clip_merged$sign, 
                                   levels = c("< 0.05 (both)", 
@@ -152,7 +152,7 @@ ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
            label = paste0('r2 = ', round(cor_test_res$estimate, 4), '\n',
                           'p-value ', p_format(cor_test_res$p.value,
                                                accuracy = 0.00001))) +
-#  geom_point(aes(shape = sign), data=filtered_joined_clip_merged, color='red') +
+  #  geom_point(aes(shape = sign), data=filtered_joined_clip_merged, color='red') +
   scale_shape_manual('p-value:', values = c(8, 16, 17, 1)) +
   #xlab('log2FC (24°C/6°C) transcriptome') + # 24h
   xlab('log2FC (24°C/6°C) transcriptome, 3 hours exposure') + # 3h
@@ -169,59 +169,9 @@ ggsave(file.path(dir, paste0('transcr_proteome_logfc_',
                              species,'_pvalues_24Cvs6C_cor_3h.png')),
        scale = 1.9)
 
-# visualize all transcripts versus all proteins 
-# (so, you can see matched proteins/transcripts and not-matched ones)
-
-joined_full <- full_join(transcr, proteins_long, by = c('contig' = 'protein_clip'))
-
-joined_full$tag <- ifelse(is.na(joined_full$protein), 'transcriptome_only',
-                          ifelse(is.na(joined_full$baseMean), 'proteome_only',
-                          'matched'))
-
-joined_full$logFC_transc <- replace_na(joined_full$log2FoldChange, 0)
-joined_full$logFC_proteome <- replace_na(joined_full$logFC, 0)
-
-filtered_joined_full <- 
-  filter(joined_full,
-         (logFC_transc >5 | logFC_transc < -5 & tag == 'transcriptome_only')  |
-           (abs(logFC_proteome) > 0.8 & tag == 'proteome_only') )
-
-ixs <- is.na(filtered_joined_full$protein_group)
-filtered_joined_full[ixs, 'protein_group'] <- 
-  seq(max(filtered_joined_full$protein_group, na.rm = T) * 100, 
-      max(filtered_joined_full$protein_group, na.rm = T) * 100 + sum(ixs) - 1)
-
-filtered_joined_full <- filtered_joined_full %>%
-  group_by(protein_group) %>% slice_head(n = 1)
-
-ixs <- is.na(filtered_joined_full$geneSymbol)
-filtered_joined_full[ixs, 'geneSymbol'] <- annot[match(filtered_joined_full$contig[ixs],
-                                                       annot$contig),]$annot
-filtered_joined_full$geneSymbol <- sub('PREDICTED: |', '', 
-                                       filtered_joined_full$geneSymbol)
-filtered_joined_full$geneSymbol <- sub('-like.*', '', 
-                                       filtered_joined_full$geneSymbol)
-set.seed(356)
-ggplot(joined_full, aes(logFC_transc, logFC_proteome)) +
-  geom_point(aes(color = tag), alpha=.3) +
-  scale_color_manual('Occurance', values = c('#354E6C', '#E64241', '#EAAC31')) +
-  theme_light() +
-  geom_text_repel(aes(label = ifelse(grepl('uncharacterized|hypothetical|\\*',
-                                           geneSymbol),
-                                     '', geneSymbol)),
-                  data = filtered_joined_full, 
-                  segment.colour = 'grey50', 
-                  max.overlaps = Inf) +
-  xlab('log2FC (24°C/6°C) transcriptome') +
-  ylab('log2FC (24°C/6°C) proteome') +
-  guides(color = guide_legend(override.aes = list(size=4))) +
-  theme(axis.title.x = element_text(size = 15),
-        axis.title.y = element_text(size = 15),
-        legend.text = element_text(size = 15), 
-        legend.title = element_text(size = 15))
-
-ggsave(file.path(dir, 'transcr_proteome_logfc_Gla_allObservations_24vs6Cafter.png'), 
-       scale = 3)
+#write.table(joined_clip_merged, 
+#            file = file.path(dir, paste0(species, '_3h_table_for_cor_plot_All_sliceMinPValue.csv')),
+#            sep = '\t')
 
 ### To draw plots only those proteins and transcripts that have p-value < 0.05
 cor_test_res <- cor.test(joined_clip_merged$best_tlfc, joined_clip_merged$logFC)
@@ -235,12 +185,9 @@ joined_clip_merged$geneSymbol <- sub('LOW QUALITY PROTEIN: ', '',
 
 var_width <- 25
 joined_clip_merged <- mutate(joined_clip_merged, 
-                          pretty_varname = stringr::str_wrap(joined_clip_merged$geneSymbol, 
-                          width = var_width))
+                             pretty_varname = stringr::str_wrap(joined_clip_merged$geneSymbol, 
+                                                                width = var_width))
 
-#write.table(joined_clip_merged, 
-#            file = file.path(dir, paste0(species, '_3h_table_for_cor_plot_All.csv')),
-#            sep = '\t')
 ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
   geom_hline(yintercept = 0, color = '#387490', alpha = .7) +
   geom_vline(xintercept = 0, color = '#387490', alpha = .7) +
@@ -265,45 +212,7 @@ ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
         axis.title.y = element_text(size = 22),
         axis.text = element_text(size = 14))
 
-ggsave(file.path(dir, paste0('logfc_', 
-                             species,'_pvalues_24Cvs6C_pvalue005both_3h.png')), 
-       scale = 3)
-ggsave(file.path(dir, paste0('logfc_', 
-                             species,'_pvalues_24Cvs6C_pvalue005both_3h.pdf')), 
-       scale = 3)
-
-### To draw plot with proteins and transcripts which have pvalue<0.05 in proteins
-label_only_these <- subset(joined_clip_merged, pvalue_tran > 0.05)
-label_only_these <- subset(label_only_these, abs(logFC) > 0.4)
-
-label_only_these <- subset(joined_clip_merged, pvalue.y > 0.05)
-label_only_these <- subset(label_only_these, abs(best_tlfc) > 2)
-
-ggplot(joined_clip_merged, aes(best_tlfc, logFC)) +
-  geom_hline(yintercept = 0, color = '#387490', alpha = .7) +
-  geom_vline(xintercept = 0, color = '#387490', alpha = .7) +
-  geom_point(aes(color = sign)) +
-  geom_smooth(method = 'lm', color = 'grey65', fill = 'grey85') +
-  annotate(geom='text', x = -2, y = 1.9, hjust = 0, size = 7,
-           label = paste0('r2 = ', round(cor_test_res$estimate, 4), '\n',
-                          'p-value ', p_format(cor_test_res$p.value,
-                                               accuracy = 0.0001))) +
-  geom_text_repel(aes(label = ifelse(grepl('uncharacterized|hypothetical|\\*',
-                                           geneSymbol),
-                                     '', geneSymbol)),
-                  data = label_only_these, 
-                  segment.colour = 'grey50',
-                  max.overlaps = Inf, size = 4) +
-  scale_color_manual('', values = c('grey80', '#0099E5')) +
-  xlab('log2FC (24°C/6°C) transcriptome') +
-  ylab('log2FC (24°C/6°C) proteome') +
-  theme_light() +
-  guides(shape = guide_legend(override.aes = list(size=4))) +
-  theme(axis.title.x = element_text(size = 15),
-        axis.title.y = element_text(size = 15),
-        legend.text = element_text(size = 15), 
-        legend.title = element_text(size = 15))
-
-ggsave(file.path(dir, 'logfc_Ecy_pvalues_24Cvs6C_pvalue005transcripts.png'), 
-       scale = 3)
-
+write.table(joined_clip_merged, 
+            file = file.path(dir, paste0(species, 
+                             '_3h_table_for_cor_plot_onlySign_sliceMinPValue.csv')),
+            sep = '\t')
