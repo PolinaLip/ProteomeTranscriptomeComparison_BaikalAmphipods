@@ -4,6 +4,9 @@ Here are scripts for the comparison between the proteome and transcriptome of tw
 ### proteinGroup_annotation.py:
 To combine output files from DIAMOND and EggNOG annotations and create an annotation file with all necessary information for protein groups. This annotation file is used in the data analysis scripts in R (DE_analysis_[species_name].R, signDEprot_with_RNAseqData.R, etc.).
 
+### combine_annotations.py:
+To combine output files from DIAMOND and EggNOG annotations and create an annotation file with all necessary information for transcripts. This annotation file is used in the data analysis scripts in R (prot_transcr_conc.R, prot_transcr_lfc.R, signDEprot_with_RNAseqData.R, SIGNtranscr_nonSIGNprot.R)
+
 ### DE_analysis_[species_name].R:
 For differential expression analysis of the transcriptomes of different species using "counts" tables and DESeq2. 
 
