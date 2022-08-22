@@ -4,11 +4,16 @@ library(ggplot2)
 library(grid)
 dir <- "~/labeglo2/proteome_transcr_comparision/slice_min_pvalue/"
 
-species <- 'Gla'
+species <- 'Eve'
 data_up <- read.table(file.path(dir, 
            paste(species, '_AllupProteins_joinedWithTranscripts_sliceMinPadj.csv'))) # from signDEprot_with_RNAseqData.R
 data_down <- read.table(file.path(dir, 
            paste(species, '_AlldownProteins_joinedWithTranscripts_sliceMinPadj.csv')))
+
+data_up <- read.table(file.path('~/labeglo2/proteome_transcr_comparision/Eve_wo_EveB24_4/', 
+          'Eve _AllupProteins_joinedWithTranscripts_sliceMinPadj_wo__EveB24_4.csv')) # from signDEprot_with_RNAseqData.R
+data_down <- read.table(file.path('~/labeglo2/proteome_transcr_comparision/Eve_wo_EveB24_4/', 
+              'Eve _AlldownProteins_joinedWithTranscripts_sliceMinPadj_wo__EveB24_4.csv'))
 
 data_up$method <- ifelse(data_up$method == 'MS/MS', 'Protein', 'Transcript')
 data_down$method <- ifelse(data_down$method == 'MS/MS', 'Protein', 'Transcript')
@@ -47,8 +52,8 @@ f <- function(x) {
     scale_color_manual('Condition:', values = c('#0571b0', '#ca0020')) +
     scale_fill_manual('Condition:', values = c('#0571b0', '#ca0020')) +
     theme_bw() +
-    #ylab('Scaled absolute values') +
-    ylab('Scaled absolute\nvalues') + #Gla
+    ylab('Scaled absolute values') +
+    #ylab('Scaled absolute\nvalues') + #Gla
     theme(axis.title.x = element_blank(),
           axis.title.y = element_text(size = 12),
           strip.text = element_text(size = 8, margin = margin(2,2,2,2)))
@@ -64,24 +69,24 @@ f <- function(x) {
     scale_color_manual('Condition:', values = c('#0571b0', '#ca0020')) +
     scale_fill_manual('Condition:', values = c('#0571b0', '#ca0020')) +
     theme_bw() +
-    #ylab('Scaled absolute values') +
-    ylab('Scaled absolute\nvalues') + # Gla
+    ylab('Scaled absolute values') +
+    #ylab('Scaled absolute\nvalues') + # Gla
     theme(axis.title.x = element_blank(),
           axis.title.y = element_text(size = 12),
           strip.text = element_text(size = 8, margin = margin(2,2,2,2)))
 )
 
 (together <- plot_grid(gg_up + theme(legend.position="none"),
-                       #gg_down + theme(legend.position="none"), # Eve, Ecy
-                       plot_grid(gg_down + theme(legend.position="none"), # Gla
-                                 grid.rect(gp=gpar(col='white')), # Gla
-                                 nrow=1, rel_widths = c(1, 1.23)), # Gla
+                       gg_down + theme(legend.position="none"), # Eve, Ecy
+                       #plot_grid(gg_down + theme(legend.position="none"), # Gla
+                       #          grid.rect(gp=gpar(col='white')), # Gla
+                       #         nrow=1, rel_widths = c(1, 1.23)), # Gla
                        labels = c("A", "B"),
                        label_y = 1.01,
                        hjust = -1,
                        nrow = 2
-                       ,
-                       rel_heights = c(0.9, 1) #Ecy, Gla
+                       #,
+                       #rel_heights = c(0.9, 1) #Ecy, Gla
 )
 )
 legend_b <- get_legend(gg_up + theme(legend.position="bottom", 
@@ -92,6 +97,9 @@ legend_b <- get_legend(gg_up + theme(legend.position="bottom",
 
 ggsave(file.path(dir, paste(species, '_upAndDown_proteins_together_updated20220502.png')), 
        scale = 0.9, width = 9, height = 12) # Eve
+ggsave(file.path('~/labeglo2/proteome_transcr_comparision/Eve_wo_EveB24_4/', 
+                 'Eve_upAndDown_proteins_together_updated20220502.png'), 
+       scale = 0.9, width = 9, height = 12) # Eve wo EveB24_4
 ggsave(file.path(dir, paste(species, '_upAndDown_proteins_together_updated20220502.png')), 
        scale = 0.9, width = 9, height = 6.5) # Ecy
 ggsave(file.path(dir, paste(species, '_upAndDown_proteins_together_updated20220502.png')), 

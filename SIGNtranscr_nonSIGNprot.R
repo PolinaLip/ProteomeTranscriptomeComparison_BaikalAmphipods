@@ -8,13 +8,16 @@ library(ggrepel)
 library(rstatix)
 library(stringr)
 
-species <- 'Gla'
+species <- 'Eve'
 dir <- '~/labeglo2/proteome_transcr_comparision'
 dir <- '~/labeglo2/proteome_transcr_comparision/3h/'
 transcr <- 
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species,
                   '_transcr_24vs6_all.csv'), 
            sep = '\t') # 24h
+transcr <- 
+  read.csv(file.path(dir,'Eve_wo_EveB24_4', 'Eve_transcr_24vs6_all_24h_wo__EveB24_4.csv'), 
+           sep = '\t')
 transcr <- 
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/3h/', species, '_transcr_24vs6_all_3h.csv'), 
            sep = '\t') # 3h
@@ -120,7 +123,9 @@ ggplot(joined_clip_merged, aes(log2FoldChange, logFC)) +
         legend.text = element_text(size = 15), 
         legend.title = element_text(size = 15))
 
-ggsave(file.path(dir, paste0('transcr_proteome_logfc_', species,
+ggsave(file.path(dir,
+                 'Eve_wo_EveB24_4',
+                 paste0('transcr_proteome_logfc_', species,
                              '_FDR_24Cvs6C.png')), 
        scale = 1.1, width = 12, height = 8)
 
@@ -170,7 +175,7 @@ if (species == 'Gla'){
                     '6C_rep1', '6C_rep2', '6C_rep3', '6C_rep4')
 } else {
   sample_names <- c('24C_rep1', '24C_rep2', '24C_rep3', '24C_rep4',
-                    '6C_rep1', '6C_rep2', '6C_rep3', '6C_rep4')
+                    '6C_rep1', '6C_rep2', '6C_rep3') #,'6C_rep4') # Eve wo EveB24_4
 }
 
 if (species == 'Eve'){
@@ -265,23 +270,25 @@ combined_data_up <- subset(combined_data, log2FoldChange > 0) # up for transcrip
 # or #
 combined_data_up <- subset(combined_data, log2FoldChange > 0)
 combined_data_up <- subset(combined_data_up, sign == '< 0.05 (transcriptome)' | (sign == '< 0.05 (both)' & logFC < 0))
-#write.table(combined_data_up, 
-#            file = file.path(dir, 
-#                             paste(species, '_AllupDEtranscripts_joinedWithProteins.csv')))
+write.table(combined_data_up, 
+            file = file.path(dir,
+                             'Eve_wo_EveB24_4',
+                             paste(species, '_AllupDEtranscripts_joinedWithProteins.csv')))
 combined_data_down <- subset(combined_data, log2FoldChange < 0) # down for transcriptomics
 # or #
 combined_data_down <- subset(combined_data, log2FoldChange < 0)
 combined_data_down <- subset(combined_data_down, sign == '< 0.05 (transcriptome)' | (sign == '< 0.05 (both)' & logFC > 0))
-#write.table(combined_data_down, 
-#            file = file.path(dir, 
-#            paste(species, '_AlldownDEtranscripts_joinedWithProteins.csv')))
+write.table(combined_data_down, 
+            file = file.path(dir, 
+                             'Eve_wo_EveB24_4',
+            paste(species, '_AlldownDEtranscripts_joinedWithProteins.csv')))
 
 f <- function(x) {
   sapply(strsplit(x, '|', fixed=T), `[`, 2)
 }
 
 fdr_threshold <- 0.01
-lfc_threshold <- 1
+lfc_threshold <- 3.5
 toplot <- subset(combined_data_up, pvalue_tran < fdr_threshold)
 toplot <- subset(combined_data_down, pvalue_tran < fdr_threshold)
 toplot <- subset(toplot, abs(log2FoldChange) > lfc_threshold)
@@ -309,12 +316,13 @@ ggplot(toplot, aes(x = method, y = values, color = condition)) +
         legend.margin = margin(0,0,1,0))
 
 dir_to_save <- '~/labeglo2/proteome_transcr_comparision/slice_min_pvalue/'
+dir_to_save <- '~/labeglo2/proteome_transcr_comparision/Eve_wo_EveB24_4/'
 ggsave(file.path(dir_to_save, paste0(tolower(species), 
                                      '_DEtranscriptsWITHnotchangedProteins_down_fdr',
                                      fdr_threshold, '_lfc', lfc_threshold,
                                      '.png')),
        scale = 0.8,
-       width = 9.5, height = 11)
+       width = 9, height = 11.5)
 
 #ggsave(file.path(dir_to_save, paste0(tolower(species), 
 #                                     '_DEproteinsWITHtranscripts_up.pdf')),

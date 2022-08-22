@@ -12,6 +12,11 @@ transcr <-
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', 
                   species, '_transcr_24vs6_all.csv'), 
            sep = '\t')
+
+transcr <- 
+  read.csv(file.path(dir,'Eve_wo_EveB24_4', 'Eve_transcr_24vs6_all_24h_wo__EveB24_4.csv'), 
+           sep = '\t')
+
 transcr <- 
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/3h/', species, '_transcr_24vs6_all_3h.csv'), 
            sep = '\t') # 3h
@@ -112,8 +117,9 @@ if (species == 'Gla'){
                     '6C_rep1', '6C_rep2', '6C_rep3', '6C_rep4')
 } else {
   sample_names <- c('24C_rep1', '24C_rep2', '24C_rep3', '24C_rep4',
-                    '6C_rep1', '6C_rep2', '6C_rep3', '6C_rep4')
+                    '6C_rep1', '6C_rep2', '6C_rep3') #'6C_rep4') # Eve, if Ecy -> uncomment
 }
+
 if (species == 'Eve'){
   sample_names <- c('24C_rep1', '24C_rep2', '24C_rep3','24C_rep4',
                     '6C_rep1', '6C_rep2', '6C_rep3', '6C_rep4')
@@ -201,16 +207,18 @@ combined_data$condition <- factor(combined_data$condition,
 combined_data_up <- subset(combined_data, logFC > 0)
 write.table(combined_data_up, 
             file = file.path(dir, 
-                             paste(species, '_AllupProteins_joinedWithTranscripts_sliceMinPadj.csv')))
+                             'Eve_wo_EveB24_4', # Eve withot EveB24_4 sample
+                             paste(species, '_AllupProteins_joinedWithTranscripts_sliceMinPadj_wo__EveB24_4.csv')))
 combined_data_down <- subset(combined_data, logFC < 0)
 write.table(combined_data_down, 
             file = file.path(dir, 
-                             paste(species, '_AlldownProteins_joinedWithTranscripts_sliceMinPadj.csv')))
+                             'Eve_wo_EveB24_4', # Eve withot EveB24_4 sample
+                             paste(species, '_AlldownProteins_joinedWithTranscripts_sliceMinPadj_wo__EveB24_4.csv')))
 
 f <- function(x) {
   sapply(strsplit(x, '|', fixed=T), `[`, 2)
 }
-ggplot(combined_data, aes(x = method, y = values, color = condition)) +
+ggplot(combined_data_down, aes(x = method, y = values, color = condition)) +
   geom_point(position=position_jitterdodge(dodge.width=1),
              size = 0.7) +
   geom_boxplot(aes(fill = condition, 
@@ -227,14 +235,16 @@ ggplot(combined_data, aes(x = method, y = values, color = condition)) +
         strip.text = element_text(size = 8, margin = margin(2,2,2,2)))
 
 dir_to_save <- '~/labeglo2/proteome_transcr_comparision/'
+dir_to_save <- '~/labeglo2/proteome_transcr_comparision/Eve_wo_EveB24_4/'
+
 ggsave(file.path(dir_to_save, paste0(tolower(species), 
-                                     '_DEproteinsWITHtranscripts_up.png')),
+                                     '_DEproteinsWITHtranscripts_down.png')),
        scale = 0.8,
-       width = 11.5, height = 7)
+       width = 12.5, height = 7)
 ggsave(file.path(dir_to_save, paste0(tolower(species), 
-                                     '_DEproteinsWITHtranscripts_up.pdf')),
+                                     '_DEproteinsWITHtranscripts_down.pdf')),
        scale = 0.8,
-       width = 12, height = 7)
+       width = 12.5, height = 7)
 # Ecy: width = 12.5, height = 7
 # Gla: width = 9.5, height = 5
 # Eve: width = 12.5, height = 7

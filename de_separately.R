@@ -419,7 +419,7 @@ SPI_all <- rbind(SignProteinInfo_0, SignProteinInfo_4,
                  SignProteinInfo_13_1, SignProteinInfo_13_2) # Gla
 
 SPI_all$FDR_recalc <- p.adjust(SPI_all$pvalue, method = "fdr")
-
+  
 SPI_all_sign <- subset(SPI_all, FDR_recalc < 0.05)
 
 nrow(subset(SPI_all_sign, logFC > 0)) # UP

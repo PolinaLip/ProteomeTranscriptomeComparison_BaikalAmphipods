@@ -13,6 +13,10 @@ transcr <-
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/', species,
                   '_transcr_24vs6_all.csv'), 
            sep = '\t') # 24h
+transcr <- 
+  read.csv(paste0('~/labeglo2/proteome_transcr_comparision/Eve_wo_EveB24_4/',
+                  'Eve_transcr_24vs6_all_24h_wo__EveB24_4.csv'), 
+           sep = '\t') # 24h wo EveB24_4
 transcr <-
   read.csv(paste0('~/labeglo2/proteome_transcr_comparision/3h/', species,
                   '_transcr_24vs6_all_3h.csv'), 
@@ -170,7 +174,14 @@ ggsave(file.path(dir, paste0('transcr_proteome_logfc_',
        scale = 1.9)
 
 #write.table(joined_clip_merged, 
-#            file = file.path(dir, paste0(species, '_3h_table_for_cor_plot_All_sliceMinPValue.csv')),
+#            file = file.path(dir,
+#                            paste0(species, '_3h_table_for_cor_plot_All_sliceMinPValue.csv')),
+#            sep = '\t')
+
+#write.table(joined_clip_merged, 
+#            file = file.path(dir, 
+#                             'Eve_wo_EveB24_4', # wo EveB24_4
+#                             'Eve_24h_table_for_cor_plot_All_sliceMinPValue_wo__EveB24_4.csv'),
 #            sep = '\t')
 
 ### To draw plots only those proteins and transcripts that have p-value < 0.05
